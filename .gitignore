@@ -1,0 +1,17 @@
+# Hardware-specific configuration (machine-dependent)
+nixos/hardware-configuration.nix
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.bak
