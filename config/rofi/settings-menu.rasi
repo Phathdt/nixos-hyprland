@@ -32,8 +32,8 @@ window {
     border: 2px;
     border-color: @purple;
     border-radius: 12px;
-    height: 85%;
-    width: 45%;
+    height: 90%;
+    width: 50%;
     location: center;
     x-offset: 0;
     y-offset: 0;
@@ -72,7 +72,7 @@ inputbar {
 listview {
     background-color: @bg;
     columns: 1;
-    lines: 20;
+    lines: 22;
     cycle: true;
     dynamic: true;
     scrollbar: true;
@@ -80,8 +80,8 @@ listview {
     reverse: false;
     fixed-height: false;
     fixed-columns: true;
-    spacing: 4px;
-    padding: 8px;
+    spacing: 5px;
+    padding: 10px;
 }
 
 element {
@@ -89,7 +89,7 @@ element {
     text-color: @fg;
     orientation: horizontal;
     border-radius: 8px;
-    padding: 8px 12px;
+    padding: 10px 12px;
 }
 
 element-icon {
@@ -155,6 +155,6 @@ mainbox {
     border: 0;
     border-radius: 12px;
     children: [inputbar, listview];
-    spacing: 8px;
-    padding: 12px;
+    spacing: 10px;
+    padding: 15px;
 }
