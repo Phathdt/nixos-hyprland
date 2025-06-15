@@ -5,6 +5,7 @@
 
   environment.systemPackages = with pkgs; [
     wget
+    curl
     neovim
     wl-clipboard
     vim

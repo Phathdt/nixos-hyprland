@@ -12,6 +12,7 @@
     ./programs.nix
     ./fonts.nix
     ./ssh.nix
+    ./theme.nix
   ];
 
   system.stateVersion = "25.05";

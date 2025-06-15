@@ -24,8 +24,10 @@ My personal dotfiles configuration for NixOS with Hyprland window manager.
 │   ├── git/                  # Git configuration
 │   │   ├── gitconfig         # → ~/.gitconfig
 │   │   └── gitignore_global  # → ~/.gitignore_global
-│   └── tmux/                 # Tmux configuration
-│       └── tmux.conf         # → ~/.tmux.conf
+│   ├── tmux/                 # Tmux configuration
+│   │   └── tmux.conf         # → ~/.tmux.conf
+│   └── zsh/                  # Zsh configuration
+│       └── .zshrc            # → ~/.zshrc
 ├── nixos/                    # NixOS system configuration
 │   ├── configuration.nix     # Main config (imports only)
 │   ├── boot.nix             # Boot loader settings
@@ -56,7 +58,7 @@ My personal dotfiles configuration for NixOS with Hyprland window manager.
    cd nixos-hyprland
    ```
 
-2. **Run the setup script**:
+2. **Run the automated setup script**:
    ```bash
    ./init.sh
    ```
@@ -66,34 +68,31 @@ My personal dotfiles configuration for NixOS with Hyprland window manager.
    sudo nixos-rebuild switch
    ```
 
-4. **Install tmux plugins** (after reboot):
+4. **Restart terminal and enjoy!**
    ```bash
-   tmux
-   # Press Ctrl+s + I to install plugins
-   ```
-
-5. **Install neovim plugins**:
-   ```bash
-   # Install vim-plug
-   curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-   # Open neovim and install plugins
-   nvim
-   # Run :PlugInstall
+   # All plugins are automatically installed and ready to use
+   source ~/.zshrc  # or restart terminal
    ```
 
 ## What the Setup Script Does
 
-The `init.sh` script automatically:
+The `init.sh` script provides **full automation**:
 
-1. **Moves hardware configuration**: Copies `/etc/nixos/hardware-configuration.nix` to the repo
-2. **Creates symlinks**:
-   - `nixos/configuration.nix` → `/etc/nixos/configuration.nix`
-   - `config/*` → `~/.config/*`
-   - `root_config/*/files` → `~/.files`
-3. **Installs TPM**: Clones tmux plugin manager
-4. **Sets up Git**: Configures global Git settings
+1. **System Configuration**:
+   - Moves `/etc/nixos/hardware-configuration.nix` to the repo
+   - Creates symlinks: `nixos/configuration.nix` → `/etc/nixos/configuration.nix`
+   - Links `config/*` → `~/.config/*` and `root_config/*/files` → `~/.files`
+
+2. **Plugin Managers Installation**:
+   - **zplug**: Zsh plugin manager with auto-installation
+   - **TPM**: Tmux plugin manager with auto-installation
+   - **vim-plug**: Neovim plugin manager with auto-installation
+
+3. **Automatic Plugin Installation**:
+   - Installs all zsh plugins via zplug
+   - Installs all tmux plugins via TPM
+   - Installs all neovim plugins via vim-plug
+   - **Zero manual intervention required!**
 
 ## Key Components
 
@@ -109,7 +108,7 @@ The `init.sh` script automatically:
 ### Applications
 
 - **Terminal**: Alacritty with custom theme and JetBrainsMono Nerd Font
-- **Shell**: Zsh with Oh My Zsh
+- **Shell**: Zsh with zplug plugin manager, Oh My Zsh, custom aliases, and Docker support
 - **Editor**: Neovim with essential editing plugins
 - **Browser**: Brave, Google Chrome
 - **File Manager**: Nautilus
