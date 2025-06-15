@@ -88,12 +88,7 @@ if [ -d "$DOTFILES_DIR/root_config" ]; then
 fi
 print_success "Root config files linked"
 
-# Legacy hypr folder support
-if [ -d "$DOTFILES_DIR/hypr" ]; then
-    print_status "Creating symlink for legacy hypr folder..."
-    ln -sf "$DOTFILES_DIR/hypr" ~/.config/
-    print_success "Legacy hypr folder linked"
-fi
+# Hypr config is now handled via config/hypr/ folder (no legacy support needed)
 
 # Install zplug
 print_status "Setting up zplug..."
