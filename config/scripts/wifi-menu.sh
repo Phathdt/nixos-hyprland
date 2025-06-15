@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Kill any existing rofi instances first
+pkill rofi 2>/dev/null
+
 # Get available WiFi networks
 get_wifi_networks() {
     nmcli -t -f SSID,SIGNAL,SECURITY dev wifi list | sort -t: -k2 -nr | while IFS=: read -r ssid signal security; do
@@ -35,6 +38,8 @@ show_menu() {
     } | rofi -dmenu -i -p "WiFi Networks" \
         -theme-str 'window {width: 400px; height: 500px;}' \
         -theme-str 'listview {lines: 15;}' \
+        -auto-select \
+        -no-lazy-grab \
         -format 's' | {
 
         read -r selection
@@ -62,8 +67,12 @@ show_menu() {
                 # Check if network requires password
                 if echo "$selection" | grep -q "🔒"; then
                     # Secure network - prompt for password
-                    password=$(rofi -dmenu -password -p "Password for $ssid" -theme-str 'window {width: 300px;}')
+                    password=$(rofi -dmenu -password -p "Password for $ssid" \
+                        -theme-str 'window {width: 300px;}' \
+                        -no-lazy-grab)
                     if [ -n "$password" ]; then
+                        # Show connecting notification
+                        notify-send -a "NetworkManager" "WiFi" "Connecting to $ssid..."
                         if nmcli device wifi connect "$ssid" password "$password"; then
                             notify-send -a "NetworkManager" "WiFi Connected" "Successfully connected to $ssid"
                         else
@@ -72,6 +81,7 @@ show_menu() {
                     fi
                 else
                     # Open network
+                    notify-send -a "NetworkManager" "WiFi" "Connecting to $ssid..."
                     if nmcli device wifi connect "$ssid"; then
                         notify-send -a "NetworkManager" "WiFi Connected" "Successfully connected to $ssid"
                     else

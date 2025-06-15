@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Kill any existing rofi instances first
+pkill rofi 2>/dev/null
+
 # Get window list with workspace info
 get_windows() {
     hyprctl clients -j | jq -r '.[] | select(.mapped == true) | "\(.address)|\(.workspace.id)|\(.class)|\(.title)"' | while IFS='|' read -r address workspace class title; do
@@ -12,6 +15,8 @@ get_windows() {
 selected=$(get_windows | rofi -dmenu -i -p "Switch to Window" \
     -theme-str 'window {width: 600px; height: 400px;}' \
     -theme-str 'listview {lines: 12;}' \
+    -auto-select \
+    -no-lazy-grab \
     -format 's')
 
 if [ -n "$selected" ]; then

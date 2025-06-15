@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Kill any existing rofi instances first
+pkill rofi 2>/dev/null
+
 WALLPAPER_DIR="$HOME/Pictures/wallpapers"
 THUMBNAIL_DIR="$HOME/.cache/wallpaper-thumbnails"
 TEMP_DIR="/tmp/wallpaper-menu"
@@ -53,7 +56,7 @@ create_desktop_entries() {
 Type=Application
 Name=$name
 Comment=Set wallpaper: $basename
-Exec=sh -c 'if ! pgrep -x hyprpaper > /dev/null; then hyprpaper & sleep 2; fi && hyprctl hyprpaper preload "$wallpaper" 2>/dev/null && sleep 0.5 && hyprctl hyprpaper wallpaper ",$wallpaper" && notify-send -a "Wallpaper" "Wallpaper Changed" "Set: $basename"'
+Exec=sh -c 'if ! pgrep -x hyprpaper > /dev/null; then hyprpaper & sleep 2; fi && hyprctl hyprpaper preload "$wallpaper" 2>/dev/null && sleep 0.5 && hyprctl hyprpaper wallpaper ",$wallpaper" && ~/.config/scripts/wallpaper-persistence.sh save "$wallpaper" && notify-send -a "Wallpaper" "Wallpaper Changed" "Set: $basename"'
 Icon=$thumbnail
 Categories=Graphics;
 NoDisplay=false
@@ -88,7 +91,9 @@ show_menu() {
          -width 60 \
          -padding 20 \
          -lines 8 \
-         -columns 3
+         -columns 3 \
+         -auto-select \
+         -no-lazy-grab
 }
 
 # Function to add random wallpaper option
@@ -122,6 +127,7 @@ case "$1" in
             hyprctl hyprpaper preload "$WALLPAPER" 2>/dev/null
             sleep 0.5
             hyprctl hyprpaper wallpaper ",$WALLPAPER"
+            ~/.config/scripts/wallpaper-persistence.sh save "$WALLPAPER"
             notify-send -a "Wallpaper" "Random Wallpaper" "Set: $(basename "$WALLPAPER")"
         else
             notify-send -a "Wallpaper" "No Wallpapers" "No wallpapers found!"
