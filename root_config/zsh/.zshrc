@@ -1,28 +1,40 @@
 # Initialize zplug
-source ~/.zplug/init.zsh
+export ZPLUG_HOME="$HOME/.zplug"
+if [[ -f "$ZPLUG_HOME/init.zsh" ]]; then
+    source "$ZPLUG_HOME/init.zsh"
+else
+    echo "zplug not found. Please install zplug first."
+    return 1
+fi
 
-# Oh My Zsh configuration
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
-source $ZSH/oh-my-zsh.sh
-
-# zplug plugins
+# zplug plugins - manage everything through zplug
 zplug "zplug/zplug", hook-build:'zplug --self-manage'
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "greymd/docker-zsh-completion"
+
+# Oh My Zsh framework and theme
+zplug "robbyrussell/oh-my-zsh", use:"oh-my-zsh.sh"
 zplug "themes/robbyrussell", from:oh-my-zsh
+
+# Oh My Zsh plugins
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/docker", from:oh-my-zsh
 zplug "plugins/docker-compose", from:oh-my-zsh
+zplug "plugins/kubectl", from:oh-my-zsh
+
+# Additional zsh plugins
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "greymd/docker-zsh-completion"
 
 # Install plugins if not installed
 if ! zplug check --verbose; then
     printf "Install zplug plugins? [y/N]: "
     if read -q; then
         echo; zplug install
+    else
+        echo
+        echo "Skipping plugin installation. Run 'zplug install' manually later."
     fi
 fi
 

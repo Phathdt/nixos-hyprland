@@ -121,9 +121,11 @@ fi
 print_status "Installing zsh plugins with zplug..."
 if [ -d ~/.zplug ] && [ -f ~/.zshrc ]; then
     print_status "Running zplug install in zsh..."
-    # Run zplug install in a proper zsh environment
-    zsh -c "source ~/.zplug/init.zsh && source ~/.zshrc && zplug install" 2>/dev/null || {
+    # Run zplug install in a proper zsh environment with explicit path
+    export ZPLUG_HOME="$HOME/.zplug"
+    zsh -c "export ZPLUG_HOME='$HOME/.zplug' && source '$HOME/.zplug/init.zsh' && source '$HOME/.zshrc' && zplug install" 2>/dev/null || {
         print_warning "zplug install failed, plugins will be installed on first zsh startup"
+        print_status "This is normal on NixOS - plugins will auto-install when you first start zsh"
     }
     print_success "zsh plugins setup completed"
 else
@@ -153,12 +155,13 @@ print_success "🎉 Dotfiles setup complete with full automation!"
 echo ""
 print_status "Next steps:"
 echo "1. Run 'sudo nixos-rebuild switch' to apply the NixOS configuration"
-echo "2. Restart your terminal or run 'source ~/.zshrc' to load zsh plugins"
-echo "3. All plugins are already installed and ready to use!"
+echo "2. Make sure zsh is your default shell: 'chsh -s \$(which zsh)'"
+echo "3. Restart your terminal or run 'zsh' to start using zsh"
+echo "4. Plugins will auto-install on first zsh startup if not already installed"
 echo ""
 print_status "Plugin managers installed:"
 echo "  • zplug: Zsh plugin manager"
 echo "  • TPM: Tmux plugin manager"
 echo "  • vim-plug: Neovim plugin manager"
 echo ""
-print_status "All plugins have been automatically installed!"
+print_status "Note: On NixOS, some plugins may install on first shell startup rather than during setup."
