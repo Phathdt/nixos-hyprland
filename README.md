@@ -245,9 +245,9 @@ The Waybar is configured with Material Palenight theme and includes:
 - Scroll on backlight to adjust brightness
 - Hover for detailed tooltips
 
-**Apply Waybar Configuration:**
+**Restart Waybar:**
 ```bash
-./scripts/apply-waybar-config.sh
+pkill waybar && waybar &
 ```
 
 ### Git Configuration
