@@ -134,8 +134,24 @@ if [ "$SKIP_DOTFILES" = false ]; then
     for config_dir in "$DOTFILES_DIR/config"/*; do
         if [ -d "$config_dir" ]; then
             config_name=$(basename "$config_dir")
+            target_path="$HOME/.config/$config_name"
+
             print_status "Symlinking $config_name to ~/.config/..."
-            ln -sf "$config_dir" ~/.config/
+
+            # Remove existing directory/symlink if it exists
+            if [ -L "$target_path" ]; then
+                print_status "  Removing existing symlink: $target_path"
+                rm "$target_path"
+            elif [ -d "$target_path" ]; then
+                print_status "  Removing existing directory: $target_path"
+                rm -rf "$target_path"
+            elif [ -f "$target_path" ]; then
+                print_status "  Removing existing file: $target_path"
+                rm "$target_path"
+            fi
+
+            # Create the symlink
+            ln -sf "$config_dir" "$target_path"
         fi
     done
     print_success "Config folders linked"
