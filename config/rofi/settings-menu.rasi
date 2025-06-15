@@ -32,8 +32,8 @@ window {
     border: 2px;
     border-color: @purple;
     border-radius: 12px;
-    height: 70%;
-    width: 40%;
+    height: 85%;
+    width: 45%;
     location: center;
     x-offset: 0;
     y-offset: 0;
@@ -72,13 +72,13 @@ inputbar {
 listview {
     background-color: @bg;
     columns: 1;
-    lines: 15;
+    lines: 20;
     cycle: true;
     dynamic: true;
     scrollbar: true;
     layout: vertical;
     reverse: false;
-    fixed-height: true;
+    fixed-height: false;
     fixed-columns: true;
     spacing: 4px;
     padding: 8px;
