@@ -3,19 +3,71 @@
 # Kill any existing rofi instances first
 pkill rofi 2>/dev/null
 
+# Function to get emoji icon for application class
+get_app_icon() {
+    local class="$1"
+    case "${class,,}" in
+        # Browsers
+        "brave-browser"|"brave") echo "🌐" ;;
+        "google-chrome"|"chrome") echo "🌐" ;;
+        "firefox") echo "🦊" ;;
+
+        # Terminals
+        "alacritty") echo "💻" ;;
+        "kitty") echo "🐱" ;;
+        "wezterm") echo "💻" ;;
+        "foot") echo "💻" ;;
+
+        # File managers
+        "thunar") echo "📁" ;;
+        "nautilus") echo "📁" ;;
+        "pcmanfm") echo "📁" ;;
+
+        # Text editors
+        "code"|"vscode") echo "📝" ;;
+        "neovim"|"nvim") echo "✏️" ;;
+        "vim") echo "✏️" ;;
+
+        # Communication
+        "telegram-desktop"|"telegram") echo "💬" ;;
+        "discord") echo "🎮" ;;
+        "slack") echo "💼" ;;
+
+        # Media
+        "vlc") echo "🎬" ;;
+        "mpv") echo "🎬" ;;
+        "spotify") echo "🎵" ;;
+
+        # System
+        "pavucontrol") echo "🔊" ;;
+        "blueman-manager") echo "📶" ;;
+        "nm-connection-editor") echo "🌐" ;;
+
+        # Development
+        "docker") echo "🐳" ;;
+        "postman") echo "📮" ;;
+
+        # Default
+        *) echo "🪟" ;;
+    esac
+}
+
 # Get window list and create simple menu
 get_windows() {
     hyprctl clients -j | jq -r '.[] | select(.mapped == true and .workspace.id > 0) | "\(.address)|\(.workspace.id)|\(.class)|\(.title)|\(.floating)|\(.fullscreen)"' | while IFS='|' read -r address workspace class title floating fullscreen; do
         # Clean up title
-        clean_title=$(echo "$title" | tr -d '\n\r' | cut -c1-50)
+        clean_title=$(echo "$title" | tr -d '\n\r' | cut -c1-45)
+
+        # Get app icon
+        app_icon=$(get_app_icon "$class")
 
         # Add indicators
         indicators=""
-        [ "$floating" = "true" ] && indicators="${indicators} [Float]"
-        [ "$fullscreen" = "true" ] && indicators="${indicators} [Full]"
+        [ "$floating" = "true" ] && indicators="${indicators} 🪟"
+        [ "$fullscreen" = "true" ] && indicators="${indicators} ⛶"
 
-        # Simple format: display_text|address
-        printf "[WS%s] %s: %s%s|%s\n" "$workspace" "$class" "$clean_title" "$indicators" "$address"
+        # Format with icon: [Icon] [WS] Class: Title [indicators]|address
+        printf "%s [WS%s] %s: %s%s|%s\n" "$app_icon" "$workspace" "$class" "$clean_title" "$indicators" "$address"
     done
 }
 
