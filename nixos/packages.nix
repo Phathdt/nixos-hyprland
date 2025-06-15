@@ -24,6 +24,7 @@
     neovim
     vim
     vscode
+    cursor
 
     # Version control
     git
