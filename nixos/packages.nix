@@ -36,5 +36,6 @@
     swww
     git
     vscode
+    tmux
   ];
 }

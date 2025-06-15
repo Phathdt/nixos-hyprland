@@ -33,5 +33,17 @@ if [ -d "$DOTFILES_DIR/hypr" ]; then
     ln -sf "$DOTFILES_DIR/hypr" ~/.config/
 fi
 
+echo "Setting up tmux plugin manager (TPM)..."
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+    echo "Cloning TPM..."
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+else
+    echo "TPM already installed"
+fi
+
 echo "Dotfiles setup complete!"
-echo "You can now run 'sudo nixos-rebuild switch' to apply the configuration."
+echo ""
+echo "Next steps:"
+echo "1. Run 'sudo nixos-rebuild switch' to apply the NixOS configuration"
+echo "2. Start tmux and press 'Ctrl+s + I' to install tmux plugins"
+echo "3. Reload tmux config with 'Ctrl+s + r'"
