@@ -25,7 +25,7 @@ get_app_icon() {
 
         # Text editors
         "code"|"vscode") echo "📝" ;;
-        "cursor") echo "📝" ;;
+        "code-cursor"|"cursor") echo "📝" ;;
         "neovim"|"nvim") echo "✏️" ;;
         "vim") echo "✏️" ;;
 
