@@ -48,5 +48,8 @@
     blueman
     bluez
     bluez-tools
+    telegram-desktop
+    hyprpaper
+    imagemagick
   ];
 }
