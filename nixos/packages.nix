@@ -51,5 +51,6 @@
     telegram-desktop
     hyprpaper
     imagemagick
+    libnotify
   ];
 }
