@@ -8,7 +8,7 @@
       noto-fonts
       noto-fonts-emoji
       jetbrains-mono
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      nerd-fonts.jetbrains-mono
     ];
 
     fontconfig = {
