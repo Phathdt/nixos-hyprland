@@ -7,21 +7,6 @@ configuration {
 }
 
 * {
-    bg: #292d3ecc;
-    bg-solid: #292d3e;
-    bg-alt: #32364a;
-    bg-selected: #82aaff22;
-    fg: #a6accd;
-    fg-alt: #676e95;
-
-    blue: #82aaff;
-    cyan: #89ddff;
-    green: #c3e88d;
-    orange: #ffcb6b;
-    purple: #c792ea;
-    red: #f07178;
-    yellow: #ffcb6b;
-
     background-color: transparent;
     border: 0;
     margin: 0;
@@ -31,15 +16,15 @@ configuration {
 }
 
 window {
-    background-color: @bg;
-    border: 1px solid #82aaff44;
+    background-color: #292d3e;
+    border: 1px;
+    border-color: #4a5578;
     border-radius: 16px;
     height: 70%;
     width: 380px;
     location: center;
     x-offset: 0;
     y-offset: 0;
-    transparency: "real";
 }
 
 prompt {
@@ -52,12 +37,12 @@ textbox-prompt-colon {
 }
 
 entry {
-    background-color: @bg-alt;
+    background-color: #32364a;
     font: "SF Pro Display 11";
     padding: 12px 16px;
-    text-color: @fg;
+    text-color: #a6accd;
     placeholder: "Search Bluetooth devices...";
-    placeholder-color: @fg-alt;
+    placeholder-color: #676e95;
     border-radius: 12px;
     margin: 0 0 8px 0;
 }
@@ -86,7 +71,7 @@ listview {
 
 element {
     background-color: transparent;
-    text-color: @fg;
+    text-color: #a6accd;
     orientation: horizontal;
     border-radius: 10px;
     padding: 12px 16px;
@@ -115,12 +100,12 @@ element-text {
 
 element normal {
     background-color: transparent;
-    text-color: @fg;
+    text-color: #a6accd;
 }
 
 element selected {
-    background-color: @bg-selected;
-    text-color: @blue;
+    background-color: #3d4663;
+    text-color: #82aaff;
     border-radius: 10px;
 }
 
@@ -130,17 +115,17 @@ element alternate {
 
 element normal.normal {
     background-color: transparent;
-    text-color: @fg;
+    text-color: #a6accd;
 }
 
 element selected.normal {
-    background-color: @bg-selected;
-    text-color: @blue;
+    background-color: #3d4663;
+    text-color: #82aaff;
 }
 
 element alternate.normal {
     background-color: transparent;
-    text-color: @fg;
+    text-color: #a6accd;
 }
 
 scrollbar {
@@ -152,7 +137,7 @@ sidebar {
 }
 
 message {
-    background-color: @bg-alt;
+    background-color: #32364a;
     border: 0;
     border-radius: 12px;
     padding: 12px;
@@ -161,7 +146,7 @@ message {
 
 textbox {
     background-color: inherit;
-    text-color: @fg;
+    text-color: #a6accd;
     vertical-align: 0.5;
     horizontal-align: 0;
     font: "SF Pro Display 11";
