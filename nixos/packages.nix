@@ -51,7 +51,7 @@
     kitty
 
     # File managers
-    thunar
+    xfce.thunar
     xfconf
 
     # Web browsers
