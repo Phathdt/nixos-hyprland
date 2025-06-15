@@ -8,7 +8,8 @@ My personal dotfiles configuration for NixOS with Hyprland window manager.
 - **Hyprland**: Wayland compositor with custom configuration
 - **Terminal Setup**: Alacritty + Tmux with custom themes
 - **Development Environment**: Neovim with essential plugins, Git, and productivity tools
-- **Automated Setup**: One-command installation script
+- **Automated Setup**: One-command installation script with full automation
+- **Plugin Management**: Auto-installation of all plugins without manual intervention
 
 ## Structure
 
@@ -22,12 +23,12 @@ My personal dotfiles configuration for NixOS with Hyprland window manager.
 │   └── tmux/                 # Terminal multiplexer (XDG)
 ├── root_config/              # Home directory dotfiles → ~/
 │   ├── git/                  # Git configuration
-│   │   ├── gitconfig         # → ~/.gitconfig
-│   │   └── gitignore_global  # → ~/.gitignore_global
+│   │   ├── .gitconfig        # → ~/.gitconfig
+│   │   └── .gitignore_global # → ~/.gitignore_global
 │   ├── tmux/                 # Tmux configuration
-│   │   └── tmux.conf         # → ~/.tmux.conf
+│   │   └── .tmux.conf        # → ~/.tmux.conf
 │   └── zsh/                  # Zsh configuration
-│       └── .zshrc            # → ~/.zshrc
+│       └── .zshrc            # → ~/.zshrc (with auto zplug setup)
 ├── nixos/                    # NixOS system configuration
 │   ├── configuration.nix     # Main config (imports only)
 │   ├── boot.nix             # Boot loader settings
@@ -36,10 +37,10 @@ My personal dotfiles configuration for NixOS with Hyprland window manager.
 │   ├── locale.nix           # Timezone & locale
 │   ├── networking.nix       # Network settings
 │   ├── packages.nix         # System packages
-│   ├── programs.nix         # Shell & program configs
+│   ├── programs.nix         # Shell & program configs (minimal)
 │   ├── ssh.nix              # SSH server configuration
-│   └── users.nix            # User accounts
-└── init.sh                  # Installation script
+│   └── users.nix            # User accounts (zsh as default shell)
+└── init.sh                  # Fully automated installation script
 ```
 
 ## Installation
@@ -70,45 +71,81 @@ My personal dotfiles configuration for NixOS with Hyprland window manager.
 
 4. **Restart terminal and enjoy!**
    ```bash
-   # All plugins are automatically installed and ready to use
-   source ~/.zshrc  # or restart terminal
+   # Zsh is now your default shell with all plugins auto-installed
+   # No manual steps required!
    ```
 
 ## What the Setup Script Does
 
-The `init.sh` script provides **full automation**:
+The `init.sh` script provides **complete automation**:
 
-1. **System Configuration**:
-   - Moves `/etc/nixos/hardware-configuration.nix` to the repo
-   - Creates symlinks: `nixos/configuration.nix` → `/etc/nixos/configuration.nix`
-   - Links `config/*` → `~/.config/*` and `root_config/*/files` → `~/.files`
+### 1. System Configuration
+- Moves `/etc/nixos/hardware-configuration.nix` to the repo
+- Creates symlinks: `nixos/configuration.nix` → `/etc/nixos/configuration.nix`
+- Links all config folders: `config/*` → `~/.config/*`
+- Links all dotfiles: `root_config/*/.file` → `~/.file`
 
-2. **Plugin Managers Installation**:
-   - **zplug**: Zsh plugin manager with auto-installation
-   - **TPM**: Tmux plugin manager with auto-installation
-   - **vim-plug**: Neovim plugin manager with auto-installation
+### 2. Plugin Managers Installation
+- **zplug**: Zsh plugin manager with Oh My Zsh integration
+- **TPM**: Tmux plugin manager
+- **vim-plug**: Neovim plugin manager
 
-3. **Automatic Plugin Installation**:
-   - Installs all zsh plugins via zplug
-   - Installs all tmux plugins via TPM
-   - Installs all neovim plugins via vim-plug
-   - **Zero manual intervention required!**
+### 3. Automatic Plugin Installation
+- **Zsh plugins**: Auto-installs via zplug (no prompts)
+  - Oh My Zsh framework + robbyrussell theme
+  - Git, tmux, docker, docker-compose, kubectl plugins
+  - zsh-autosuggestions, zsh-completions, zsh-syntax-highlighting
+- **Tmux plugins**: Auto-installs via TPM
+- **Neovim plugins**: Auto-installs via vim-plug
+- **Zero manual intervention required!**
+
+### 4. Shell Configuration
+- NixOS automatically sets zsh as default shell
+- No need to run `chsh` manually
+- All plugins load automatically on first zsh startup
+
+## Architecture
+
+### NixOS Responsibilities
+- Enable zsh program system-wide
+- Set zsh as default shell for user
+- Install system packages and services
+- Configure desktop environment (Hyprland)
+
+### Plugin Managers Responsibilities
+- **zplug**: Manages Oh My Zsh framework, themes, and all zsh plugins
+- **TPM**: Manages tmux plugins
+- **vim-plug**: Manages neovim plugins
+
+### Dotfiles Responsibilities
+- All detailed configurations (aliases, functions, keybindings)
+- Personal customizations and preferences
+- Application-specific settings
 
 ## Key Components
 
 ### NixOS Configuration
 
 - **Modular design**: Each component in separate files
+- **Minimal programs.nix**: Only enables zsh, detailed config in dotfiles
 - **Hyprland**: Wayland compositor with Xwayland support
 - **Audio**: PipeWire with ALSA/Pulse compatibility
 - **SSH**: Secure remote access with key authentication
 - **Docker**: Container virtualization with auto-start
 - **Fonts**: JetBrainsMono Nerd Font and Noto fonts
 
+### Zsh Configuration (Managed by zplug)
+
+- **Framework**: Oh My Zsh with robbyrussell theme
+- **Plugins**: git, tmux, docker, docker-compose, kubectl
+- **Enhancements**: autosuggestions, completions, syntax-highlighting
+- **Auto-installation**: No manual prompts or confirmations
+- **Custom aliases**: Development shortcuts and productivity helpers
+
 ### Applications
 
 - **Terminal**: Alacritty with custom theme and JetBrainsMono Nerd Font
-- **Shell**: Zsh with zplug plugin manager, Oh My Zsh, custom aliases, and Docker support
+- **Shell**: Zsh with complete Oh My Zsh ecosystem
 - **Editor**: Neovim with essential editing plugins
 - **Browser**: Brave, Google Chrome
 - **File Manager**: Nautilus
@@ -116,7 +153,7 @@ The `init.sh` script provides **full automation**:
 
 ### Development Tools
 
-- **Git**: Pre-configured with aliases and settings
+- **Git**: Pre-configured with aliases and global gitignore
 - **Docker**: Container platform with Docker Compose
 - **Neovim**: Minimal setup for simple editing:
   - Git integration (Fugitive)
@@ -124,17 +161,46 @@ The `init.sh` script provides **full automation**:
   - Navigation (EasyMotion, Enhanced search)
   - Visual enhancements (Airline, IndentLine, Trailing-whitespace)
   - Theme (Palenight)
-- **Tmux**: Custom keybindings (Ctrl+s prefix)
+- **Tmux**: Custom keybindings (Ctrl+s prefix) with vim integration
 - **Terminal**: 256-color support, clipboard integration
 - **Fonts**: JetBrainsMono Nerd Font for icons and symbols
+
+## Workflow
+
+### Initial Setup
+1. Run `./init.sh` - Sets up dotfiles + installs plugin managers
+2. Run `sudo nixos-rebuild switch` - Applies NixOS config + sets zsh as default
+3. Restart terminal - Zsh automatically becomes default shell
+4. Plugins auto-install via zplug on first startup
+
+### Daily Usage
+- **Fast iteration**: Quick config changes without NixOS rebuilds
+- **Familiar workflow**: Traditional plugin managers for flexibility
+- **Clean separation**: NixOS for system, dotfiles for personal config
+- **Portable**: Dotfiles work across different systems
 
 ## Customization
 
 ### Adding New Configurations
 
 1. **For ~/.config/ files**: Add to `config/` directory
-2. **For ~/ dotfiles**: Add to `root_config/` directory
+2. **For ~/ dotfiles**: Add to `root_config/` directory with dot prefix
 3. **For system packages**: Edit `nixos/packages.nix`
+4. **For zsh plugins**: Edit `root_config/zsh/.zshrc` and add zplug entries
+
+### Zsh Plugins
+
+Add new plugins to `root_config/zsh/.zshrc`:
+
+```bash
+# Add new zplug plugin
+zplug "user/plugin-name"
+
+# Add Oh My Zsh plugin
+zplug "plugins/plugin-name", from:oh-my-zsh
+```
+
+Plugins will auto-install on next zsh startup.
 
 ### Tmux Plugins
 
@@ -146,7 +212,7 @@ Plugins are managed by [TPM](https://github.com/tmux-plugins/tpm):
 
 ### Git Configuration
 
-Update your personal info in `root_config/git/gitconfig`:
+Update your personal info in `root_config/git/.gitconfig`:
 
 ```ini
 [user]
@@ -162,7 +228,7 @@ Update your personal info in `root_config/git/gitconfig`:
 - `Ctrl+s + -`: Split vertically
 - `Ctrl+s + h`: Open htop
 - `Ctrl+s + r`: Reload config
-- `Ctrl+h/j/k/l`: Navigate panes (Vim-style)
+- `Ctrl+h/j/k/l`: Navigate panes (Vim-style with smart vim integration)
 
 ### Neovim (Leader: Space)
 
@@ -171,7 +237,7 @@ Update your personal info in `root_config/git/gitconfig`:
 - `Space + h`: Horizontal split
 - `Space + s`: Jump to 2 characters (EasyMotion)
 - `Space + w`: Jump to word (EasyMotion)
-- `Ctrl+h/j/k/l`: Navigate windows
+- `Ctrl+h/j/k/l`: Navigate windows (integrates with tmux)
 - `/`, `?`: Search forward/backward
 - `*`, `#`: Search word under cursor
 
@@ -179,14 +245,44 @@ Update your personal info in `root_config/git/gitconfig`:
 
 See `config/hypr/hyprland.conf` for complete keybindings.
 
+## Benefits
+
+### Compared to Home Manager
+- **Faster iteration**: No rebuilds for dotfile changes
+- **Familiar tools**: Traditional plugin managers
+- **Flexibility**: Easy to modify and experiment
+- **Portability**: Dotfiles work on non-NixOS systems
+
+### Compared to Manual Setup
+- **Full automation**: Zero manual steps
+- **Reproducible**: Consistent setup across machines
+- **Version controlled**: All configs in git
+- **Modular**: Easy to enable/disable components
+
 ## Troubleshooting
 
 ### Common Issues
 
 1. **Hardware config not found**: Run `sudo nixos-generate-config` first
-2. **Tmux plugins not working**: Install TPM with `Ctrl+s + I`
-3. **Git config not applied**: Check symlinks with `ls -la ~/.gitconfig`
-4. **Neovim plugins not working**: Install vim-plug and run `:PlugInstall`
+2. **Broken symlinks**: Re-run `./init.sh` to fix
+3. **Zsh not default**: Check if `nixos-rebuild switch` was run
+4. **Plugins not loading**: Restart terminal or run `source ~/.zshrc`
+
+### Debug Commands
+
+```bash
+# Check current shell
+echo $SHELL
+
+# Check symlinks
+ls -la ~/.zshrc ~/.tmux.conf ~/.gitconfig
+
+# Check zplug status
+zplug status
+
+# Reinstall plugins
+zplug clear && zplug install
+```
 
 ### Logs
 
@@ -199,8 +295,4 @@ Feel free to fork and customize for your own setup!
 
 ## License
 
-MIT License - see LICENSE file for details.
-
----
-
-**Note**: This configuration is tailored for my personal workflow. You may need to adjust settings, especially in `nixos/users.nix` and `root_config/git/gitconfig`.
+MIT
