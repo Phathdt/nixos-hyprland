@@ -66,16 +66,23 @@ if [ -d "$DOTFILES_DIR/root_config" ]; then
             folder_name=$(basename "$root_config_folder")
             print_status "Processing $folder_name folder..."
 
+                        # Process all files including hidden files (dotfiles)
+            shopt -s nullglob dotglob
             for file in "$root_config_folder"/*; do
                 if [ -f "$file" ]; then
                     filename=$(basename "$file")
+                    # Skip . and .. directories
+                    [[ "$filename" == "." || "$filename" == ".." ]] && continue
+
                     # Remove existing symlink/file first
                     [ -L ~/"$filename" ] && rm ~/"$filename"
                     [ -f ~/"$filename" ] && rm ~/"$filename"
+
                     print_status "  Symlinking $filename to ~/$filename"
                     ln -sf "$file" ~/"$filename"
                 fi
             done
+            shopt -u nullglob dotglob
         fi
     done
 fi
