@@ -261,29 +261,7 @@ tooltip label {
   font-weight: bold;
 }
 
-/* Responsive design */
-@media (max-width: 1366px) {
-  * {
-    font-size: 13px;
-  }
-
-  #workspaces button {
-    padding: 0 6px;
-    min-width: 25px;
-  }
-
-  #cpu,
-  #memory,
-  #temperature,
-  #backlight,
-  #battery,
-  #network,
-  #pulseaudio,
-  #idle_inhibitor,
-  #custom-power {
-    padding: 0 8px;
-  }
-}
+/* Note: GTK3 CSS doesn't support @media queries for responsive design */
 
 /* Animation for smooth transitions */
 * {
