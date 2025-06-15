@@ -22,6 +22,15 @@ fi
         # Random wallpaper
         WALLPAPER=$(find "$WALLPAPER_DIR" -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.jpeg" -o -name "*.webp" \) | shuf -n 1)
         if [ -n "$WALLPAPER" ]; then
+            # Ensure hyprpaper is running
+            if ! pgrep -x hyprpaper > /dev/null; then
+                hyprpaper &
+                sleep 2
+            fi
+
+            # Preload and set wallpaper
+            hyprctl hyprpaper preload "$WALLPAPER" 2>/dev/null
+            sleep 0.5
             hyprctl hyprpaper wallpaper ",$WALLPAPER"
             notify-send -a "Wallpaper" "Random Wallpaper" "Set: $(basename "$WALLPAPER")"
         fi
@@ -29,7 +38,15 @@ fi
         # Specific wallpaper selected
         WALLPAPER="$WALLPAPER_DIR/$selection"
         if [ -f "$WALLPAPER" ]; then
-            hyprctl hyprpaper preload "$WALLPAPER"
+            # Ensure hyprpaper is running
+            if ! pgrep -x hyprpaper > /dev/null; then
+                hyprpaper &
+                sleep 2
+            fi
+
+            # Preload and set wallpaper
+            hyprctl hyprpaper preload "$WALLPAPER" 2>/dev/null
+            sleep 0.5
             hyprctl hyprpaper wallpaper ",$WALLPAPER"
             notify-send -a "Wallpaper" "Wallpaper Changed" "Set: $selection"
         fi
