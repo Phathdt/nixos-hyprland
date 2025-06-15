@@ -51,7 +51,8 @@
     kitty
 
     # File managers
-    nautilus
+    thunar
+    xfconf
 
     # Web browsers
     brave
@@ -81,9 +82,6 @@
     imagemagick
 
     # GTK themes and customization
-    dconf-editor
-    gnome-themes-extra
-    gnome-tweaks
     gtk-engine-murrine
     sassc
 

@@ -1,59 +1,139 @@
-/* Material Palenight Theme for Nautilus (GTK4) */
+/* Material Palenight Theme for Thunar (GTK4) */
 
 /* Main window */
-window.nautilus-window {
+window.thunar {
   background-color: #292d3e;
   color: #a6accd;
 }
 
 /* Sidebar */
-window.nautilus-window .sidebar {
+window.thunar .sidebar {
   background-color: #1e1e2e;
   color: #a6accd;
   border-right: 1px solid #3a3f58;
 }
 
-window.nautilus-window .sidebar row {
+window.thunar .sidebar row {
   color: #a6accd;
+  padding: 8px 12px;
 }
 
-window.nautilus-window .sidebar row:selected {
+window.thunar .sidebar row:selected {
   background-color: #3a3f58;
   color: #82aaff;
 }
 
+window.thunar .sidebar row:hover {
+  background-color: #32364a;
+}
+
 /* Main view */
-window.nautilus-window .view {
+window.thunar .view {
   background-color: #292d3e;
   color: #a6accd;
 }
 
 /* Header bar */
-window.nautilus-window headerbar {
+window.thunar headerbar {
   background-color: #1e1e2e;
   color: #a6accd;
   border-bottom: 1px solid #3a3f58;
 }
 
-window.nautilus-window headerbar button {
+window.thunar headerbar button {
   color: #a6accd;
+  background-color: transparent;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
 }
 
-window.nautilus-window headerbar button:hover {
+window.thunar headerbar button:hover {
+  background-color: #3a3f58;
+  color: #82aaff;
+}
+
+/* Toolbar */
+window.thunar toolbar {
+  background-color: #1e1e2e;
+  border-bottom: 1px solid #3a3f58;
+}
+
+window.thunar toolbar button {
+  color: #a6accd;
+  background-color: transparent;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+window.thunar toolbar button:hover {
   background-color: #3a3f58;
   color: #82aaff;
 }
 
 /* Scrollbars */
-window.nautilus-window scrollbar {
+window.thunar scrollbar {
   background-color: #1e1e2e;
 }
 
-window.nautilus-window scrollbar slider {
+window.thunar scrollbar slider {
   background-color: #3a3f58;
   border-radius: 6px;
 }
 
-window.nautilus-window scrollbar slider:hover {
+window.thunar scrollbar slider:hover {
   background-color: #82aaff;
+}
+
+/* Context menu */
+window.thunar menu {
+  background-color: #32364a;
+  color: #a6accd;
+  border: 1px solid #3a3f58;
+  border-radius: 8px;
+}
+
+window.thunar menu menuitem {
+  color: #a6accd;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+window.thunar menu menuitem:hover {
+  background-color: #3a3f58;
+  color: #82aaff;
+}
+
+/* Entry fields */
+window.thunar entry {
+  background-color: #32364a;
+  color: #a6accd;
+  border: 1px solid #3a3f58;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+window.thunar entry:focus {
+  border-color: #82aaff;
+  box-shadow: 0 0 0 1px #82aaff;
+}
+
+/* Buttons */
+window.thunar button {
+  background-color: #32364a;
+  color: #a6accd;
+  border: 1px solid #3a3f58;
+  border-radius: 6px;
+  padding: 8px 16px;
+}
+
+window.thunar button:hover {
+  background-color: #3a3f58;
+  color: #82aaff;
+}
+
+window.thunar button:active {
+  background-color: #82aaff;
+  color: #292d3e;
 }

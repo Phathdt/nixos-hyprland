@@ -1,201 +1,291 @@
-/* Material Palenight Theme for Nautilus */
+/* Material Palenight Theme for Thunar */
 
 /* Main window background */
-.nautilus-window {
+.thunar {
   background-color: #292d3e;
   color: #a6accd;
 }
 
 /* Sidebar */
-.nautilus-window .sidebar {
+.thunar .sidebar {
   background-color: #1e1e2e;
   color: #a6accd;
   border-right: 1px solid #3a3f58;
 }
 
-.nautilus-window .sidebar row {
+.thunar .sidebar row {
   color: #a6accd;
+  padding: 8px 12px;
 }
 
-.nautilus-window .sidebar row:selected {
+.thunar .sidebar row:selected {
   background-color: #3a3f58;
   color: #82aaff;
 }
 
-.nautilus-window .sidebar row:hover {
+.thunar .sidebar row:hover {
   background-color: #32364a;
 }
 
 /* Main content area */
-.nautilus-window .view {
+.thunar .view {
   background-color: #292d3e;
   color: #a6accd;
 }
 
-/* File/folder items */
-.nautilus-window iconview {
+/* File/folder items in icon view */
+.thunar iconview {
   background-color: #292d3e;
 }
 
-.nautilus-window iconview .cell {
+.thunar iconview .cell {
   color: #a6accd;
+  padding: 8px;
 }
 
-.nautilus-window iconview .cell:selected {
+.thunar iconview .cell:selected {
   background-color: #3a3f58;
   color: #82aaff;
+  border-radius: 6px;
+}
+
+.thunar iconview .cell:hover {
+  background-color: #32364a;
+  border-radius: 6px;
 }
 
 /* List view */
-.nautilus-window treeview {
+.thunar treeview {
   background-color: #292d3e;
   color: #a6accd;
 }
 
-.nautilus-window treeview:selected {
+.thunar treeview:selected {
   background-color: #3a3f58;
   color: #82aaff;
 }
 
+.thunar treeview:hover {
+  background-color: #32364a;
+}
+
 /* Header bar */
-.nautilus-window headerbar {
+.thunar headerbar {
   background-color: #1e1e2e;
   color: #a6accd;
   border-bottom: 1px solid #3a3f58;
 }
 
-.nautilus-window headerbar button {
+.thunar headerbar button {
   color: #a6accd;
   background-color: transparent;
   border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
 }
 
-.nautilus-window headerbar button:hover {
+.thunar headerbar button:hover {
+  background-color: #3a3f58;
+  color: #82aaff;
+}
+
+.thunar headerbar button:active {
+  background-color: #82aaff;
+  color: #292d3e;
+}
+
+/* Toolbar */
+.thunar toolbar {
+  background-color: #1e1e2e;
+  border-bottom: 1px solid #3a3f58;
+  padding: 4px;
+}
+
+.thunar toolbar button {
+  color: #a6accd;
+  background-color: transparent;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  margin: 2px;
+}
+
+.thunar toolbar button:hover {
   background-color: #3a3f58;
   color: #82aaff;
 }
 
 /* Path bar */
-.nautilus-window .path-bar button {
+.thunar .path-bar button {
   background-color: #32364a;
   color: #a6accd;
   border: 1px solid #3a3f58;
   border-radius: 6px;
   margin: 2px;
+  padding: 6px 12px;
 }
 
-.nautilus-window .path-bar button:hover {
+.thunar .path-bar button:hover {
   background-color: #3a3f58;
   color: #82aaff;
 }
 
-/* Search bar */
-.nautilus-window searchbar {
-  background-color: #1e1e2e;
-  border-bottom: 1px solid #3a3f58;
+.thunar .path-bar button:active {
+  background-color: #82aaff;
+  color: #292d3e;
 }
 
-.nautilus-window searchbar entry {
+/* Search bar */
+.thunar searchbar {
+  background-color: #1e1e2e;
+  border-bottom: 1px solid #3a3f58;
+  padding: 8px;
+}
+
+.thunar searchbar entry {
   background-color: #32364a;
   color: #a6accd;
   border: 1px solid #3a3f58;
   border-radius: 6px;
+  padding: 8px 12px;
 }
 
-.nautilus-window searchbar entry:focus {
+.thunar searchbar entry:focus {
   border-color: #82aaff;
   box-shadow: 0 0 0 1px #82aaff;
 }
 
 /* Status bar */
-.nautilus-window statusbar {
+.thunar statusbar {
   background-color: #1e1e2e;
   color: #676e95;
   border-top: 1px solid #3a3f58;
+  padding: 4px 8px;
 }
 
 /* Context menu */
-.nautilus-window menu {
+.thunar menu {
   background-color: #32364a;
   color: #a6accd;
   border: 1px solid #3a3f58;
   border-radius: 8px;
+  padding: 4px;
 }
 
-.nautilus-window menu menuitem {
+.thunar menu menuitem {
   color: #a6accd;
   padding: 8px 12px;
+  border-radius: 4px;
 }
 
-.nautilus-window menu menuitem:hover {
+.thunar menu menuitem:hover {
   background-color: #3a3f58;
   color: #82aaff;
 }
 
+.thunar menu separator {
+  background-color: #3a3f58;
+  margin: 4px 0;
+}
+
 /* Scrollbars */
-.nautilus-window scrollbar {
+.thunar scrollbar {
   background-color: #1e1e2e;
 }
 
-.nautilus-window scrollbar slider {
+.thunar scrollbar slider {
   background-color: #3a3f58;
   border-radius: 6px;
   min-width: 12px;
   min-height: 12px;
 }
 
-.nautilus-window scrollbar slider:hover {
+.thunar scrollbar slider:hover {
   background-color: #82aaff;
-}
-
-/* Toolbar */
-.nautilus-window toolbar {
-  background-color: #1e1e2e;
-  border-bottom: 1px solid #3a3f58;
-}
-
-.nautilus-window toolbar button {
-  color: #a6accd;
-  background-color: transparent;
-}
-
-.nautilus-window toolbar button:hover {
-  background-color: #3a3f58;
-  color: #82aaff;
 }
 
 /* Properties dialog */
-.nautilus-window dialog {
+.thunar dialog {
   background-color: #292d3e;
   color: #a6accd;
 }
 
-.nautilus-window dialog headerbar {
+.thunar dialog headerbar {
   background-color: #1e1e2e;
   color: #a6accd;
+  border-bottom: 1px solid #3a3f58;
 }
 
 /* Notebook tabs */
-.nautilus-window notebook {
+.thunar notebook {
   background-color: #292d3e;
 }
 
-.nautilus-window notebook tab {
+.thunar notebook tab {
   background-color: #32364a;
   color: #a6accd;
   border: 1px solid #3a3f58;
+  border-radius: 6px 6px 0 0;
+  padding: 8px 16px;
+  margin: 0 2px;
 }
 
-.nautilus-window notebook tab:checked {
+.thunar notebook tab:checked {
   background-color: #3a3f58;
   color: #82aaff;
 }
 
-/* Progress bar */
-.nautilus-window progressbar {
-  background-color: #32364a;
+.thunar notebook tab:hover {
+  background-color: #3a3f58;
 }
 
-.nautilus-window progressbar progress {
+/* Progress bar */
+.thunar progressbar {
+  background-color: #32364a;
+  border-radius: 6px;
+}
+
+.thunar progressbar progress {
   background-color: #82aaff;
+  border-radius: 6px;
+}
+
+/* Paned separator */
+.thunar paned separator {
+  background-color: #3a3f58;
+  min-width: 1px;
+  min-height: 1px;
+}
+
+/* Entry fields */
+.thunar entry {
+  background-color: #32364a;
+  color: #a6accd;
+  border: 1px solid #3a3f58;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+.thunar entry:focus {
+  border-color: #82aaff;
+  box-shadow: 0 0 0 1px #82aaff;
+}
+
+/* Buttons */
+.thunar button {
+  background-color: #32364a;
+  color: #a6accd;
+  border: 1px solid #3a3f58;
+  border-radius: 6px;
+  padding: 8px 16px;
+}
+
+.thunar button:hover {
+  background-color: #3a3f58;
+  color: #82aaff;
+}
+
+.thunar button:active {
+  background-color: #82aaff;
+  color: #292d3e;
 }

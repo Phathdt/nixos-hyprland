@@ -1,11 +1,11 @@
 # GTK Material Palenight Theme
 
-Material Palenight theme configuration for GTK applications, specifically optimized for Nautilus file manager.
+Material Palenight theme configuration for GTK applications, specifically optimized for Thunar file manager.
 
 ## Files
 
 - `settings.ini` - GTK 3.0 theme settings (dark theme, Papirus icons, JetBrains Mono font)
-- `gtk.css` - Custom CSS for Nautilus with Material Palenight colors
+- `gtk.css` - Custom CSS for Thunar with Material Palenight colors
 
 ## Colors Used
 
@@ -20,11 +20,23 @@ Material Palenight theme configuration for GTK applications, specifically optimi
 ## Features
 
 - Dark theme with Material Palenight colors
-- Custom Nautilus styling (sidebar, header, content area)
+- Custom Thunar styling (sidebar, header, toolbar, content area)
 - Papirus Dark icon theme
 - JetBrains Mono font
 - Catppuccin cursor theme
 - Smooth hover effects and transitions
+- Enhanced button and entry field styling
+- Custom context menu styling
+
+## Thunar Specific Features
+
+- **Sidebar**: Dark background with blue accent for selected items
+- **Toolbar**: Transparent buttons with hover effects
+- **Path bar**: Custom styled breadcrumb navigation
+- **Icon view**: Rounded selection with smooth transitions
+- **List view**: Consistent dark theme with hover states
+- **Context menu**: Rounded corners with proper spacing
+- **Dialog boxes**: Consistent theming across all dialogs
 
 ## Usage
 
@@ -43,8 +55,15 @@ To apply manually:
 
 After applying the theme, restart GTK applications to see changes:
 ```bash
-# Restart Nautilus
-pkill nautilus && nautilus &
+# Restart Thunar
+pkill thunar && thunar &
 
 # Or restart your session
 ```
+
+## Thunar Configuration
+
+For best results, configure Thunar preferences:
+- **View → Side Pane**: Enable for better navigation
+- **View → Status Bar**: Enable for file information
+- **Edit → Preferences → Display**: Set icon size and view options
