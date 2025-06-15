@@ -28,4 +28,12 @@
   };
 
   security.polkit.enable = true;
+
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = true;
+  };
+
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 }

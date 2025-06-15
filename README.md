@@ -103,6 +103,7 @@ The `init.sh` script automatically:
 - **Hyprland**: Wayland compositor with Xwayland support
 - **Audio**: PipeWire with ALSA/Pulse compatibility
 - **SSH**: Secure remote access with key authentication
+- **Docker**: Container virtualization with auto-start
 - **Fonts**: JetBrainsMono Nerd Font and Noto fonts
 
 ### Applications
@@ -117,6 +118,7 @@ The `init.sh` script automatically:
 ### Development Tools
 
 - **Git**: Pre-configured with aliases and settings
+- **Docker**: Container platform with Docker Compose
 - **Neovim**: Minimal setup for simple editing:
   - Git integration (Fugitive)
   - Text editing (Surround, Auto-pairs, Comments, Multiple-cursors)

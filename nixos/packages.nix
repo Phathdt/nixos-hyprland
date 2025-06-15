@@ -37,5 +37,7 @@
     git
     vscode
     tmux
+    docker
+    docker-compose
   ];
 }
