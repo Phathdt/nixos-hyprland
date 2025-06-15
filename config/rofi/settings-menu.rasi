@@ -89,7 +89,8 @@ element {
     text-color: @fg;
     orientation: horizontal;
     border-radius: 8px;
-    padding: 10px 12px;
+    padding: 12px 12px;
+    min-height: 32px;
 }
 
 element-icon {
@@ -97,8 +98,9 @@ element-icon {
     text-color: inherit;
     horizontal-align: 0.5;
     vertical-align: 0.5;
-    size: 20px;
+    size: 18px;
     border: 0;
+    margin: 0 4px 0 0;
 }
 
 element-text {
@@ -107,7 +109,7 @@ element-text {
     expand: true;
     horizontal-align: 0;
     vertical-align: 0.5;
-    margin: 0 4px 0 4px;
+    margin: 2px 4px 2px 4px;
 }
 
 element selected {
