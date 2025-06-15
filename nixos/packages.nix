@@ -83,7 +83,7 @@
     # GTK themes and customization
     dconf-editor
     gnome-themes-extra
-    gnome.gnome-tweaks
+    gnome-tweaks
     gtk-engine-murrine
     sassc
 
