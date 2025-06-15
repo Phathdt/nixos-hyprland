@@ -75,6 +75,7 @@
     "format-linked": "{ifname} (No IP)",
     "format-disconnected": "󰤭 Disconnected",
     "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "on-click": "~/.config/scripts/wifi-menu.sh",
     "on-click-right": "nm-connection-editor"
   },
   "pulseaudio": {

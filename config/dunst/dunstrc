@@ -9,7 +9,7 @@
     origin = top-right
     offset = 20x50
     scale = 0
-    notification_limit = 5
+    notification_limit = 3
 
     # Progress bar
     progress_bar = true
@@ -75,21 +75,21 @@
     background = "#292d3e"
     foreground = "#a6accd"
     frame_color = "#676e95"
-    timeout = 5
+    timeout = 3
     icon = dialog-information
 
 [urgency_normal]
     background = "#32364a"
     foreground = "#a6accd"
     frame_color = "#82aaff"
-    timeout = 8
+    timeout = 5
     icon = dialog-information
 
 [urgency_critical]
     background = "#f07178"
     foreground = "#292d3e"
     frame_color = "#f07178"
-    timeout = 0
+    timeout = 10
     icon = dialog-error
 
 # Custom rules for specific applications
@@ -98,7 +98,7 @@
     background = "#82aaff"
     foreground = "#292d3e"
     frame_color = "#82aaff"
-    timeout = 3
+    timeout = 2
     icon = preferences-desktop-wallpaper
 
 [volume]
@@ -106,7 +106,7 @@
     background = "#c792ea"
     foreground = "#292d3e"
     frame_color = "#c792ea"
-    timeout = 2
+    timeout = 1
     icon = audio-volume-high
 
 [brightness]
@@ -114,7 +114,7 @@
     background = "#ffcb6b"
     foreground = "#292d3e"
     frame_color = "#ffcb6b"
-    timeout = 2
+    timeout = 1
     icon = display-brightness
 
 [network]
@@ -122,7 +122,7 @@
     background = "#89ddff"
     foreground = "#292d3e"
     frame_color = "#89ddff"
-    timeout = 4
+    timeout = 3
     icon = network-wireless
 
 [bluetooth]
@@ -130,5 +130,5 @@
     background = "#c3e88d"
     foreground = "#292d3e"
     frame_color = "#c3e88d"
-    timeout = 4
+    timeout = 3
     icon = bluetooth
