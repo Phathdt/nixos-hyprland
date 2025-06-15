@@ -1,0 +1,160 @@
+configuration {
+    show-icons: true;
+    display-drun: "";
+    drun-display-format: "{name}";
+    disable-history: false;
+    sidebar-mode: false;
+}
+
+* {
+    bg: #292d3e;
+    bg-alt: #32364a;
+    fg: #a6accd;
+    fg-alt: #676e95;
+
+    blue: #82aaff;
+    cyan: #89ddff;
+    green: #c3e88d;
+    orange: #ffcb6b;
+    purple: #c792ea;
+    red: #f07178;
+    yellow: #ffcb6b;
+
+    background-color: @bg;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+}
+
+window {
+    background-color: @bg;
+    border: 2px;
+    border-color: @blue;
+    border-radius: 12px;
+    height: 60%;
+    width: 35%;
+    location: center;
+    x-offset: 0;
+    y-offset: 0;
+}
+
+prompt {
+    background-color: @blue;
+    enabled: true;
+    font: "JetBrains Mono Nerd Font 12";
+    padding: 8px 12px;
+    text-color: @bg;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: " ";
+    text-color: @blue;
+}
+
+entry {
+    background-color: @bg-alt;
+    font: "JetBrains Mono Nerd Font 11";
+    padding: 8px 12px;
+    text-color: @fg;
+    placeholder: "Search devices...";
+    placeholder-color: @fg-alt;
+}
+
+inputbar {
+    children: [prompt, entry];
+    background-color: @bg;
+    border-radius: 8px;
+    padding: 2px;
+}
+
+listview {
+    background-color: @bg;
+    columns: 1;
+    lines: 12;
+    cycle: true;
+    dynamic: true;
+    scrollbar: true;
+    layout: vertical;
+    reverse: false;
+    fixed-height: true;
+    fixed-columns: true;
+    spacing: 4px;
+    padding: 8px;
+}
+
+element {
+    background-color: @bg;
+    text-color: @fg;
+    orientation: horizontal;
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+
+element-icon {
+    background-color: inherit;
+    text-color: inherit;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    size: 20px;
+    border: 0;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+    expand: true;
+    horizontal-align: 0;
+    vertical-align: 0.5;
+    margin: 0 4px 0 4px;
+}
+
+element selected {
+    background-color: @blue;
+    text-color: @bg;
+    border-radius: 8px;
+}
+
+element.alternate {
+    background-color: @bg;
+}
+
+scrollbar {
+    width: 4px;
+    border: 0;
+    handle-color: @blue;
+    handle-width: 4px;
+    padding: 0;
+}
+
+sidebar {
+    border: 0;
+    border-color: @blue;
+    border-radius: 0;
+}
+
+message {
+    background-color: @bg-alt;
+    border: 0;
+    border-color: @blue;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 8px;
+}
+
+textbox {
+    background-color: inherit;
+    text-color: @fg;
+    vertical-align: 0.5;
+    horizontal-align: 0;
+}
+
+mainbox {
+    background-color: @bg;
+    border: 0;
+    border-radius: 12px;
+    children: [inputbar, listview];
+    spacing: 8px;
+    padding: 12px;
+}

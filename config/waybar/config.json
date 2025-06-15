@@ -13,6 +13,7 @@
     "network",
     "cpu",
     "memory",
+    "custom/settings",
     "custom/power"
   ],
   "hyprland/workspaces": {
@@ -107,10 +108,16 @@
     "format-off": "󰂲",
     "format-on": "󰂯",
     "format-connected": "󰂱 {num_connections}",
-    "tooltip-format": "Bluetooth: {status}\nConnected devices: {num_connections}",
-    "tooltip-format-connected": "Bluetooth: {status}\nConnected: {device_enumerate}",
+    "tooltip-format": "Bluetooth: {status}\nConnected devices: {num_connections}\nClick: Open Bluetooth Menu\nRight-click: Open Bluetooth Manager",
+    "tooltip-format-connected": "Bluetooth: {status}\nConnected: {device_enumerate}\nClick: Open Bluetooth Menu\nRight-click: Open Bluetooth Manager",
     "tooltip-format-enumerate-connected": "{device_alias}",
-    "on-click": "blueman-manager"
+    "on-click": "~/.config/scripts/bluetooth-menu.sh",
+    "on-click-right": "blueman-manager"
+  },
+  "custom/settings": {
+    "format": "󰒓",
+    "tooltip": "Settings Menu\nSuper+I",
+    "on-click": "~/.config/scripts/settings-menu.sh"
   },
   "custom/power": {
     "format": "󰐥",
