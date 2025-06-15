@@ -25,9 +25,6 @@
     jack.enable = true;
   };
 
-  # Network Manager
-  networking.networkmanager.enable = true;
-
   # Power management
   services.upower.enable = true;
   services.power-profiles-daemon.enable = true;
@@ -37,4 +34,10 @@
 
   # Location services
   services.geoclue2.enable = true;
+
+  # Virtualization
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = true;
+  };
 }

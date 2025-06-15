@@ -19,20 +19,7 @@
     enable = true;
   };
 
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
   security.polkit.enable = true;
-
-  virtualisation.docker = {
-    enable = true;
-    enableOnBoot = true;
-  };
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
