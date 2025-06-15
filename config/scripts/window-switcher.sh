@@ -3,52 +3,52 @@
 # Kill any existing rofi instances first
 pkill rofi 2>/dev/null
 
-# Function to get icon for application class
+# Function to get real icon name for application class
 get_app_icon() {
     local class="$1"
     case "${class,,}" in
         # Browsers
-        "brave-browser"|"brave") echo "🌐" ;;
-        "google-chrome"|"chrome") echo "🌐" ;;
-        "firefox") echo "🦊" ;;
+        "brave-browser"|"brave") echo "brave-browser" ;;
+        "google-chrome"|"chrome") echo "google-chrome" ;;
+        "firefox") echo "firefox" ;;
 
         # Terminals
-        "alacritty") echo "💻" ;;
-        "kitty") echo "🐱" ;;
-        "wezterm") echo "💻" ;;
-        "foot") echo "💻" ;;
+        "alacritty") echo "Alacritty" ;;
+        "kitty") echo "kitty" ;;
+        "wezterm") echo "org.wezfurlong.wezterm" ;;
+        "foot") echo "foot" ;;
 
         # File managers
-        "thunar") echo "📁" ;;
-        "nautilus") echo "📁" ;;
-        "pcmanfm") echo "📁" ;;
+        "thunar") echo "thunar" ;;
+        "nautilus") echo "org.gnome.Nautilus" ;;
+        "pcmanfm") echo "pcmanfm" ;;
 
         # Text editors
-        "code"|"vscode") echo "📝" ;;
-        "neovim"|"nvim") echo "✏️" ;;
-        "vim") echo "✏️" ;;
+        "code"|"vscode") echo "visual-studio-code" ;;
+        "neovim"|"nvim") echo "nvim" ;;
+        "vim") echo "vim" ;;
 
         # Communication
-        "telegram-desktop"|"telegram") echo "💬" ;;
-        "discord") echo "🎮" ;;
-        "slack") echo "💼" ;;
+        "telegram-desktop"|"telegram") echo "telegram" ;;
+        "discord") echo "discord" ;;
+        "slack") echo "slack" ;;
 
         # Media
-        "vlc") echo "🎬" ;;
-        "mpv") echo "🎬" ;;
-        "spotify") echo "🎵" ;;
+        "vlc") echo "vlc" ;;
+        "mpv") echo "mpv" ;;
+        "spotify") echo "spotify" ;;
 
         # System
-        "pavucontrol") echo "🔊" ;;
-        "blueman-manager") echo "📶" ;;
-        "nm-connection-editor") echo "🌐" ;;
+        "pavucontrol") echo "pavucontrol" ;;
+        "blueman-manager") echo "blueman" ;;
+        "nm-connection-editor") echo "nm-connection-editor" ;;
 
         # Development
-        "docker") echo "🐳" ;;
-        "postman") echo "📮" ;;
+        "docker") echo "docker" ;;
+        "postman") echo "postman" ;;
 
-        # Default
-        *) echo "🪟" ;;
+        # Default fallbacks
+        *) echo "application-x-executable" ;;
     esac
 }
 
@@ -63,27 +63,30 @@ get_windows() {
 
         # Add indicators for special states
         indicators=""
-        [ "$floating" = "true" ] && indicators="${indicators} 🪟"
-        [ "$fullscreen" = "true" ] && indicators="${indicators} ⛶"
+        [ "$floating" = "true" ] && indicators="${indicators} [Float]"
+        [ "$fullscreen" = "true" ] && indicators="${indicators} [Full]"
 
-        # Format: [Icon] [WS] Class: Title [indicators]
-        printf "%s [WS%s] %s: %s%s|%s\n" "$app_icon" "$workspace" "$class" "$clean_title" "$indicators" "$address"
+        # Format for rofi with icon metadata
+        printf "%s\x00icon\x1f%s\x1finfo\x1f%s\n" "[WS$workspace] $class: $clean_title$indicators" "$app_icon" "$address"
     done
 }
 
-# Show window menu with enhanced styling
+# Show window menu with real icons
 selected=$(get_windows | rofi -dmenu -i -p "󰖯 Switch Window" \
-    -theme-str 'window {width: 700px; height: 450px;}' \
+    -show-icons \
+    -icon-theme "Papirus-Dark" \
+    -theme-str 'window {width: 800px; height: 500px;}' \
     -theme-str 'listview {lines: 15;}' \
     -theme-str 'element-text {font: "JetBrainsMono Nerd Font 11";}' \
     -theme-str 'prompt {font: "JetBrainsMono Nerd Font Bold 12";}' \
+    -theme-str 'element-icon {size: 24px; margin: 0px 8px 0px 0px;}' \
     -auto-select \
     -no-lazy-grab \
-    -format 's')
+    -format 'i')
 
 if [ -n "$selected" ]; then
-    # Extract window address
-    address=$(echo "$selected" | cut -d'|' -f2)
+    # Extract window address from info field
+    address="$selected"
 
     if [ -n "$address" ]; then
         # Get window info for better handling
@@ -94,12 +97,10 @@ if [ -n "$selected" ]; then
 
             # Handle special cases
             if [ "$floating" = "true" ]; then
-                # For floating windows, try to bring to front first
                 hyprctl dispatch bringactivetotop 2>/dev/null
             fi
 
             if [ "$fullscreen" = "true" ]; then
-                # For fullscreen windows, exit fullscreen first then focus
                 hyprctl dispatch fullscreen 0 2>/dev/null
                 sleep 0.1
             fi
@@ -112,23 +113,9 @@ if [ -n "$selected" ]; then
             fi
         fi
 
-        # Try multiple methods to focus the window
-
-        # Method 1: Focus by address
-        if hyprctl dispatch focuswindow "address:$address" 2>/dev/null; then
-            exit 0
-        fi
-
-        # Method 2: Focus by PID (fallback for some applications)
-        if [ -n "$pid" ] && [ "$pid" != "null" ]; then
-            if hyprctl dispatch focuswindow "pid:$pid" 2>/dev/null; then
-                exit 0
-            fi
-        fi
-
-        # Method 3: Focus by class (last resort)
-        if [ -n "$class" ] && [ "$class" != "null" ]; then
-            hyprctl dispatch focuswindow "$class" 2>/dev/null
-        fi
+        # Focus the window using the most reliable method
+        hyprctl dispatch focuswindow "address:$address" 2>/dev/null || \
+        hyprctl dispatch focuswindow "pid:$pid" 2>/dev/null || \
+        hyprctl dispatch focuswindow "$class" 2>/dev/null
     fi
 fi
