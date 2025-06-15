@@ -277,8 +277,8 @@ if [ "$SKIP_WAYBAR" = false ]; then
             pkill waybar 2>/dev/null || true
             sleep 1
 
-            # Start waybar in background
-            waybar &
+            # Start waybar with explicit config files
+            waybar -c ~/.config/waybar/config.json -s ~/.config/waybar/style.css &
             sleep 2
 
             if pgrep -x "waybar" > /dev/null; then
@@ -331,7 +331,7 @@ echo "  • Hyprland: ~/.config/hypr/"
 echo "  • All configs: ~/.config/"
 echo ""
 print_status "🔧 Useful commands:"
-echo "  • Restart Waybar: pkill waybar && waybar &"
+echo "  • Restart Waybar: pkill waybar && waybar -c ~/.config/waybar/config.json -s ~/.config/waybar/style.css &"
 echo "  • Rebuild NixOS: sudo nixos-rebuild switch"
 echo "  • Update dotfiles only: $0 --dotfiles-only"
 echo "  • Rebuild NixOS only: $0 --nixos-only"
