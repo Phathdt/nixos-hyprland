@@ -52,7 +52,7 @@
 
     # File managers
     xfce.thunar
-    xfconf
+    xfce.xfconf
 
     # Web browsers
     brave
