@@ -59,7 +59,7 @@ $(get_paired_devices)"
     echo -e "$options" | rofi -dmenu \
         -i \
         -p "Bluetooth" \
-        -theme ~/.config/rofi/bluetooth-menu.rasi \
+        -theme ~/.config/rofi/bluetooth-menu-macos.rasi \
         -auto-select \
         -no-lazy-grab \
         -format "s" \
@@ -116,7 +116,7 @@ show_scan_menu() {
     local selection=$(echo -e "$devices" | rofi -dmenu \
         -i \
         -p "Available Devices" \
-        -theme ~/.config/rofi/bluetooth-menu.rasi \
+        -theme ~/.config/rofi/bluetooth-menu-macos.rasi \
         -auto-select \
         -no-lazy-grab \
         -format "s")

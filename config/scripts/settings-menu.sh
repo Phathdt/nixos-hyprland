@@ -26,7 +26,7 @@ show_settings_menu() {
     echo -e "$options" | rofi -dmenu \
         -i \
         -p "Settings" \
-        -theme ~/.config/rofi/settings-menu.rasi \
+        -theme ~/.config/rofi/settings-menu-macos.rasi \
         -auto-select \
         -no-lazy-grab \
         -format "s" \
@@ -106,7 +106,7 @@ show_reload_menu() {
     local selection=$(echo -e "$options" | rofi -dmenu \
         -i \
         -p "Reload Configuration" \
-        -theme ~/.config/rofi/settings-menu.rasi \
+        -theme ~/.config/rofi/settings-menu-macos.rasi \
         -auto-select \
         -no-lazy-grab \
         -format "s" \

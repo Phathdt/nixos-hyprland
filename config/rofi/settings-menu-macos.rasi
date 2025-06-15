@@ -7,8 +7,10 @@ configuration {
 }
 
 * {
-    bg: #292d3e;
+    bg: #292d3ecc;
+    bg-solid: #292d3e;
     bg-alt: #32364a;
+    bg-selected: #c792ea22;
     fg: #a6accd;
     fg-alt: #676e95;
 
@@ -20,77 +22,75 @@ configuration {
     red: #f07178;
     yellow: #ffcb6b;
 
-    background-color: @bg;
+    background-color: transparent;
     border: 0;
     margin: 0;
     padding: 0;
     spacing: 0;
+    font: "SF Pro Display 12";
 }
 
 window {
     background-color: @bg;
-    border: 2px;
-    border-color: @purple;
-    border-radius: 12px;
-    height: 90%;
-    width: 50%;
+    border: 1px solid #c792ea44;
+    border-radius: 16px;
+    height: 75%;
+    width: 420px;
     location: center;
     x-offset: 0;
     y-offset: 0;
+    transparency: "real";
 }
 
 prompt {
-    background-color: @purple;
-    enabled: true;
-    font: "JetBrains Mono Nerd Font 12";
-    padding: 8px 12px;
-    text-color: @bg;
+    enabled: false;
 }
 
 textbox-prompt-colon {
     expand: false;
-    str: " ";
-    text-color: @purple;
+    str: "";
 }
 
 entry {
     background-color: @bg-alt;
-    font: "JetBrains Mono Nerd Font 11";
-    padding: 8px 12px;
+    font: "SF Pro Display 11";
+    padding: 12px 16px;
     text-color: @fg;
     placeholder: "Search settings...";
     placeholder-color: @fg-alt;
+    border-radius: 12px;
+    margin: 0 0 8px 0;
 }
 
 inputbar {
-    children: [prompt, entry];
-    background-color: @bg;
-    border-radius: 8px;
-    padding: 2px;
+    children: [entry];
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
 }
 
 listview {
-    background-color: @bg;
+    background-color: transparent;
     columns: 1;
-    lines: 20;
+    lines: 15;
     cycle: true;
     dynamic: true;
-    scrollbar: true;
+    scrollbar: false;
     layout: vertical;
     reverse: false;
     fixed-height: false;
     fixed-columns: true;
-    spacing: 6px;
-    padding: 12px;
+    spacing: 2px;
+    padding: 0;
 }
 
 element {
-    background-color: @bg;
+    background-color: transparent;
     text-color: @fg;
     orientation: horizontal;
-    border-radius: 8px;
-    padding: 12px 12px;
-    min-height: 32px;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin: 0;
 }
 
 element-icon {
@@ -98,9 +98,9 @@ element-icon {
     text-color: inherit;
     horizontal-align: 0.5;
     vertical-align: 0.5;
-    size: 18px;
+    size: 16px;
     border: 0;
-    margin: 0 4px 0 0;
+    margin: 0 8px 0 0;
 }
 
 element-text {
@@ -109,40 +109,54 @@ element-text {
     expand: true;
     horizontal-align: 0;
     vertical-align: 0.5;
-    margin: 2px 4px 2px 4px;
+    margin: 0;
+    font: "SF Pro Display 12";
+}
+
+element normal {
+    background-color: transparent;
+    text-color: @fg;
 }
 
 element selected {
-    background-color: @purple;
-    text-color: @bg;
-    border-radius: 8px;
+    background-color: @bg-selected;
+    text-color: @purple;
+    border-radius: 10px;
 }
 
-element.alternate {
-    background-color: @bg;
+element alternate {
+    background-color: transparent;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element selected.normal {
+    background-color: @bg-selected;
+    text-color: @purple;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color: @fg;
 }
 
 scrollbar {
-    width: 4px;
-    border: 0;
-    handle-color: @purple;
-    handle-width: 4px;
-    padding: 0;
+    width: 0;
 }
 
 sidebar {
     border: 0;
-    border-color: @purple;
-    border-radius: 0;
 }
 
 message {
     background-color: @bg-alt;
     border: 0;
-    border-color: @purple;
-    border-radius: 8px;
-    padding: 8px;
-    margin: 8px;
+    border-radius: 12px;
+    padding: 12px;
+    margin: 8px 0;
 }
 
 textbox {
@@ -150,13 +164,14 @@ textbox {
     text-color: @fg;
     vertical-align: 0.5;
     horizontal-align: 0;
+    font: "SF Pro Display 11";
 }
 
 mainbox {
-    background-color: @bg;
+    background-color: transparent;
     border: 0;
-    border-radius: 12px;
+    border-radius: 16px;
     children: [inputbar, listview];
-    spacing: 10px;
-    padding: 15px;
+    spacing: 12px;
+    padding: 20px;
 }

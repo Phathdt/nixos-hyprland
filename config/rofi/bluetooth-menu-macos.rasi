@@ -1,0 +1,177 @@
+configuration {
+    show-icons: true;
+    display-drun: "";
+    drun-display-format: "{name}";
+    disable-history: false;
+    sidebar-mode: false;
+}
+
+* {
+    bg: #292d3ecc;
+    bg-solid: #292d3e;
+    bg-alt: #32364a;
+    bg-selected: #82aaff22;
+    fg: #a6accd;
+    fg-alt: #676e95;
+
+    blue: #82aaff;
+    cyan: #89ddff;
+    green: #c3e88d;
+    orange: #ffcb6b;
+    purple: #c792ea;
+    red: #f07178;
+    yellow: #ffcb6b;
+
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+    font: "SF Pro Display 12";
+}
+
+window {
+    background-color: @bg;
+    border: 1px solid #82aaff44;
+    border-radius: 16px;
+    height: 70%;
+    width: 380px;
+    location: center;
+    x-offset: 0;
+    y-offset: 0;
+    transparency: "real";
+}
+
+prompt {
+    enabled: false;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: "";
+}
+
+entry {
+    background-color: @bg-alt;
+    font: "SF Pro Display 11";
+    padding: 12px 16px;
+    text-color: @fg;
+    placeholder: "Search Bluetooth devices...";
+    placeholder-color: @fg-alt;
+    border-radius: 12px;
+    margin: 0 0 8px 0;
+}
+
+inputbar {
+    children: [entry];
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+listview {
+    background-color: transparent;
+    columns: 1;
+    lines: 12;
+    cycle: true;
+    dynamic: true;
+    scrollbar: false;
+    layout: vertical;
+    reverse: false;
+    fixed-height: false;
+    fixed-columns: true;
+    spacing: 2px;
+    padding: 0;
+}
+
+element {
+    background-color: transparent;
+    text-color: @fg;
+    orientation: horizontal;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin: 0;
+}
+
+element-icon {
+    background-color: inherit;
+    text-color: inherit;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    size: 16px;
+    border: 0;
+    margin: 0 8px 0 0;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+    expand: true;
+    horizontal-align: 0;
+    vertical-align: 0.5;
+    margin: 0;
+    font: "SF Pro Display 12";
+}
+
+element normal {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element selected {
+    background-color: @bg-selected;
+    text-color: @blue;
+    border-radius: 10px;
+}
+
+element alternate {
+    background-color: transparent;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element selected.normal {
+    background-color: @bg-selected;
+    text-color: @blue;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+scrollbar {
+    width: 0;
+}
+
+sidebar {
+    border: 0;
+}
+
+message {
+    background-color: @bg-alt;
+    border: 0;
+    border-radius: 12px;
+    padding: 12px;
+    margin: 8px 0;
+}
+
+textbox {
+    background-color: inherit;
+    text-color: @fg;
+    vertical-align: 0.5;
+    horizontal-align: 0;
+    font: "SF Pro Display 11";
+}
+
+mainbox {
+    background-color: transparent;
+    border: 0;
+    border-radius: 16px;
+    children: [inputbar, listview];
+    spacing: 12px;
+    padding: 20px;
+}
