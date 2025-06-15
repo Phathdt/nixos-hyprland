@@ -7,7 +7,7 @@ My personal dotfiles configuration for NixOS with Hyprland window manager.
 - **NixOS Configuration**: Modular NixOS system configuration
 - **Hyprland**: Wayland compositor with custom configuration
 - **Terminal Setup**: Alacritty + Tmux with custom themes
-- **Development Tools**: Git, Neovim, and productivity tools
+- **Development Environment**: Neovim with essential plugins, Git, and productivity tools
 - **Automated Setup**: One-command installation script
 
 ## Structure
@@ -16,6 +16,8 @@ My personal dotfiles configuration for NixOS with Hyprland window manager.
 ├── config/                    # XDG config files → ~/.config/
 │   ├── alacritty/            # Terminal emulator config
 │   ├── hypr/                 # Hyprland window manager
+│   ├── nvim/                 # Neovim editor configuration
+│   │   └── init.vim          # Main neovim config with plugins
 │   ├── rofi/                 # Application launcher
 │   └── tmux/                 # Terminal multiplexer (XDG)
 ├── root_config/              # Home directory dotfiles → ~/
@@ -70,6 +72,17 @@ My personal dotfiles configuration for NixOS with Hyprland window manager.
    # Press Ctrl+s + I to install plugins
    ```
 
+5. **Install neovim plugins**:
+   ```bash
+   # Install vim-plug
+   curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+   # Open neovim and install plugins
+   nvim
+   # Run :PlugInstall
+   ```
+
 ## What the Setup Script Does
 
 The `init.sh` script automatically:
@@ -94,9 +107,9 @@ The `init.sh` script automatically:
 
 ### Applications
 
-- **Terminal**: Alacritty with custom theme
+- **Terminal**: Alacritty with custom theme and JetBrainsMono Nerd Font
 - **Shell**: Zsh with Oh My Zsh
-- **Editor**: Neovim
+- **Editor**: Neovim with essential editing plugins
 - **Browser**: Brave, Google Chrome
 - **File Manager**: Nautilus
 - **Launcher**: Rofi with Wayland support
@@ -104,9 +117,15 @@ The `init.sh` script automatically:
 ### Development Tools
 
 - **Git**: Pre-configured with aliases and settings
+- **Neovim**: Minimal setup for simple editing:
+  - Git integration (Fugitive)
+  - Text editing (Surround, Auto-pairs, Comments, Multiple-cursors)
+  - Navigation (EasyMotion, Enhanced search)
+  - Visual enhancements (Airline, IndentLine, Trailing-whitespace)
+  - Theme (Palenight)
 - **Tmux**: Custom keybindings (Ctrl+s prefix)
 - **Terminal**: 256-color support, clipboard integration
-- **Fonts**: Nerd fonts for icons and symbols
+- **Fonts**: JetBrainsMono Nerd Font for icons and symbols
 
 ## Customization
 
@@ -144,6 +163,17 @@ Update your personal info in `root_config/git/gitconfig`:
 - `Ctrl+s + r`: Reload config
 - `Ctrl+h/j/k/l`: Navigate panes (Vim-style)
 
+### Neovim (Leader: Space)
+
+- `Space + /`: Toggle comment
+- `Space + v`: Vertical split
+- `Space + h`: Horizontal split
+- `Space + s`: Jump to 2 characters (EasyMotion)
+- `Space + w`: Jump to word (EasyMotion)
+- `Ctrl+h/j/k/l`: Navigate windows
+- `/`, `?`: Search forward/backward
+- `*`, `#`: Search word under cursor
+
 ### Hyprland
 
 See `config/hypr/hyprland.conf` for complete keybindings.
@@ -155,6 +185,7 @@ See `config/hypr/hyprland.conf` for complete keybindings.
 1. **Hardware config not found**: Run `sudo nixos-generate-config` first
 2. **Tmux plugins not working**: Install TPM with `Ctrl+s + I`
 3. **Git config not applied**: Check symlinks with `ls -la ~/.gitconfig`
+4. **Neovim plugins not working**: Install vim-plug and run `:PlugInstall`
 
 ### Logs
 
