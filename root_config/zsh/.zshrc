@@ -18,6 +18,14 @@ zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/docker", from:oh-my-zsh
 zplug "plugins/docker-compose", from:oh-my-zsh
 
+# Install plugins if not installed
+if ! zplug check --verbose; then
+    printf "Install zplug plugins? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
 # Load plugins
 zplug load
 

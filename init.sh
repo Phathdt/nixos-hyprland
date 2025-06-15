@@ -119,28 +119,15 @@ fi
 
 # Auto-install zplug plugins
 print_status "Installing zsh plugins with zplug..."
-if [ -d ~/.zplug ] && [ -f ~/.zplug/init.zsh ]; then
-    # Source zplug and install plugins
-    export ZPLUG_HOME=~/.zplug
-    source ~/.zplug/init.zsh
-
-    # Check if .zshrc exists and source it
-    if [ -f ~/.zshrc ]; then
-        # Extract only zplug commands from .zshrc to avoid sourcing issues
-        grep "^zplug " ~/.zshrc > /tmp/zplug_plugins.zsh 2>/dev/null || true
-        if [ -s /tmp/zplug_plugins.zsh ]; then
-            source /tmp/zplug_plugins.zsh
-            zplug install
-            rm -f /tmp/zplug_plugins.zsh
-            print_success "zsh plugins installed"
-        else
-            print_warning "No zplug plugins found in .zshrc"
-        fi
-    else
-        print_warning ".zshrc not found, skipping plugin installation"
-    fi
+if [ -d ~/.zplug ] && [ -f ~/.zshrc ]; then
+    print_status "Running zplug install in zsh..."
+    # Run zplug install in a proper zsh environment
+    zsh -c "source ~/.zplug/init.zsh && source ~/.zshrc && zplug install" 2>/dev/null || {
+        print_warning "zplug install failed, plugins will be installed on first zsh startup"
+    }
+    print_success "zsh plugins setup completed"
 else
-    print_warning "zplug not properly installed, skipping plugin installation"
+    print_warning "zplug or .zshrc not found, plugins will be installed on first zsh startup"
 fi
 
 # Auto-install tmux plugins
