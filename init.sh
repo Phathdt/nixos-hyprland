@@ -69,8 +69,11 @@ if [ -d "$DOTFILES_DIR/root_config" ]; then
             for file in "$root_config_folder"/*; do
                 if [ -f "$file" ]; then
                     filename=$(basename "$file")
-                    print_status "  Symlinking $filename to ~/.$filename"
-                    ln -sf "$file" ~/."$filename"
+                    # Remove existing symlink/file first
+                    [ -L ~/"$filename" ] && rm ~/"$filename"
+                    [ -f ~/"$filename" ] && rm ~/"$filename"
+                    print_status "  Symlinking $filename to ~/$filename"
+                    ln -sf "$file" ~/"$filename"
                 fi
             done
         fi
