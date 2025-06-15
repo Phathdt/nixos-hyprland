@@ -53,7 +53,7 @@ create_desktop_entries() {
 Type=Application
 Name=$name
 Comment=Set wallpaper: $basename
-Exec=sh -c 'hyprctl hyprpaper wallpaper ",$wallpaper" && notify-send -a "Wallpaper" "Wallpaper Changed" "Set: $basename"'
+Exec=sh -c 'if ! pgrep -x hyprpaper > /dev/null; then hyprpaper & sleep 2; fi && hyprctl hyprpaper preload "$wallpaper" 2>/dev/null && sleep 0.5 && hyprctl hyprpaper wallpaper ",$wallpaper" && notify-send -a "Wallpaper" "Wallpaper Changed" "Set: $basename"'
 Icon=$thumbnail
 Categories=Graphics;
 NoDisplay=false
@@ -93,12 +93,13 @@ show_menu() {
 
 # Function to add random wallpaper option
 add_random_option() {
+    local script_path="$(realpath "$0")"
     cat > "$TEMP_DIR/applications/wallpaper-random.desktop" << EOF
 [Desktop Entry]
 Type=Application
 Name=🎲 Random Wallpaper
 Comment=Set a random wallpaper
-Exec=sh -c '$0 random-exec'
+Exec=sh -c '$script_path random-exec'
 Icon=preferences-desktop-wallpaper
 Categories=Graphics;
 NoDisplay=false
@@ -111,10 +112,19 @@ case "$1" in
     "random-exec")
         WALLPAPER=$(find "$WALLPAPER_DIR" -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.jpeg" -o -name "*.webp" \) | shuf -n 1)
         if [ -n "$WALLPAPER" ]; then
+            # Ensure hyprpaper is running
+            if ! pgrep -x hyprpaper > /dev/null; then
+                hyprpaper &
+                sleep 2
+            fi
+
+            # Preload and set wallpaper
+            hyprctl hyprpaper preload "$WALLPAPER" 2>/dev/null
+            sleep 0.5
             hyprctl hyprpaper wallpaper ",$WALLPAPER"
-            notify-send "Wallpaper" "Random wallpaper set: $(basename "$WALLPAPER")"
+            notify-send -a "Wallpaper" "Random Wallpaper" "Set: $(basename "$WALLPAPER")"
         else
-            notify-send "Wallpaper" "No wallpapers found!"
+            notify-send -a "Wallpaper" "No Wallpapers" "No wallpapers found!"
         fi
         ;;
     *)
