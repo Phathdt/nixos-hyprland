@@ -26,14 +26,16 @@ generate_thumbnail() {
 
 # Function to create desktop entries for wallpapers
 create_desktop_entries() {
-    rm -rf "$TEMP_DIR"/*.desktop 2>/dev/null
+    # Create applications directory structure
+    mkdir -p "$TEMP_DIR/applications"
+    rm -rf "$TEMP_DIR/applications"/*.desktop 2>/dev/null
 
     local count=0
     while IFS= read -r -d '' wallpaper; do
         local basename=$(basename "$wallpaper")
         local name="${basename%.*}"
         local thumbnail="$THUMBNAIL_DIR/${basename}.png"
-        local desktop_file="$TEMP_DIR/${name}.desktop"
+        local desktop_file="$TEMP_DIR/applications/wallpaper-${name}.desktop"
 
         # Generate thumbnail if it doesn't exist
         if [ ! -f "$thumbnail" ]; then
@@ -45,16 +47,17 @@ create_desktop_entries() {
             fi
         fi
 
-        # Create desktop entry
+        # Create desktop entry with proper escaping
         cat > "$desktop_file" << EOF
 [Desktop Entry]
 Type=Application
 Name=$name
 Comment=Set wallpaper: $basename
-Exec=hyprctl hyprpaper wallpaper ",$wallpaper" && notify-send "Wallpaper" "Set: $basename"
+Exec=sh -c 'hyprctl hyprpaper wallpaper ",$wallpaper" && notify-send -a "Wallpaper" "Wallpaper Changed" "Set: $basename"'
 Icon=$thumbnail
 Categories=Graphics;
 NoDisplay=false
+StartupNotify=false
 EOF
         ((count++))
     done < <(find "$WALLPAPER_DIR" -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.jpeg" -o -name "*.webp" \) -print0)
@@ -72,13 +75,12 @@ show_menu() {
     create_desktop_entries
 
     # Show rofi menu with custom theme
-    rofi -show drun -drun-categories Graphics -theme ~/.config/rofi/wallpaper-menu.rasi \
+    export XDG_DATA_DIRS="$TEMP_DIR:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
+    rofi -show drun \
+         -drun-categories Graphics \
+         -theme ~/.config/rofi/wallpaper-menu.rasi \
          -drun-match-fields name,comment \
          -drun-display-format "{name}" \
-         -no-default-config \
-         -cache-dir "$TEMP_DIR" \
-         -drun-use-desktop-cache \
-         -drun-reload-desktop-cache \
          -show-icons \
          -icon-theme "Papirus" \
          -markup-rows \
@@ -91,15 +93,16 @@ show_menu() {
 
 # Function to add random wallpaper option
 add_random_option() {
-    cat > "$TEMP_DIR/Random.desktop" << EOF
+    cat > "$TEMP_DIR/applications/wallpaper-random.desktop" << EOF
 [Desktop Entry]
 Type=Application
 Name=🎲 Random Wallpaper
 Comment=Set a random wallpaper
-Exec=$0 random-exec
+Exec=sh -c '$0 random-exec'
 Icon=preferences-desktop-wallpaper
 Categories=Graphics;
 NoDisplay=false
+StartupNotify=false
 EOF
 }
 
