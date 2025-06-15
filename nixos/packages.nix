@@ -24,7 +24,6 @@
     neovim
     vim
     vscode
-    code-cursor
 
     # Version control
     git

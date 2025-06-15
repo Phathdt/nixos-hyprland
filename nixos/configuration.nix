@@ -9,6 +9,7 @@
     ./users.nix
     ./desktop.nix
     ./packages.nix
+    ./unstable.nix
     ./programs.nix
     ./fonts.nix
     ./ssh.nix

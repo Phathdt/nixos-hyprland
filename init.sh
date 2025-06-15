@@ -262,6 +262,19 @@ else
     print_warning "Skipping plugin managers setup"
 fi
 
+# Setup unstable channel if needed
+if [ "$SKIP_NIXOS" = false ]; then
+    print_status "Checking unstable channel..."
+    if ! nix-channel --list | grep -q "nixos-unstable"; then
+        print_status "Adding nixos-unstable channel..."
+        sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
+        sudo nix-channel --update
+        print_success "Unstable channel added"
+    else
+        print_status "Unstable channel already exists"
+    fi
+fi
+
 # Apply NixOS configuration
 if [ "$SKIP_NIXOS" = false ]; then
     print_status "Applying NixOS configuration..."
