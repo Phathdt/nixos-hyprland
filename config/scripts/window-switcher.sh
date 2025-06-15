@@ -3,26 +3,80 @@
 # Kill any existing rofi instances first
 pkill rofi 2>/dev/null
 
-# Get window list with workspace info
+# Function to get icon for application class
+get_app_icon() {
+    local class="$1"
+    case "${class,,}" in
+        # Browsers
+        "brave-browser"|"brave") echo "🌐" ;;
+        "google-chrome"|"chrome") echo "🌐" ;;
+        "firefox") echo "🦊" ;;
+
+        # Terminals
+        "alacritty") echo "💻" ;;
+        "kitty") echo "🐱" ;;
+        "wezterm") echo "💻" ;;
+        "foot") echo "💻" ;;
+
+        # File managers
+        "thunar") echo "📁" ;;
+        "nautilus") echo "📁" ;;
+        "pcmanfm") echo "📁" ;;
+
+        # Text editors
+        "code"|"vscode") echo "📝" ;;
+        "neovim"|"nvim") echo "✏️" ;;
+        "vim") echo "✏️" ;;
+
+        # Communication
+        "telegram-desktop"|"telegram") echo "💬" ;;
+        "discord") echo "🎮" ;;
+        "slack") echo "💼" ;;
+
+        # Media
+        "vlc") echo "🎬" ;;
+        "mpv") echo "🎬" ;;
+        "spotify") echo "🎵" ;;
+
+        # System
+        "pavucontrol") echo "🔊" ;;
+        "blueman-manager") echo "📶" ;;
+        "nm-connection-editor") echo "🌐" ;;
+
+        # Development
+        "docker") echo "🐳" ;;
+        "postman") echo "📮" ;;
+
+        # Default
+        *) echo "🪟" ;;
+    esac
+}
+
+# Get window list with workspace info and icons
 get_windows() {
     hyprctl clients -j | jq -r '.[] | select(.mapped == true and .workspace.id > 0) | "\(.address)|\(.workspace.id)|\(.class)|\(.title)|\(.floating)|\(.fullscreen)"' | while IFS='|' read -r address workspace class title floating fullscreen; do
         # Clean up title (remove newlines and limit length)
-        clean_title=$(echo "$title" | tr -d '\n\r' | cut -c1-50)
+        clean_title=$(echo "$title" | tr -d '\n\r' | cut -c1-45)
+
+        # Get application icon
+        app_icon=$(get_app_icon "$class")
 
         # Add indicators for special states
         indicators=""
-        [ "$floating" = "true" ] && indicators="${indicators}🪟"
-        [ "$fullscreen" = "true" ] && indicators="${indicators}⛶"
+        [ "$floating" = "true" ] && indicators="${indicators} 🪟"
+        [ "$fullscreen" = "true" ] && indicators="${indicators} ⛶"
 
-        # Format: [Workspace] Class: Title [indicators]
-        printf "[WS%s] %s: %s %s|%s\n" "$workspace" "$class" "$clean_title" "$indicators" "$address"
+        # Format: [Icon] [WS] Class: Title [indicators]
+        printf "%s [WS%s] %s: %s%s|%s\n" "$app_icon" "$workspace" "$class" "$clean_title" "$indicators" "$address"
     done
 }
 
-# Show window menu
-selected=$(get_windows | rofi -dmenu -i -p "Switch to Window" \
-    -theme-str 'window {width: 600px; height: 400px;}' \
-    -theme-str 'listview {lines: 12;}' \
+# Show window menu with enhanced styling
+selected=$(get_windows | rofi -dmenu -i -p "󰖯 Switch Window" \
+    -theme-str 'window {width: 700px; height: 450px;}' \
+    -theme-str 'listview {lines: 15;}' \
+    -theme-str 'element-text {font: "JetBrainsMono Nerd Font 11";}' \
+    -theme-str 'prompt {font: "JetBrainsMono Nerd Font Bold 12";}' \
     -auto-select \
     -no-lazy-grab \
     -format 's')
@@ -32,7 +86,7 @@ if [ -n "$selected" ]; then
     address=$(echo "$selected" | cut -d'|' -f2)
 
     if [ -n "$address" ]; then
-                # Get window info for better handling
+        # Get window info for better handling
         window_info=$(hyprctl clients -j | jq -r ".[] | select(.address == \"$address\") | \"\(.pid)|\(.class)|\(.floating)|\(.fullscreen)|\(.workspace.id)\"" 2>/dev/null)
 
         if [ -n "$window_info" ]; then
