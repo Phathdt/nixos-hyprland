@@ -271,18 +271,24 @@ fi
 if [ "$SKIP_WAYBAR" = false ]; then
     print_status "Setting up Waybar with Material Palenight theme..."
     if command -v waybar >/dev/null 2>&1; then
-        # Kill existing waybar if running
-        pkill waybar 2>/dev/null || true
-        sleep 1
+        # Check if we have a display (for testing on non-Linux systems)
+        if [ -n "$DISPLAY" ] || [ -n "$WAYLAND_DISPLAY" ]; then
+            # Kill existing waybar if running
+            pkill waybar 2>/dev/null || true
+            sleep 1
 
-        # Start waybar in background
-        waybar &
-        sleep 2
+            # Start waybar in background
+            waybar &
+            sleep 2
 
-        if pgrep -x "waybar" > /dev/null; then
-            print_success "Waybar started with Material Palenight theme!"
+            if pgrep -x "waybar" > /dev/null; then
+                print_success "Waybar started with Material Palenight theme!"
+            else
+                print_warning "Waybar may need manual restart after reboot"
+            fi
         else
-            print_warning "Waybar may need manual restart after reboot"
+            print_warning "No display available - Waybar will start automatically on NixOS with Hyprland"
+            print_success "Waybar configuration ready for Material Palenight theme!"
         fi
     else
         print_warning "Waybar not found, will be available after NixOS rebuild"

@@ -350,12 +350,22 @@ zplug status
 
 # Reinstall plugins
 zplug clear && zplug install
+
+# Test Waybar configuration (on NixOS)
+waybar --config ~/.config/waybar/config.json --style ~/.config/waybar/style.css
 ```
 
 ### Logs
 
 - **NixOS build**: `sudo nixos-rebuild switch --show-trace`
 - **Hyprland**: `journalctl -u display-manager`
+- **Waybar**: `waybar --log-level debug`
+
+### Notes
+
+- **Testing on macOS**: Waybar cannot start without a Wayland/X11 display, but configuration files will be properly set up
+- **GTK3 CSS**: Waybar uses GTK3 CSS which has some limitations compared to web CSS (no `transform`, `cubic-bezier`, etc.)
+- **NixOS specific**: Some features like hardware monitoring require NixOS environment
 
 ## Contributing
 
