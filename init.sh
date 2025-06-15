@@ -19,8 +19,19 @@ sudo ln -sf "$DOTFILES_DIR/nixos/configuration.nix" /etc/nixos/configuration.nix
 echo "Creating ~/.config directory if it doesn't exist..."
 mkdir -p ~/.config
 
-echo "Creating symlink for Hyprland configuration..."
-ln -sf "$DOTFILES_DIR/hypr" ~/.config/
+echo "Creating symlinks for all config folders..."
+for config_dir in "$DOTFILES_DIR/config"/*; do
+    if [ -d "$config_dir" ]; then
+        config_name=$(basename "$config_dir")
+        echo "Symlinking $config_name..."
+        ln -sf "$config_dir" ~/.config/
+    fi
+done
+
+echo "Creating symlink for legacy hypr folder (if exists)..."
+if [ -d "$DOTFILES_DIR/hypr" ]; then
+    ln -sf "$DOTFILES_DIR/hypr" ~/.config/
+fi
 
 echo "Dotfiles setup complete!"
 echo "You can now run 'sudo nixos-rebuild switch' to apply the configuration."
