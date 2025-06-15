@@ -18,6 +18,7 @@
     rofi
     rofi-wayland
     rofimoji
+    papirus-icon-theme
     cliphist
     wl-clipboard
     hyprlock

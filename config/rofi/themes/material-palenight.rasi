@@ -1,0 +1,203 @@
+/*
+ * Material Palenight Theme for Rofi
+ * Based on Material Palenight color scheme
+ */
+
+* {
+    /* Material Palenight Colors */
+    bg-primary:     #292D3E;
+    bg-secondary:   #1E1E2E;
+    bg-selected:    #3A3F58;
+    bg-urgent:      #F07178;
+
+    fg-primary:     #EEFFFF;
+    fg-secondary:   #A6ACCD;
+    fg-selected:    #FFFFFF;
+    fg-urgent:      #292D3E;
+
+    accent:         #C792EA;
+    accent-alt:     #82AAFF;
+    accent-urgent:  #FF5370;
+
+    border-color:   #3A3F58;
+    separatorcolor: #3A3F58;
+
+    background-color: transparent;
+    text-color: @fg-primary;
+}
+
+window {
+    transparency: "real";
+    location: center;
+    anchor: center;
+    fullscreen: false;
+    width: 600px;
+    x-offset: 0px;
+    y-offset: 0px;
+
+    enabled: true;
+    margin: 0px;
+    padding: 0px;
+    border: 2px solid;
+    border-radius: 12px;
+    border-color: @border-color;
+    background-color: @bg-primary;
+    cursor: "default";
+}
+
+mainbox {
+    enabled: true;
+    spacing: 10px;
+    margin: 0px;
+    padding: 20px;
+    border: 0px solid;
+    border-radius: 0px 0px 0px 0px;
+    border-color: @border-color;
+    background-color: transparent;
+    children: [ "inputbar", "message", "listview" ];
+}
+
+inputbar {
+    enabled: true;
+    spacing: 10px;
+    margin: 0px 0px 10px 0px;
+    padding: 12px 16px;
+    border: 0px solid;
+    border-radius: 8px;
+    border-color: @border-color;
+    background-color: @bg-secondary;
+    text-color: @fg-primary;
+    children: [ "prompt", "textbox-prompt-colon", "entry" ];
+}
+
+prompt {
+    enabled: true;
+    background-color: transparent;
+    text-color: @accent;
+    font: "JetBrainsMono Nerd Font Bold 12";
+}
+
+textbox-prompt-colon {
+    enabled: true;
+    expand: false;
+    str: "";
+    background-color: transparent;
+    text-color: @accent;
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+entry {
+    enabled: true;
+    background-color: transparent;
+    text-color: @fg-primary;
+    cursor: text;
+    placeholder: "Search applications...";
+    placeholder-color: @fg-secondary;
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+listview {
+    enabled: true;
+    columns: 1;
+    lines: 8;
+    cycle: true;
+    dynamic: true;
+    scrollbar: false;
+    layout: vertical;
+    reverse: false;
+    fixed-height: true;
+    fixed-columns: true;
+
+    spacing: 4px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px solid;
+    border-radius: 0px;
+    border-color: @border-color;
+    background-color: transparent;
+    text-color: @fg-primary;
+    cursor: "default";
+}
+
+scrollbar {
+    handle-width: 5px;
+    handle-color: @accent;
+    border-radius: 8px;
+    background-color: @bg-secondary;
+}
+
+element {
+    enabled: true;
+    spacing: 12px;
+    margin: 0px;
+    padding: 12px;
+    border: 0px solid;
+    border-radius: 8px;
+    border-color: @border-color;
+    background-color: transparent;
+    text-color: @fg-primary;
+    cursor: pointer;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @fg-primary;
+}
+
+element selected.normal {
+    background-color: @bg-selected;
+    text-color: @fg-selected;
+    border: 1px solid;
+    border-color: @accent;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color: @fg-primary;
+}
+
+element-icon {
+    background-color: transparent;
+    text-color: inherit;
+    size: 24px;
+    cursor: inherit;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    highlight: bold @accent;
+    cursor: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+    font: "JetBrainsMono Nerd Font 11";
+}
+
+message {
+    enabled: true;
+    margin: 0px 0px 10px 0px;
+    padding: 12px;
+    border: 0px solid;
+    border-radius: 8px;
+    border-color: @border-color;
+    background-color: @bg-secondary;
+    text-color: @fg-primary;
+}
+
+textbox {
+    background-color: transparent;
+    text-color: @fg-primary;
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+    highlight: none;
+    font: "JetBrainsMono Nerd Font 11";
+}
+
+error-message {
+    padding: 20px;
+    border: 2px solid;
+    border-radius: 12px;
+    border-color: @accent-urgent;
+    background-color: @bg-primary;
+    text-color: @fg-primary;
+}

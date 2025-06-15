@@ -1,16 +1,30 @@
 configuration{
-    modi: "drun";
-    icon-theme: "Numix-Circle";
-    font: "JetBrainsMono Nerd Font Regular 13";
+    modi: "drun,run,window";
+    icon-theme: "Papirus-Dark";
+    font: "JetBrainsMono Nerd Font Regular 12";
     show-icons: true;
-    terminal: "wezterm";
+    terminal: "alacritty";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;
     hide-scrollbar: true;
-    display-drun: "   Apps ";
-    sidebar-mode: true;
-    border-radius: 10;
+    display-drun: "  Apps";
+    display-run: "  Run";
+    display-window: "  Windows";
+    sidebar-mode: false;
+    hover-select: true;
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
+    scroll-method: 0;
+    case-sensitive: false;
+    cycle: true;
+    eh: 1;
+    auto-select: false;
+    parse-hosts: true;
+    parse-known-hosts: true;
+    combi-modi: "drun,run";
+    matching: "fuzzy";
+    tokenize: true;
 }
 
-@theme "~/.config/rofi/themes/catppuccin-macchiato.rasi"
+@theme "~/.config/rofi/themes/material-palenight.rasi"
