@@ -4,53 +4,94 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    wget
+    # System utilities
+    acpi
+    brightnessctl
     curl
-    neovim
-    wl-clipboard
-    vim
     htop
-    brave
-    google-chrome
-    alacritty
-    kitty
-    nautilus
+    jq
+    libnotify
+    lm_sensors
+    upower
+    wget
+
+    # Shell and terminal
+    oh-my-zsh
+    tmux
+    zsh
+
+    # Text editors
+    neovim
+    vim
+    vscode
+
+    # Version control
+    git
+
+    # Wayland/Hyprland ecosystem
+    grim
+    hyprlock
+    hyprpaper
+    hyprpicker
+    slurp
+    swaybg
+    swww
+    wl-clipboard
+
+    # Window manager and desktop
+    dunst
     rofi
     rofi-wayland
     rofimoji
-    papirus-icon-theme
-    cliphist
-    wl-clipboard
-    hyprlock
-    playerctl
-    hyprpicker
-    dunst
     waybar
-    swaybg
-    grim
-    slurp
-    pavucontrol
-    networkmanagerapplet
-    brightnessctl
-    jq
-    zsh
-    oh-my-zsh
-    swww
-    git
-    vscode
-    tmux
-    docker
-    docker-compose
     wlogout
-    lm_sensors
-    acpi
-    upower
+
+    # Terminal emulators
+    alacritty
+    kitty
+
+    # File managers
+    nautilus
+
+    # Web browsers
+    brave
+    google-chrome
+
+    # Media and audio
+    pavucontrol
+    playerctl
+
+    # System monitoring and control
+    cliphist
+    networkmanagerapplet
+
+    # Bluetooth
     blueman
     bluez
     bluez-tools
+
+    # Communication
     telegram-desktop
-    hyprpaper
+
+    # Development tools
+    docker
+    docker-compose
+
+    # Image processing
     imagemagick
-    libnotify
+
+    # GTK themes and customization
+    dconf-editor
+    gnome-themes-extra
+    gnome.gnome-tweaks
+    gtk-engine-murrine
+    sassc
+
+    # Icon themes
+    colloid-icon-theme
+    numix-icon-theme
+    numix-icon-theme-circle
+    papirus-icon-theme
+    tela-icon-theme
   ];
 }

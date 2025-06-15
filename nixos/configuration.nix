@@ -13,6 +13,7 @@
     ./fonts.nix
     ./ssh.nix
     ./theme.nix
+    ./gtk.nix
     ./services.nix
   ];
 

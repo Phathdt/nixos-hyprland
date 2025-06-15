@@ -1,0 +1,201 @@
+/* Material Palenight Theme for Nautilus */
+
+/* Main window background */
+.nautilus-window {
+  background-color: #292d3e;
+  color: #a6accd;
+}
+
+/* Sidebar */
+.nautilus-window .sidebar {
+  background-color: #1e1e2e;
+  color: #a6accd;
+  border-right: 1px solid #3a3f58;
+}
+
+.nautilus-window .sidebar row {
+  color: #a6accd;
+}
+
+.nautilus-window .sidebar row:selected {
+  background-color: #3a3f58;
+  color: #82aaff;
+}
+
+.nautilus-window .sidebar row:hover {
+  background-color: #32364a;
+}
+
+/* Main content area */
+.nautilus-window .view {
+  background-color: #292d3e;
+  color: #a6accd;
+}
+
+/* File/folder items */
+.nautilus-window iconview {
+  background-color: #292d3e;
+}
+
+.nautilus-window iconview .cell {
+  color: #a6accd;
+}
+
+.nautilus-window iconview .cell:selected {
+  background-color: #3a3f58;
+  color: #82aaff;
+}
+
+/* List view */
+.nautilus-window treeview {
+  background-color: #292d3e;
+  color: #a6accd;
+}
+
+.nautilus-window treeview:selected {
+  background-color: #3a3f58;
+  color: #82aaff;
+}
+
+/* Header bar */
+.nautilus-window headerbar {
+  background-color: #1e1e2e;
+  color: #a6accd;
+  border-bottom: 1px solid #3a3f58;
+}
+
+.nautilus-window headerbar button {
+  color: #a6accd;
+  background-color: transparent;
+  border: none;
+}
+
+.nautilus-window headerbar button:hover {
+  background-color: #3a3f58;
+  color: #82aaff;
+}
+
+/* Path bar */
+.nautilus-window .path-bar button {
+  background-color: #32364a;
+  color: #a6accd;
+  border: 1px solid #3a3f58;
+  border-radius: 6px;
+  margin: 2px;
+}
+
+.nautilus-window .path-bar button:hover {
+  background-color: #3a3f58;
+  color: #82aaff;
+}
+
+/* Search bar */
+.nautilus-window searchbar {
+  background-color: #1e1e2e;
+  border-bottom: 1px solid #3a3f58;
+}
+
+.nautilus-window searchbar entry {
+  background-color: #32364a;
+  color: #a6accd;
+  border: 1px solid #3a3f58;
+  border-radius: 6px;
+}
+
+.nautilus-window searchbar entry:focus {
+  border-color: #82aaff;
+  box-shadow: 0 0 0 1px #82aaff;
+}
+
+/* Status bar */
+.nautilus-window statusbar {
+  background-color: #1e1e2e;
+  color: #676e95;
+  border-top: 1px solid #3a3f58;
+}
+
+/* Context menu */
+.nautilus-window menu {
+  background-color: #32364a;
+  color: #a6accd;
+  border: 1px solid #3a3f58;
+  border-radius: 8px;
+}
+
+.nautilus-window menu menuitem {
+  color: #a6accd;
+  padding: 8px 12px;
+}
+
+.nautilus-window menu menuitem:hover {
+  background-color: #3a3f58;
+  color: #82aaff;
+}
+
+/* Scrollbars */
+.nautilus-window scrollbar {
+  background-color: #1e1e2e;
+}
+
+.nautilus-window scrollbar slider {
+  background-color: #3a3f58;
+  border-radius: 6px;
+  min-width: 12px;
+  min-height: 12px;
+}
+
+.nautilus-window scrollbar slider:hover {
+  background-color: #82aaff;
+}
+
+/* Toolbar */
+.nautilus-window toolbar {
+  background-color: #1e1e2e;
+  border-bottom: 1px solid #3a3f58;
+}
+
+.nautilus-window toolbar button {
+  color: #a6accd;
+  background-color: transparent;
+}
+
+.nautilus-window toolbar button:hover {
+  background-color: #3a3f58;
+  color: #82aaff;
+}
+
+/* Properties dialog */
+.nautilus-window dialog {
+  background-color: #292d3e;
+  color: #a6accd;
+}
+
+.nautilus-window dialog headerbar {
+  background-color: #1e1e2e;
+  color: #a6accd;
+}
+
+/* Notebook tabs */
+.nautilus-window notebook {
+  background-color: #292d3e;
+}
+
+.nautilus-window notebook tab {
+  background-color: #32364a;
+  color: #a6accd;
+  border: 1px solid #3a3f58;
+}
+
+.nautilus-window notebook tab:checked {
+  background-color: #3a3f58;
+  color: #82aaff;
+}
+
+/* Progress bar */
+.nautilus-window progressbar {
+  background-color: #32364a;
+}
+
+.nautilus-window progressbar progress {
+  background-color: #82aaff;
+}
