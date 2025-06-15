@@ -90,7 +90,7 @@ The `init.sh` script automatically:
 - **Hyprland**: Wayland compositor with Xwayland support
 - **Audio**: PipeWire with ALSA/Pulse compatibility
 - **SSH**: Secure remote access with key authentication
-- **Fonts**: JetBrains Mono and Noto fonts
+- **Fonts**: JetBrainsMono Nerd Font and Noto fonts
 
 ### Applications
 

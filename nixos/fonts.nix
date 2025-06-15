@@ -8,12 +8,13 @@
       noto-fonts
       noto-fonts-emoji
       jetbrains-mono
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
 
     fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = [ "Fira Code" ];
+        monospace = [ "JetBrainsMono Nerd Font" "JetBrains Mono" "Fira Code" ];
       };
     };
   };
