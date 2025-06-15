@@ -27,15 +27,10 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "greymd/docker-zsh-completion"
 
-# Install plugins if not installed
+# Install plugins if not installed (auto-install)
 if ! zplug check --verbose; then
-    printf "Install zplug plugins? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    else
-        echo
-        echo "Skipping plugin installation. Run 'zplug install' manually later."
-    fi
+    echo "Installing zplug plugins automatically..."
+    zplug install
 fi
 
 # Load plugins
