@@ -156,21 +156,54 @@ if [ -f "$NVIM_AUTOLOAD_DIR/plug.vim" ]; then
     print_success "neovim plugins installed"
 fi
 
-print_success "🎉 Dotfiles setup complete with full automation!"
+# Apply NixOS configuration automatically
+print_status "Applying NixOS configuration..."
+if sudo nixos-rebuild switch; then
+    print_success "NixOS configuration applied successfully!"
+else
+    print_error "Failed to apply NixOS configuration. Please run 'sudo nixos-rebuild switch' manually."
+fi
+
+# Apply Waybar configuration
+print_status "Setting up Waybar with Material Palenight theme..."
+if command -v waybar >/dev/null 2>&1; then
+    # Kill existing waybar if running
+    pkill waybar 2>/dev/null || true
+    sleep 1
+
+    # Start waybar in background
+    waybar &
+    sleep 2
+
+    if pgrep -x "waybar" > /dev/null; then
+        print_success "Waybar started with Material Palenight theme!"
+    else
+        print_warning "Waybar may need manual restart after reboot"
+    fi
+else
+    print_warning "Waybar not found, will be available after NixOS rebuild"
+fi
+
+print_success "🎉 Complete setup finished with full automation!"
 echo ""
-print_status "Next steps:"
-echo "1. Run 'sudo nixos-rebuild switch' to apply the NixOS configuration"
-echo "2. Restart your terminal (zsh will be your default shell automatically)"
-echo "3. All plugins will auto-install via zplug on first zsh startup"
+print_success "✅ What's been configured:"
+echo "  • NixOS system configuration applied"
+echo "  • Hyprland with modular configuration"
+echo "  • Waybar with Material Palenight theme"
+echo "  • Wlogout power menu"
+echo "  • All dotfiles and configs symlinked"
+echo "  • Plugin managers installed and configured"
 echo ""
-print_status "Note: NixOS automatically sets zsh as your default shell!"
+print_status "🚀 Ready to use:"
+echo "  • Restart your session or reboot to see full setup"
+echo "  • Zsh is now your default shell with all plugins"
+echo "  • Waybar will auto-start with Hyprland"
+echo "  • Click power button (󰐥) in Waybar for logout menu"
 echo ""
-print_status "Plugin managers installed:"
-echo "  • zplug: Manages zsh + oh-my-zsh + all zsh plugins"
-echo "  • TPM: Tmux plugin manager"
-echo "  • vim-plug: Neovim plugin manager"
+print_status "📝 Configuration files:"
+echo "  • Waybar: ~/.config/waybar/"
+echo "  • Hyprland: ~/.config/hypr/"
+echo "  • All configs: ~/.config/"
 echo ""
-print_status "Configuration:"
-echo "  • NixOS: Enables zsh + sets as default shell for user"
-echo "  • zplug: Manages oh-my-zsh framework + all plugins"
-echo "  • Dotfiles: Handle all detailed configurations"
+print_status "🔧 Manual restart Waybar if needed:"
+echo "  ./scripts/apply-waybar-config.sh"

@@ -1,0 +1,308 @@
+/* Material Palenight Theme for Waybar */
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: 'JetBrainsMono Nerd Font', 'Roboto', 'Helvetica', 'Arial',
+    sans-serif;
+  font-size: 14px;
+  min-height: 0;
+}
+
+/* Material Palenight Color Palette */
+:root {
+  --bg-primary: #292d3e;
+  --bg-secondary: #32364a;
+  --bg-tertiary: #3c4057;
+  --text-primary: #a6accd;
+  --text-secondary: #676e95;
+  --accent-primary: #82aaff;
+  --accent-secondary: #c792ea;
+  --accent-warning: #ffcb6b;
+  --accent-error: #f07178;
+  --accent-success: #c3e88d;
+  --accent-info: #89ddff;
+  --border-color: #444267;
+  --hover-bg: #3e4357;
+  --active-bg: #4a5073;
+}
+
+window#waybar {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  border-bottom: 2px solid var(--border-color);
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+/* Workspaces */
+#workspaces {
+  margin: 0 4px;
+}
+
+#workspaces button {
+  padding: 0 8px;
+  margin: 0 2px;
+  background-color: transparent;
+  color: var(--text-secondary);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  min-width: 30px;
+}
+
+#workspaces button:hover {
+  background-color: var(--hover-bg);
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(130, 170, 255, 0.2);
+}
+
+#workspaces button.active {
+  background-color: var(--accent-primary);
+  color: var(--bg-primary);
+  font-weight: bold;
+  box-shadow: 0 2px 12px rgba(130, 170, 255, 0.4);
+}
+
+#workspaces button.urgent {
+  background-color: var(--accent-error);
+  color: var(--bg-primary);
+  animation: urgent-blink 1s linear infinite alternate;
+}
+
+@keyframes urgent-blink {
+  to {
+    background-color: var(--accent-warning);
+  }
+}
+
+/* Window title */
+#window {
+  margin: 0 8px;
+  padding: 0 12px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+/* Clock */
+#clock {
+  padding: 0 16px;
+  background-color: var(--bg-secondary);
+  color: var(--accent-info);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  margin: 0 4px;
+}
+
+/* System modules */
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#battery,
+#network,
+#pulseaudio,
+#tray,
+#idle_inhibitor,
+#custom-power {
+  padding: 0 12px;
+  margin: 0 2px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#backlight:hover,
+#battery:hover,
+#network:hover,
+#pulseaudio:hover,
+#idle_inhibitor:hover,
+#custom-power:hover {
+  background-color: var(--hover-bg);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* CPU */
+#cpu {
+  color: var(--accent-success);
+}
+
+/* Memory */
+#memory {
+  color: var(--accent-secondary);
+}
+
+/* Temperature */
+#temperature {
+  color: var(--accent-info);
+}
+
+#temperature.critical {
+  color: var(--accent-error);
+  animation: critical-blink 0.5s linear infinite alternate;
+}
+
+@keyframes critical-blink {
+  to {
+    background-color: var(--accent-error);
+    color: var(--bg-primary);
+  }
+}
+
+/* Backlight */
+#backlight {
+  color: var(--accent-warning);
+}
+
+/* Battery */
+#battery {
+  color: var(--accent-success);
+}
+
+#battery.charging {
+  color: var(--accent-info);
+  background-color: rgba(137, 221, 255, 0.1);
+}
+
+#battery.warning:not(.charging) {
+  color: var(--accent-warning);
+  background-color: rgba(255, 203, 107, 0.1);
+}
+
+#battery.critical:not(.charging) {
+  color: var(--accent-error);
+  background-color: rgba(240, 113, 120, 0.1);
+  animation: battery-blink 0.5s linear infinite alternate;
+}
+
+@keyframes battery-blink {
+  to {
+    background-color: var(--accent-error);
+    color: var(--bg-primary);
+  }
+}
+
+/* Network */
+#network {
+  color: var(--accent-primary);
+}
+
+#network.disconnected {
+  color: var(--accent-error);
+  background-color: rgba(240, 113, 120, 0.1);
+}
+
+/* Audio */
+#pulseaudio {
+  color: var(--accent-secondary);
+}
+
+#pulseaudio.muted {
+  color: var(--text-secondary);
+  background-color: var(--bg-tertiary);
+}
+
+/* Tray */
+#tray {
+  background-color: var(--bg-secondary);
+  padding: 0 8px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: var(--accent-error);
+}
+
+/* Idle inhibitor */
+#idle_inhibitor {
+  color: var(--text-secondary);
+}
+
+#idle_inhibitor.activated {
+  color: var(--accent-warning);
+  background-color: rgba(255, 203, 107, 0.1);
+}
+
+/* Power button */
+#custom-power {
+  color: var(--accent-error);
+  font-size: 16px;
+  padding: 0 10px;
+}
+
+#custom-power:hover {
+  background-color: var(--accent-error);
+  color: var(--bg-primary);
+}
+
+/* Tooltips */
+tooltip {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+tooltip label {
+  color: var(--text-primary);
+}
+
+/* Mode (resize/move) */
+#mode {
+  background-color: var(--accent-warning);
+  color: var(--bg-primary);
+  border-radius: 8px;
+  padding: 0 12px;
+  font-weight: bold;
+}
+
+/* Responsive design */
+@media (max-width: 1366px) {
+  * {
+    font-size: 13px;
+  }
+
+  #workspaces button {
+    padding: 0 6px;
+    min-width: 25px;
+  }
+
+  #cpu,
+  #memory,
+  #temperature,
+  #backlight,
+  #battery,
+  #network,
+  #pulseaudio,
+  #idle_inhibitor,
+  #custom-power {
+    padding: 0 8px;
+  }
+}
+
+/* Animation for smooth transitions */
+* {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus styles for accessibility */
+button:focus {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}

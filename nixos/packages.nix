@@ -41,5 +41,9 @@
     tmux
     docker
     docker-compose
+    wlogout
+    lm_sensors
+    acpi
+    upower
   ];
 }

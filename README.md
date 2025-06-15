@@ -6,6 +6,7 @@ My personal dotfiles configuration for NixOS with Hyprland window manager.
 
 - **NixOS Configuration**: Modular NixOS system configuration
 - **Hyprland**: Wayland compositor with custom configuration
+- **Waybar**: Material Palenight themed status bar with comprehensive system monitoring
 - **Terminal Setup**: Alacritty + Tmux with custom themes
 - **Development Environment**: Neovim with essential plugins, Git, and productivity tools
 - **Automated Setup**: One-command installation script with full automation
@@ -20,7 +21,13 @@ My personal dotfiles configuration for NixOS with Hyprland window manager.
 │   ├── nvim/                 # Neovim editor configuration
 │   │   └── init.vim          # Main neovim config with plugins
 │   ├── rofi/                 # Application launcher
-│   └── tmux/                 # Terminal multiplexer (XDG)
+│   ├── tmux/                 # Terminal multiplexer (XDG)
+│   ├── waybar/               # Status bar with Material Palenight theme
+│   │   ├── config.json       # Waybar modules and layout
+│   │   └── style.css         # Material Palenight styling
+│   └── wlogout/              # Power menu configuration
+│       ├── layout            # Power menu layout
+│       └── style.css         # Material Palenight styling
 ├── root_config/              # Home directory dotfiles → ~/
 │   ├── git/                  # Git configuration
 │   │   ├── .gitconfig        # → ~/.gitconfig
@@ -150,6 +157,8 @@ The `init.sh` script provides **complete automation**:
 - **Browser**: Brave, Google Chrome
 - **File Manager**: Nautilus
 - **Launcher**: Rofi with Wayland support
+- **Status Bar**: Waybar with Material Palenight theme
+- **Power Menu**: Wlogout with Material Palenight theme
 
 ### Development Tools
 
@@ -209,6 +218,37 @@ Plugins are managed by [TPM](https://github.com/tmux-plugins/tpm):
 - **Install**: `Ctrl+s + I`
 - **Update**: `Ctrl+s + U`
 - **Uninstall**: `Ctrl+s + Alt + u`
+
+### Waybar Configuration
+
+The Waybar is configured with Material Palenight theme and includes:
+
+**Modules (Left to Right):**
+- **Workspaces**: Hyprland workspace indicators with icons
+- **Window Title**: Current active window title
+- **Clock**: Time display (center)
+- **System Tray**: Application tray icons
+- **Idle Inhibitor**: Prevents screen from sleeping
+- **Audio**: Volume control with PulseAudio
+- **Network**: WiFi/Ethernet status
+- **CPU**: Processor usage percentage
+- **Memory**: RAM usage percentage
+- **Temperature**: System temperature monitoring
+- **Backlight**: Screen brightness control
+- **Battery**: Battery status and percentage
+- **Power**: Power menu button
+
+**Interactive Features:**
+- Click audio module to open `pavucontrol`
+- Right-click network to open network settings
+- Click power button to open logout menu
+- Scroll on backlight to adjust brightness
+- Hover for detailed tooltips
+
+**Apply Waybar Configuration:**
+```bash
+./scripts/apply-waybar-config.sh
+```
 
 ### Git Configuration
 

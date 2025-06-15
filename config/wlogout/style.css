@@ -1,0 +1,58 @@
+/* Material Palenight Theme for wlogout */
+
+* {
+  background-image: none;
+  box-shadow: none;
+}
+
+window {
+  background-color: rgba(41, 45, 62, 0.95);
+}
+
+button {
+  color: #a6accd;
+  background-color: #32364a;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #444267;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25%;
+  border-radius: 12px;
+  margin: 10px;
+  transition: all 0.3s ease;
+}
+
+button:focus,
+button:active,
+button:hover {
+  background-color: #3e4357;
+  border-color: #82aaff;
+  color: #82aaff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(130, 170, 255, 0.3);
+}
+
+#lock {
+  background-image: image(url('icons/lock.png'));
+}
+
+#logout {
+  background-image: image(url('icons/logout.png'));
+}
+
+#suspend {
+  background-image: image(url('icons/suspend.png'));
+}
+
+#hibernate {
+  background-image: image(url('icons/hibernate.png'));
+}
+
+#shutdown {
+  background-image: image(url('icons/shutdown.png'));
+}
+
+#reboot {
+  background-image: image(url('icons/reboot.png'));
+}
