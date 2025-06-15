@@ -68,15 +68,18 @@ My personal dotfiles configuration for NixOS with Hyprland window manager.
 
 2. **Run the automated setup script**:
    ```bash
+   # Full setup (default)
    ./init.sh
+
+   # Or with specific options
+   ./init.sh --help                # Show all available options
+   ./init.sh --dotfiles-only       # Only update dotfiles
+   ./init.sh --nixos-only          # Only rebuild NixOS
+   ./init.sh --skip-nixos          # Setup everything except NixOS rebuild
+   ./init.sh --skip-plugins        # Setup without plugin installation
    ```
 
-3. **Apply NixOS configuration**:
-   ```bash
-   sudo nixos-rebuild switch
-   ```
-
-4. **Restart terminal and enjoy!**
+3. **Restart terminal and enjoy!**
    ```bash
    # Zsh is now your default shell with all plugins auto-installed
    # No manual steps required!
@@ -84,7 +87,32 @@ My personal dotfiles configuration for NixOS with Hyprland window manager.
 
 ## What the Setup Script Does
 
-The `init.sh` script provides **complete automation**:
+The `init.sh` script provides **flexible automation** with multiple options:
+
+### Available Options
+
+```bash
+./init.sh [OPTIONS]
+
+Options:
+  --skip-nixos      Skip NixOS configuration rebuild
+  --skip-dotfiles   Skip dotfiles and symlinks setup
+  --skip-plugins    Skip plugin managers installation
+  --skip-waybar     Skip Waybar configuration
+  --force-nixos     Force NixOS rebuild even if no changes
+  --dotfiles-only   Only setup dotfiles (skip nixos, plugins)
+  --nixos-only      Only rebuild NixOS (skip dotfiles, plugins, waybar)
+  --help, -h        Show help message
+
+Examples:
+  ./init.sh                    # Full setup (default)
+  ./init.sh --dotfiles-only    # Only update dotfiles
+  ./init.sh --nixos-only       # Only rebuild NixOS
+  ./init.sh --skip-nixos       # Setup everything except NixOS rebuild
+  ./init.sh --skip-plugins     # Setup without plugin installation
+```
+
+### What Each Mode Does
 
 ### 1. System Configuration
 - Moves `/etc/nixos/hardware-configuration.nix` to the repo
