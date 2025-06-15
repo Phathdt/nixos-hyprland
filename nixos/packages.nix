@@ -45,5 +45,8 @@
     lm_sensors
     acpi
     upower
+    blueman
+    bluez
+    bluez-tools
   ];
 }

@@ -9,6 +9,7 @@
     "tray",
     "idle_inhibitor",
     "pulseaudio",
+    "bluetooth",
     "network",
     "cpu",
     "memory",
@@ -53,8 +54,9 @@
   "clock": {
     "timezone": "Asia/Ho_Chi_Minh",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "{:%H:%M}",
-    "format-alt": "{:%Y-%m-%d}"
+    "format": "{:%d %b %H:%M:%S}",
+    "format-alt": "{:%A, %d %B %Y}",
+    "interval": 1
   },
   "cpu": {
     "format": "󰍛 {usage}%",
@@ -67,9 +69,9 @@
   },
 
   "network": {
-    "format-wifi": "󰤨 {signalStrength}%",
+    "format-wifi": "󰤨 {essid}",
     "format-ethernet": "󰈀 Connected",
-    "tooltip-format": "{ifname} via {gwaddr}",
+    "tooltip-format": "WiFi: {essid}\nSignal: {signalStrength}%\nIP: {ipaddr}",
     "format-linked": "{ifname} (No IP)",
     "format-disconnected": "󰤭 Disconnected",
     "format-alt": "{ifname}: {ipaddr}/{cidr}",
@@ -93,7 +95,21 @@
       "default": ["󰕿", "󰖀", "󰕾"]
     },
     "on-click": "pavucontrol",
-    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+    "tooltip-format": "Volume: {volume}%\nClick: Open Audio Control\nRight-click: Toggle Mute\nScroll: Adjust Volume"
+  },
+  "bluetooth": {
+    "format": "󰂯",
+    "format-disabled": "󰂲",
+    "format-off": "󰂲",
+    "format-on": "󰂯",
+    "format-connected": "󰂱 {num_connections}",
+    "tooltip-format": "Bluetooth: {status}\nConnected devices: {num_connections}",
+    "tooltip-format-connected": "Bluetooth: {status}\nConnected: {device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "on-click": "blueman-manager"
   },
   "custom/power": {
     "format": "󰐥",

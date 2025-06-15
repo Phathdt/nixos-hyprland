@@ -98,6 +98,7 @@ window#waybar.hidden {
 #battery,
 #network,
 #pulseaudio,
+#bluetooth,
 #tray,
 #idle_inhibitor,
 #custom-power {
@@ -116,6 +117,7 @@ window#waybar.hidden {
 #battery:hover,
 #network:hover,
 #pulseaudio:hover,
+#bluetooth:hover,
 #idle_inhibitor:hover,
 #custom-power:hover {
   background-color: #3e4357;
@@ -200,6 +202,22 @@ window#waybar.hidden {
 #pulseaudio.muted {
   color: #676e95;
   background-color: #3c4057;
+}
+
+/* Bluetooth */
+#bluetooth {
+  color: #82aaff;
+}
+
+#bluetooth.disabled,
+#bluetooth.off {
+  color: #676e95;
+  background-color: #3c4057;
+}
+
+#bluetooth.connected {
+  color: #c3e88d;
+  background-color: rgba(195, 232, 141, 0.1);
 }
 
 /* Tray */
