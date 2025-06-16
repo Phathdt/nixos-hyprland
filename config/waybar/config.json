@@ -8,7 +8,6 @@
   "modules-right": [
     "tray",
     "idle_inhibitor",
-    "custom/input-method",
     "pulseaudio",
     "bluetooth",
     "network",
@@ -118,14 +117,5 @@
     "format": "󰐥",
     "tooltip": false,
     "on-click": "wlogout --protocol layer-shell"
-  },
-  "custom/input-method": {
-    "format": "{}",
-    "exec": "~/.config/scripts/input-method-status.sh",
-    "interval": 1,
-    "tooltip": true,
-    "tooltip-format": "Input Method: {}\nClick: Toggle Input Method\nSuper+I: Toggle Shortcut",
-    "on-click": "~/.config/scripts/toggle-vietnamese.sh",
-    "signal": 8
   }
 }
