@@ -25,8 +25,14 @@ fi
 # Kill existing Fcitx5 processes
 echo ""
 echo "2. Stopping existing Fcitx5 processes..."
-pkill -f fcitx5 2>/dev/null || true
-sleep 2
+if pgrep -f fcitx5 >/dev/null 2>&1; then
+    echo "   Found existing Fcitx5 processes, stopping them..."
+    pkill -f fcitx5 2>/dev/null || true
+    sleep 2
+    echo "   ✅ Cleanup completed"
+else
+    echo "   ✅ No existing Fcitx5 processes found"
+fi
 
 # Start Fcitx5
 echo ""
