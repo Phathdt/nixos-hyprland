@@ -6,6 +6,7 @@
     ./boot.nix
     ./networking.nix
     ./locale.nix
+    ./input-method.nix
     ./users.nix
     ./desktop.nix
     ./packages.nix

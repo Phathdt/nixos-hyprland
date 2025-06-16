@@ -101,7 +101,8 @@ window#waybar.hidden {
 #bluetooth,
 #tray,
 #idle_inhibitor,
-#custom-power {
+#custom-power,
+#custom-input-method {
   padding: 0 12px;
   margin: 0 2px;
   background-color: #32364a;
@@ -119,7 +120,8 @@ window#waybar.hidden {
 #pulseaudio:hover,
 #bluetooth:hover,
 #idle_inhibitor:hover,
-#custom-power:hover {
+#custom-power:hover,
+#custom-input-method:hover {
   background-color: #3e4357;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
@@ -255,6 +257,23 @@ window#waybar.hidden {
 #custom-power:hover {
   background-color: #f07178;
   color: #292d3e;
+}
+
+/* Input Method */
+#custom-input-method {
+  color: #ffcb6b;
+  font-weight: 600;
+  min-width: 50px;
+  padding: 0 12px;
+  margin: 0 2px;
+  background-color: #32364a;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+#custom-input-method:hover {
+  background-color: #3e4357;
+  box-shadow: 0 4px 12px rgba(255, 203, 107, 0.3);
 }
 
 /* Tooltips */
