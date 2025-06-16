@@ -25,7 +25,6 @@
       addons = with pkgs; [
         fcitx5-unikey
         fcitx5-gtk
-        fcitx5-qt
       ];
     };
   };
