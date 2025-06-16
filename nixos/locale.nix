@@ -19,9 +19,21 @@
 
   # Input method for Vietnamese typing (Fcitx5)
   i18n.inputMethod = {
-      enabled = "fcitx5";
+      type = "fcitx5";
+      enable = true;
       fcitx5.addons = with pkgs; [
           fcitx5-unikey
+          fcitx5-gtk
+          fcitx5-qt
       ];
   };
+
+  # Ensure fcitx5 packages are available
+  environment.systemPackages = with pkgs; [
+    fcitx5
+    fcitx5-unikey
+    fcitx5-gtk
+    fcitx5-qt
+    fcitx5-configtool
+  ];
 }
