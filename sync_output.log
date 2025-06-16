@@ -1,0 +1,22 @@
+[0;34m[2025-06-16 08:35:31] [INFO] Testing SSH connection to nixos...[0m
+[0;32m[2025-06-16 08:35:31] [SUCCESS] SSH connection to nixos is working[0m
+[0;34m[2025-06-16 08:35:31] [INFO] Ensuring remote directory exists...[0m
+[0;34m[2025-06-16 08:35:31] [INFO] Syncing from: /Users/phathdt/Documents/Dev/caliber[0m
+[0;34m[2025-06-16 08:35:31] [INFO] Syncing to: nixos:/home/phathdt/Documents/Dev/caliber[0m
+[1;33m[2025-06-16 08:35:31] [WARNING] SAFE MODE: Will NOT delete files on server (only add/update)[0m
+[0;34m[2025-06-16 08:35:31] [INFO] Starting incremental sync (only new/changed files)...[0m
+[0;34m[2025-06-16 08:35:31] [INFO] Preparing file list...[0m
+
+[0;32m[2025-06-16 08:35:34] [SUCCESS] Sync completed successfully![0m
+[0;34m[2025-06-16 08:35:34] [INFO] No folders were processed (no changes detected)[0m
+[0;34m[2025-06-16 08:35:34] [INFO] === SYNC SUMMARY ===[0m
+[0;34m[2025-06-16 08:35:34] [INFO] Local:  /Users/phathdt/Documents/Dev/caliber[0m
+[0;34m[2025-06-16 08:35:34] [INFO] Remote: nixos:/home/phathdt/Documents/Dev/caliber[0m
+[0;34m[2025-06-16 08:35:34] [INFO] Mode:   SAFE (no deletions)[0m
+[0;34m[2025-06-16 08:35:34] [INFO] Files transferred: 0[0m
+[0;34m[2025-06-16 08:35:34] [INFO] Total size: 123135479 B[0m
+[0;34m[2025-06-16 08:35:34] [INFO] Transferred size: 0 B[0m
+[0;34m[2025-06-16 08:35:34] [INFO] Execution time: 3 seconds[0m
+[0;34m[2025-06-16 08:35:34] [INFO] Completed at: Mon Jun 16 08:35:34 +07 2025[0m
+[0;34m[2025-06-16 08:35:34] [INFO] Getting remote directory size...[0m
+[0;34m[2025-06-16 08:35:34] [INFO] Remote directory size: 162M[0m
