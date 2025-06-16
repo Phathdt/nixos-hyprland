@@ -84,10 +84,13 @@
     nodePackages.yarn
     go_1_24
 
-    # Database
+    # Database and ORM tools
     postgresql
     redis
     redisinsight
+    prisma-engines
+    openssl
+    pkg-config
 
     # Image processing
     imagemagick

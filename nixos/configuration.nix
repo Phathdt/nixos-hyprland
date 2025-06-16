@@ -16,6 +16,7 @@
     ./theme.nix
     ./gtk.nix
     ./services.nix
+    ./development.nix
   ];
 
   system.stateVersion = "25.05";
