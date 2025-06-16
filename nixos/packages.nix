@@ -114,7 +114,7 @@
     pkg-config
 
     # Database GUI tools
-    dbeaver-bin
+    tableplus
 
     # Image processing
     imagemagick
