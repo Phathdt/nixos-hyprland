@@ -75,15 +75,26 @@ style = "Regular"
 x = 0
 y = 0
 
-[[keyboard.bindings]]
-action = "Paste"
-key = "V"
-mods = "Control|Shift"
-
+# Custom ALT-based clipboard shortcuts
 [[keyboard.bindings]]
 action = "Copy"
 key = "C"
-mods = "Control|Shift"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "X"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "SelectAll"
+key = "A"
+mods = "Alt"
 
 [[keyboard.bindings]]
 action = "IncreaseFontSize"
