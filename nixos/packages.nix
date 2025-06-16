@@ -92,6 +92,9 @@
     openssl
     pkg-config
 
+    # Database GUI tools
+    dbeaver-bin
+
     # Image processing
     imagemagick
 
