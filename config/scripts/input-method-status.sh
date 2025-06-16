@@ -11,7 +11,7 @@ fi
 
 # Determine current input method and display appropriate icon/text
 case "$current_engine" in
-    "Bamboo")
+    "Bamboo"|"bamboo")
         echo "🇻🇳 VI"
         ;;
     "xkb:us::eng"|"")
