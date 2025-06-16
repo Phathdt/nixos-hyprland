@@ -77,10 +77,6 @@
     # VPN
     openvpn
 
-    # Input method engines
-    ibus
-    ibus-bamboo
-
     # Development tools
     docker
     docker-compose
