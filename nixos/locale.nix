@@ -20,8 +20,6 @@
   # Input method for Vietnamese typing
   i18n.inputMethod = {
     enabled = "ibus";
-    ibus.engines = with pkgs.ibus-engines; [
-      bamboo
-    ];
+    ibus.engines = [ pkgs.ibus-bamboo ];
   };
 }

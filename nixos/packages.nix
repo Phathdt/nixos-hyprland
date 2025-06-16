@@ -79,7 +79,7 @@
 
     # Input method engines
     ibus
-    ibus-engines.bamboo
+    ibus-bamboo
 
     # Development tools
     docker
