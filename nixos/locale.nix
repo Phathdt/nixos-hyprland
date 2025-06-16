@@ -19,12 +19,14 @@
 
   # Input method for Vietnamese typing (Fcitx5)
   i18n.inputMethod = {
-    waylandFrontend = true;
     enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-unikey
-      fcitx5-gtk
-      fcitx5-qt
-    ];
+    fcitx5 = {
+      waylandFrontend = true;
+      addons = with pkgs; [
+        fcitx5-unikey
+        fcitx5-gtk
+        fcitx5-qt
+      ];
+    };
   };
 }
