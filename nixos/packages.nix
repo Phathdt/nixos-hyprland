@@ -74,6 +74,9 @@
     # Communication
     telegram-desktop
 
+    # VPN
+    openvpn
+
     # Development tools
     docker
     docker-compose
