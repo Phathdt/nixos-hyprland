@@ -78,6 +78,17 @@
     docker
     docker-compose
 
+    # Programming languages and runtimes
+    nodejs_22
+    nodePackages.npm
+    nodePackages.yarn
+    go_1_24
+
+    # Database
+    postgresql
+    redis
+    redisinsight
+
     # Image processing
     imagemagick
 
