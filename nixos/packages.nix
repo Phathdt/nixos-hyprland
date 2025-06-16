@@ -74,14 +74,6 @@
     # Communication
     telegram-desktop
 
-    # input method
-    fcitx5
-    fcitx5-gtk
-    fcitx5-unikey
-    fcitx5-configtool
-    xdg-desktop-portal
-    xdg-desktop-portal-wlr
-
     # VPN
     openvpn
 
