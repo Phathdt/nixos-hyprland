@@ -37,7 +37,6 @@
     swaybg
     swww
     wl-clipboard
-    wtype
 
     # Window manager and desktop
     dunst
