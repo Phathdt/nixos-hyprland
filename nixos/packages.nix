@@ -27,6 +27,7 @@
 
     # Version control
     git
+    git-cola
 
     # Wayland/Hyprland ecosystem
     grim
