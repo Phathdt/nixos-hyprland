@@ -35,7 +35,7 @@ fi
 echo "Vietnamese input method setup completed!"
 echo ""
 echo "Usage:"
-echo "  - Super + I: Toggle between English and Vietnamese"
+echo "  - Ctrl + Super + Alt + Space: Toggle between English and Vietnamese"
 echo "  - Alt + Shift: Alternative toggle shortcut"
 echo ""
 echo "After NixOS rebuild, restart your session for full functionality."

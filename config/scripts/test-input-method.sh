@@ -41,7 +41,7 @@ echo ""
 echo "4. Testing toggle script:"
 if [ -x ~/.config/scripts/toggle-vietnamese.sh ]; then
     echo "   ✅ Toggle script is executable"
-    echo "   Usage: Super+I or Alt+Shift to toggle"
+    echo "   Usage: Ctrl+Super+Alt+Space or Alt+Shift to toggle"
 else
     echo "   ❌ Toggle script not found or not executable"
 fi
