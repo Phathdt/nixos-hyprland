@@ -54,7 +54,10 @@ if command -v ibus >/dev/null 2>&1; then
     fi
 
     echo "   📋 All engines:"
-    echo "$engines" | head -10 | sed 's/^/      /'
+    echo "$engines" | head -20 | sed 's/^/      /'
+
+    echo "   🔍 Looking specifically for Bamboo:"
+    echo "$engines" | grep -i bamboo | sed 's/^/      /' || echo "      No Bamboo engines found"
 else
     echo "   ❌ Cannot list engines - IBus not available"
 fi
