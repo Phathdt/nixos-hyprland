@@ -81,6 +81,23 @@
     docker
     docker-compose
 
+    # API development and testing
+    postman
+
+    # System monitoring and performance
+    btop
+    lazydocker
+    lazygit
+
+    # File and text processing
+    ripgrep
+    fd
+    bat
+    eza
+
+    # Network tools
+    nmap
+
     # Programming languages and runtimes
     nodejs_22
     nodePackages.npm
