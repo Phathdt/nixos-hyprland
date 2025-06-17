@@ -80,11 +80,7 @@
 
     # VPN
     openvpn
-    networkmanager-openvpn
-    openvpn3
-    wireguard-tools
-    openconnect
-    openconnect_openssl
+    pritunl-client
 
     # Development tools
     docker

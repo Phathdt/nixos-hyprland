@@ -41,12 +41,6 @@
     enableOnBoot = true;
   };
 
-  # NetworkManager VPN plugins
-  networking.networkmanager = {
-    enable = true;
-    plugins = with pkgs; [
-      networkmanager-openvpn
-      networkmanager-openconnect
-    ];
-  };
+  # NetworkManager (basic)
+  networking.networkmanager.enable = true;
 }
