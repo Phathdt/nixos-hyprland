@@ -89,11 +89,7 @@ options+=("━━━━━━━━━━━━━━━━━━━━━━━
 options+=("⚙️   WiFi Settings")
 
 # Show rofi menu
-selected=$(printf '%s\n' "${options[@]}" | rofi \
-    -dmenu \
-    -i \
-    -p "$header" \
-    -theme ~/.config/rofi/themes/wifi-menu.rasi)
+selected=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -p "$header")
 
 # Handle selection
 case "$selected" in
@@ -135,8 +131,7 @@ case "$selected" in
                         notify-send "WiFi" "Connected to $ssid" -i network-wireless
                     else
                         # New connection, need password
-                        password=$(rofi -dmenu -password -p "Password for $ssid:" \
-                            -theme ~/.config/rofi/themes/wifi-menu.rasi)
+                        password=$(rofi -dmenu -password -p "Password for $ssid:")
                         if [[ -n "$password" ]]; then
                             if nmcli device wifi connect "$ssid" password "$password"; then
                                 notify-send "WiFi" "Connected to $ssid" -i network-wireless
