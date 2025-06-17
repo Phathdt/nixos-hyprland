@@ -38,7 +38,6 @@
     swww
     wl-clipboard
     wtype
-    ydotool
 
     # Window manager and desktop
     dunst
@@ -50,7 +49,6 @@
 
     # Terminal emulators
     alacritty
-    kitty
 
     # File managers
     xfce.thunar
