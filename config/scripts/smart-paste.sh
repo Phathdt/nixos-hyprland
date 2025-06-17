@@ -34,7 +34,20 @@ case "$active_window" in
         echo "$(date): Executed: wtype -M ctrl -M shift -k v -m shift -m ctrl" >> "$LOG_FILE"
         ;;
     *)
-                echo "$(date): Detected regular app - trying paste methods sequentially" >> "$LOG_FILE"
+                        echo "$(date): Detected regular app - trying paste methods sequentially" >> "$LOG_FILE"
+
+        # Ensure window focus by clicking (if possible)
+        echo "$(date): Attempting to ensure window focus..." >> "$LOG_FILE"
+        if command -v ydotool &> /dev/null; then
+            # Get window position and click center
+            window_info=$(hyprctl activewindow -j)
+            if [ $? -eq 0 ]; then
+                echo "$(date): Clicking window to ensure focus" >> "$LOG_FILE"
+                # Simple click in the middle of screen - adjust as needed
+                ydotool click 0xC0 # Left click
+                sleep 0.2
+            fi
+        fi
 
         # Method 1: Standard Ctrl+V
         echo "$(date): Method 1 - Standard Ctrl+V" >> "$LOG_FILE"
@@ -64,13 +77,29 @@ case "$active_window" in
             echo "$(date): Method 4 completed, waiting..." >> "$LOG_FILE"
         fi
 
-        # Method 5: Direct text injection using wtype (most reliable)
+        # Method 5: Direct text injection using multiple approaches
         if [ -n "$clipboard_content" ]; then
-            echo "$(date): Method 5 - Direct text injection (most reliable)" >> "$LOG_FILE"
+            echo "$(date): Method 5 - Direct text injection with multiple approaches" >> "$LOG_FILE"
             sleep 0.5  # Give time for previous methods to settle
+
+            # Approach A: wtype pipe
+            echo "$(date): 5A - wtype pipe method" >> "$LOG_FILE"
             echo "$clipboard_content" | wtype -
-            sleep 0.3  # Give time for text to be typed
-            echo "$(date): Injected text directly: '${clipboard_content:0:50}'" >> "$LOG_FILE"
+            sleep 0.3
+
+            # Approach B: wtype direct
+            echo "$(date): 5B - wtype direct method" >> "$LOG_FILE"
+            wtype "$clipboard_content"
+            sleep 0.3
+
+            # Approach C: ydotool type (most compatible)
+            if command -v ydotool &> /dev/null; then
+                echo "$(date): 5C - ydotool type method" >> "$LOG_FILE"
+                ydotool type "$clipboard_content"
+                sleep 0.3
+            fi
+
+            echo "$(date): All direct injection methods attempted: '${clipboard_content:0:50}'" >> "$LOG_FILE"
         fi
         ;;
 esac
