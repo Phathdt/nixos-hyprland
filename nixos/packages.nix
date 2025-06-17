@@ -14,6 +14,7 @@
     lm_sensors
     upower
     wget
+    lsof
 
     # Shell and terminal
     oh-my-zsh
@@ -75,6 +76,7 @@
 
     # Communication
     telegram-desktop
+    thunderbird
 
     # VPN
     openvpn
@@ -104,9 +106,13 @@
     eza
     tree
     jq
+    unzip
+    zip
+    p7zip
 
     # Network tools
     nmap
+    rsync
 
     # Programming languages and runtimes
     nodejs_22
@@ -124,6 +130,9 @@
 
     # Database GUI tools
     dbeaver-bin
+
+    # Office and productivity
+    wpsoffice
 
     # Image processing
     imagemagick
