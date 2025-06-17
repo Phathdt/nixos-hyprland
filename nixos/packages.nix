@@ -80,6 +80,8 @@
 
     # VPN
     openvpn
+    networkmanager-openvpn
+    openvpn3
 
     # Development tools
     docker
