@@ -41,9 +41,14 @@
     enableOnBoot = true;
   };
 
-  # NetworkManager (basic)
-  networking.networkmanager.enable = true;
+  # NetworkManager with VPN support
+  networking.networkmanager = {
+    enable = true;
+    plugins = with pkgs; [ networkmanager-openvpn ];
+  };
 
-  # Pritunl VPN client service
-  services.pritunl-client.enable = true;
+  services.dbus.enable = true;
+
+  # Disable systemd-networkd (conflicts with NetworkManager)
+  systemd.network.enable = false;
 }

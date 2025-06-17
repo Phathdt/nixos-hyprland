@@ -78,9 +78,12 @@
     telegram-desktop
     thunderbird
 
-    # VPN
+    # VPN and NetworkManager
     openvpn
-    pritunl-client
+    networkmanager
+    networkmanager-openvpn
+    networkmanagerapplet
+    nm-tray
 
     # Development tools
     docker
