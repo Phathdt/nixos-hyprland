@@ -27,11 +27,11 @@ fi
 # Menu options
 options=()
 
-# Add WiFi toggle
+# Add WiFi toggle with switch visual
 if [[ "$wifi_status" == "enabled" ]]; then
-    options+=("󰤭  Turn WiFi OFF")
+    options+=("󰤭  WiFi                                [●○] ON")
 else
-    options+=("󰤨  Turn WiFi ON")
+    options+=("󰤨  WiFi                                [○●] OFF")
 fi
 
 # Add separator
@@ -39,7 +39,7 @@ options+=("━━━━━━━━━━━━━━━━━━━━━━━
 
 # Add available networks if WiFi is on
 if [[ "$wifi_status" == "enabled" ]]; then
-    options+=("🔄  Refresh Networks")
+    options+=("🔄  Refresh Networks                       ⟳")
     options+=("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
 
     # Get networks
@@ -86,27 +86,27 @@ fi
 
 # Add settings option
 options+=("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-options+=("⚙️   WiFi Settings")
+options+=("⚙️   WiFi Settings                         ⛭")
 
 # Show rofi menu
 selected=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -p "$header" -theme ~/.config/rofi/themes/wifi-menu.rasi)
 
 # Handle selection
 case "$selected" in
-    "󰤭  Turn WiFi OFF")
+    "󰤭  WiFi"*"● ON")
         nmcli radio wifi off
         notify-send "WiFi" "WiFi turned OFF" -i network-wireless-offline
         ;;
-    "󰤨  Turn WiFi ON")
+    "󰤨  WiFi"*"● OFF")
         nmcli radio wifi on
         notify-send "WiFi" "WiFi turned ON" -i network-wireless
         ;;
-    "🔄  Refresh Networks")
+    "🔄  Refresh Networks"*)
         nmcli device wifi rescan
         sleep 2
         exec "$0"
         ;;
-    "⚙️   WiFi Settings")
+    "⚙️   WiFi Settings"*)
         nm-connection-editor
         ;;
     "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
