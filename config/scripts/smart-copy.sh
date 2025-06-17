@@ -29,6 +29,11 @@ if [[ "$active_window" == *"chrome"* ]] || [[ "$active_window" == *"Chrome"* ]] 
     # First select all text in current field/area
     wtype -M ctrl -k a -m ctrl
     sleep 0.1
+elif [[ "$active_window" == *"Cursor"* ]] || [[ "$active_window" == *"code"* ]] || [[ "$active_window" == *"Code"* ]]; then
+    echo "$(date): Detected code editor - will try to select current word/line" >> "$LOG_FILE"
+    # Try to select current word first
+    wtype -M ctrl -k d -m ctrl
+    sleep 0.1
 fi
 
 # Check if it's a terminal application
