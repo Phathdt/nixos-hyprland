@@ -165,16 +165,6 @@ chars = "\u001Bf"
 key = "Right"
 mods = "Super"
 
-[[keyboard.bindings]]
-action = "Copy"
-key = "C"
-mods = "Super"
-
-[[keyboard.bindings]]
-action = "Paste"
-key = "V"
-mods = "Super"
-
 [scrolling]
 history = 20000
 multiplier = 3
