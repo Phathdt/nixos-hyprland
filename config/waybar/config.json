@@ -67,7 +67,7 @@
     "tooltip-format": "WiFi Connected • {ipaddr}",
     "tooltip-format-ethernet": "Ethernet Connected • {ipaddr}",
     "tooltip-format-disconnected": "Network Disconnected",
-    "on-click": "~/.config/eww/scripts/toggle-wifi-popup.sh",
+    "on-click": "~/.config/scripts/wifi-menu-modern.sh",
     "family": "ipv4"
   },
   "pulseaudio": {

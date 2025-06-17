@@ -47,6 +47,6 @@
 
 (defpoll wifi-networks :interval "3s" :initial "[]"
 "scripts/get-wifi-networks.sh")
-
 (defpoll wifi-enabled :interval "2s" :initial true
 "scripts/get-wifi-status.sh")
+
