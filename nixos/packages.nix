@@ -38,7 +38,6 @@
     swaybg
     swww
     wl-clipboard
-    wtype
 
     # Window manager and desktop
     dunst
@@ -115,7 +114,7 @@
     pkg-config
 
     # Database GUI tools
-    dbeaver-bin
+    tableplus
 
     # Image processing
     imagemagick
