@@ -43,4 +43,18 @@
 
   # NetworkManager (basic)
   networking.networkmanager.enable = true;
+
+  # Pritunl client daemon service
+  systemd.services.pritunl-client = {
+    description = "Pritunl Client Daemon";
+    after = [ "network.target" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "simple";
+      User = "root";
+      ExecStart = "${pkgs.pritunl-client}/bin/pritunl-client daemon";
+      Restart = "always";
+      RestartSec = "5";
+    };
+  };
 }
