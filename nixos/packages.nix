@@ -19,6 +19,8 @@
     oh-my-zsh
     tmux
     zsh
+    fzf
+    zoxide
 
     # Text editors
     neovim
@@ -86,14 +88,22 @@
 
     # System monitoring and performance
     btop
+    htop
+    iotop
+    nethogs
+    bandwhich
     lazydocker
     lazygit
+    ctop
+    dive
 
     # File and text processing
     ripgrep
     fd
     bat
     eza
+    tree
+    jq
 
     # Network tools
     nmap
