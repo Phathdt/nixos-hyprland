@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Get current connection
 current_ssid=$(nmcli -t -f NAME connection show --active | grep -v '^lo$' | head -1)

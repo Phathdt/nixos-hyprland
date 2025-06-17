@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if eww windows | grep -q "wifi-popup-window"; then
     eww close wifi-popup-window
