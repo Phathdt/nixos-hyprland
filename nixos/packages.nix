@@ -38,6 +38,7 @@
     swww
     wl-clipboard
     wtype
+    ydotool
 
     # Window manager and desktop
     dunst
