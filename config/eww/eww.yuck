@@ -2,7 +2,9 @@
   (box :class "wifi-popup" :orientation "v" :space-evenly false :spacing 8
     (box :class "popup-header" :orientation "h" :space-evenly false
       (label :class "popup-title" :text "Wi-Fi" :halign "start")
-      (switch :class "wifi-toggle" :active wifi-enabled :onchange "scripts/toggle-wifi.sh"))
+      (button :class "wifi-toggle ${wifi-enabled ? 'enabled' : 'disabled'}"
+              :onclick "scripts/toggle-wifi.sh"
+        (label :text "${wifi-enabled ? 'ON' : 'OFF'}")))
 
     (scroll :class "wifi-list" :height 300 :vscroll true
       (box :orientation "v" :space-evenly false :spacing 4

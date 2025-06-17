@@ -25,10 +25,22 @@
 }
 
 .wifi-toggle {
-  background: #007aff;
   border-radius: 16px;
   min-width: 48px;
   min-height: 28px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.wifi-toggle.enabled {
+  background: #007aff;
+  color: #ffffff;
+}
+
+.wifi-toggle.disabled {
+  background: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .wifi-list {
