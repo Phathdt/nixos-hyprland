@@ -70,14 +70,15 @@
   },
 
   "network": {
-    "format-wifi": "󰤨 {essid}",
-    "format-ethernet": "󰈀 Connected",
-    "tooltip-format": "WiFi: {essid}\nSignal: {signalStrength}%\nIP: {ipaddr}",
-    "format-linked": "{ifname} (No IP)",
-    "format-disconnected": "󰤭 Disconnected",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}",
-    "on-click": "bash ~/.config/scripts/wifi-menu-wrapper.sh",
-    "on-click-right": "nm-connection-editor"
+    "format-wifi": "󰤨",
+    "format-ethernet": "󰈀",
+    "format-linked": "󰈀",
+    "format-disconnected": "󰤭",
+    "tooltip-format": "WiFi Connected • {ipaddr}",
+    "tooltip-format-ethernet": "Ethernet Connected • {ipaddr}",
+    "tooltip-format-disconnected": "Network Disconnected",
+    "on-click": "nm-connection-editor",
+    "family": "ipv4"
   },
   "pulseaudio": {
     "scroll-step": 5,
