@@ -1,27 +1,28 @@
 * {
   all: unset;
-  font-family: 'SF Pro Display', -apple-system, system-ui, sans-serif;
+  font-family: 'JetBrainsMono Nerd Font', 'SF Pro Display', monospace,
+    sans-serif;
 }
 
 .wifi-popup {
-  background: rgba(30, 30, 30, 0.95);
+  background: #292d3e;
   border-radius: 12px;
-  padding: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border: 2px solid #3a3f58;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  min-width: 320px;
 }
 
 .popup-header {
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 12px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #3a3f58;
+  margin-bottom: 16px;
 }
 
 .popup-title {
-  font-size: 16px;
-  font-weight: 600;
-  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  color: #eeffff;
 }
 
 .wifi-toggle {
@@ -34,13 +35,13 @@
 }
 
 .wifi-toggle.enabled {
-  background: #007aff;
-  color: #ffffff;
+  background: #c792ea;
+  color: #292d3e;
 }
 
 .wifi-toggle.disabled {
-  background: rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.6);
+  background: #3a3f58;
+  color: #a6accd;
 }
 
 .wifi-list {
@@ -51,38 +52,41 @@
   background: transparent;
   border-radius: 8px;
   padding: 12px;
-  margin: 2px 0;
+  margin: 4px 0;
   transition: all 0.2s ease;
+  border: 1px solid transparent;
 }
 
 .wifi-item:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: #3a3f58;
+  border-color: #82aaff;
 }
 
 .wifi-item.connected {
-  background: rgba(0, 122, 255, 0.2);
-  border: 1px solid rgba(0, 122, 255, 0.4);
+  background: rgba(199, 146, 234, 0.15);
+  border: 1px solid #c792ea;
 }
 
 .wifi-icon {
-  font-size: 18px;
-  color: #ffffff;
-  min-width: 24px;
+  font-size: 20px;
+  color: #82aaff;
+  min-width: 28px;
 }
 
 .wifi-name {
   font-size: 14px;
-  font-weight: 500;
-  color: #ffffff;
+  font-weight: 600;
+  color: #eeffff;
 }
 
 .wifi-status {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  color: #a6accd;
+  font-weight: 500;
 }
 
 .wifi-signal {
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: 500;
+  color: #c792ea;
+  font-weight: 600;
 }
