@@ -93,73 +93,7 @@ selected=$(printf '%s\n' "${options[@]}" | rofi \
     -dmenu \
     -i \
     -p "$header" \
-        -theme-str "
-        * {
-            bg: ${BG};
-            fg: ${FG};
-            accent: ${ACCENT};
-            accent-alt: ${ACCENT_ALT};
-            selected: ${SELECTED};
-        }
-
-        window {
-            width: 450px;
-            border-radius: 12px;
-            border: 2px solid @accent;
-            background-color: @bg;
-        }
-
-        mainbox {
-            padding: 20px;
-            background-color: transparent;
-        }
-
-        inputbar {
-            background-color: @selected;
-            border-radius: 8px;
-            padding: 12px 16px;
-            margin: 0 0 16px 0;
-            children: [prompt, entry];
-        }
-
-        prompt {
-            background-color: transparent;
-            text-color: @accent;
-            font: \"JetBrainsMono Nerd Font Bold 12\";
-        }
-
-        entry {
-            background-color: transparent;
-            text-color: @fg;
-            font: \"JetBrainsMono Nerd Font 12\";
-        }
-
-        listview {
-            background-color: transparent;
-            lines: 12;
-            scrollbar: false;
-            spacing: 4px;
-        }
-
-        element {
-            background-color: transparent;
-            text-color: @fg;
-            border-radius: 8px;
-            padding: 10px 12px;
-            font: \"JetBrainsMono Nerd Font 11\";
-        }
-
-        element selected {
-            background-color: @selected;
-            text-color: @accent;
-            border: 1px solid @accent-alt;
-        }
-
-        element-text {
-            background-color: transparent;
-            text-color: inherit;
-        }
-    ")
+    -theme ~/.config/rofi/themes/wifi-menu.rasi)
 
 # Handle selection
 case "$selected" in
@@ -202,7 +136,7 @@ case "$selected" in
                     else
                         # New connection, need password
                         password=$(rofi -dmenu -password -p "Password for $ssid:" \
-                            -theme-str "window { width: 300px; }")
+                            -theme ~/.config/rofi/themes/wifi-menu.rasi)
                         if [[ -n "$password" ]]; then
                             if nmcli device wifi connect "$ssid" password "$password"; then
                                 notify-send "WiFi" "Connected to $ssid" -i network-wireless
