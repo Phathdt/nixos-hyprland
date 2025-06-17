@@ -26,3 +26,4 @@ fi
 
 # Close popup after connection attempt
 eww close wifi-popup-window
+rm -f "/tmp/wifi-popup-open"
