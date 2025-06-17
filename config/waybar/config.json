@@ -72,9 +72,7 @@
   "network": {
     "format-wifi": "󰤨 {essid}",
     "format-ethernet": "󰈀 Connected",
-    "format-vpn": "󰖂 VPN",
     "tooltip-format": "WiFi: {essid}\nSignal: {signalStrength}%\nIP: {ipaddr}",
-    "tooltip-format-vpn": "VPN: {essid}\nIP: {ipaddr}",
     "format-linked": "{ifname} (No IP)",
     "format-disconnected": "󰤭 Disconnected",
     "format-alt": "{ifname}: {ipaddr}/{cidr}",
