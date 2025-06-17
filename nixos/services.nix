@@ -46,4 +46,12 @@
     enable = true;
     plugins = with pkgs; [ networkmanager-openvpn ];
   };
+
+  # Disable IPv6 completely
+  networking.enableIPv6 = false;
+
+  # Additional IPv6 disable via kernel parameters
+  boot.kernelParams = [
+    "ipv6.disable=1"
+  ];
 }
