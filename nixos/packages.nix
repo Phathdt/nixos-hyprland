@@ -80,7 +80,8 @@
 
     # VPN
     openvpn
-    pritunl-client
+    networkmanager-openvpn
+    networkmanagerapplet
 
     # Development tools
     docker
