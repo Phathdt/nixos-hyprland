@@ -49,6 +49,7 @@
     rofimoji
     waybar
     wlogout
+    eww
 
     # Terminal emulators
     alacritty

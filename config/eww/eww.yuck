@@ -1,0 +1,39 @@
+(defwidget wifi-popup []
+  (box :class "wifi-popup" :orientation "v" :space-evenly false :spacing 8
+    (box :class "popup-header" :orientation "h" :space-evenly false
+      (label :class "popup-title" :text "Wi-Fi" :halign "start")
+      (switch :class "wifi-toggle" :active wifi-enabled :onchange "scripts/toggle-wifi.sh"))
+
+    (scroll :class "wifi-list" :height 300 :vscroll true
+      (box :orientation "v" :space-evenly false :spacing 4
+        (for network in wifi-networks
+          (button :class "wifi-item ${network.connected ? 'connected' : ''}"
+                  :onclick "scripts/connect-wifi.sh '${network.ssid}'"
+            (box :orientation "h" :space-evenly false :spacing 12
+              (label :class "wifi-icon" :text "${network.icon}")
+              (box :orientation "v" :halign "start" :space-evenly false
+                (label :class "wifi-name" :text "${network.ssid}" :halign "start")
+                (label :class "wifi-status" :text "${network.status}" :halign "start"))
+              (label :class "wifi-signal" :text "${network.signal}" :halign "end"))))))))
+
+(defwidget wifi-button []
+  (eventbox :onclick "scripts/toggle-wifi-popup.sh"
+    (label :class "wifi-icon" :text "󰤨")))
+
+(defwindow wifi-popup-window
+  :monitor 0
+  :geometry (geometry :x "0px" :y "0px" :width "320px" :height "400px" :anchor "top right")
+  :stacking "overlay"
+  :reserve (struts :distance "0px" :side "top")
+  :windowtype "dock"
+  :wm-ignore false
+  (wifi-popup))
+
+(defvar wifi-enabled true)
+(defvar wifi-networks "[]")
+
+(deflisten wifi-networks :initial "[]"
+  "scripts/get-wifi-networks.sh")
+
+(deflisten wifi-enabled :initial true
+  "scripts/get-wifi-status.sh")
