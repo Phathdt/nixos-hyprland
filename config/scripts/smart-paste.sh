@@ -9,6 +9,17 @@ active_window=$(hyprctl activewindow -j | jq -r '.class')
 echo "$(date): Smart Paste triggered" >> "$LOG_FILE"
 echo "$(date): Active window class: '$active_window'" >> "$LOG_FILE"
 
+# Get clipboard content before paste
+clipboard_content=$(wl-paste 2>/dev/null || echo "")
+echo "$(date): Clipboard content to paste: '${clipboard_content:0:100}'" >> "$LOG_FILE"
+
+# Check if clipboard is empty
+if [ -z "$clipboard_content" ]; then
+    echo "$(date): ⚠️  WARNING - Clipboard is empty, nothing to paste" >> "$LOG_FILE"
+else
+    echo "$(date): ✅ Clipboard has content (${#clipboard_content} chars)" >> "$LOG_FILE"
+fi
+
 # Check if it's a terminal application
 case "$active_window" in
     "Alacritty"|"kitty"|"foot"|"wezterm"|"gnome-terminal"|"xterm"|"urxvt")
