@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Log file
 LOG_FILE="/tmp/smart-copy.log"
