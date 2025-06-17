@@ -6,17 +6,17 @@
               :onclick "scripts/toggle-wifi.sh"
         (label :text "${wifi-enabled ? 'ON' : 'OFF'}")))
 
+    (label :text "Networks: ${length(wifi-networks)}")
+
     (scroll :class "wifi-list" :height 300 :vscroll true
       (box :orientation "v" :space-evenly false :spacing 4
         (for network in wifi-networks
-          (button :class "wifi-item ${network.connected ? 'connected' : ''}"
+          (button :class "wifi-item"
                   :onclick "scripts/connect-wifi.sh '${network.ssid}'"
             (box :orientation "h" :space-evenly false :spacing 12
-              (label :class "wifi-icon" :text "${network.icon}")
-              (box :orientation "v" :halign "start" :space-evenly false
-                (label :class "wifi-name" :text "${network.ssid}" :halign "start")
-                (label :class "wifi-status" :text "${network.status}" :halign "start"))
-              (label :class "wifi-signal" :text "${network.signal}" :halign "end"))))))))
+              (label :text "󰤨")
+              (label :text "${network.ssid}" :halign "start")
+              (label :text "${network.signal}" :halign "end"))))))))
 
 (defwidget wifi-button []
   (eventbox :onclick "scripts/toggle-wifi-popup.sh"
