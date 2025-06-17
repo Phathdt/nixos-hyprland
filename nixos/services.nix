@@ -43,7 +43,4 @@
 
   # NetworkManager (basic)
   networking.networkmanager.enable = true;
-
-  # Pritunl VPN client service
-  services.pritunl-client.enable = true;
 }
