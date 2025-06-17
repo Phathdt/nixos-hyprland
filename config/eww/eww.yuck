@@ -29,9 +29,6 @@
   :wm-ignore false
   (wifi-popup))
 
-(defvar wifi-enabled true)
-(defvar wifi-networks "[]")
-
 (deflisten wifi-networks :initial "[]"
   "scripts/get-wifi-networks.sh")
 
