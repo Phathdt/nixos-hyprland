@@ -111,7 +111,6 @@ if [ "$QUIET_MODE" = true ]; then
         --include='.env*' \
         --include='.eslintrc*' \
         --include='.prettierrc*' \
-        --include='.vscode/' \
         --exclude='node_modules/' \
         --exclude='.DS_Store' \
         --exclude='*.log' \
@@ -152,7 +151,7 @@ else
         --include='.env*' \
         --include='.eslintrc*' \
         --include='.prettierrc*' \
-        --include='.vscode/' \
+        --include='.vs/' \
         --exclude='node_modules/' \
         --exclude='.DS_Store' \
         --exclude='*.log' \

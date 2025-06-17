@@ -23,7 +23,6 @@
     # Text editors
     neovim
     vim
-    vscode
 
     # Version control
     git
