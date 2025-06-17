@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Create systemd service for pritunl-client daemon
 sudo tee /etc/systemd/system/pritunl-client.service > /dev/null << 'EOF'
