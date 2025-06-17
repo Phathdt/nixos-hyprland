@@ -34,36 +34,42 @@ case "$active_window" in
         echo "$(date): Executed: wtype -M ctrl -M shift -k v -m shift -m ctrl" >> "$LOG_FILE"
         ;;
     *)
-        echo "$(date): Detected regular app - trying multiple paste methods" >> "$LOG_FILE"
+                echo "$(date): Detected regular app - trying paste methods sequentially" >> "$LOG_FILE"
 
         # Method 1: Standard Ctrl+V
         echo "$(date): Method 1 - Standard Ctrl+V" >> "$LOG_FILE"
         wtype -M ctrl -k v -m ctrl
-        sleep 0.2
+        sleep 0.5
+        echo "$(date): Method 1 completed, waiting..." >> "$LOG_FILE"
 
-        # Method 2: Alternative wtype syntax
+        # Method 2: Alternative wtype syntax (only if Method 1 might have failed)
         echo "$(date): Method 2 - Alternative wtype syntax" >> "$LOG_FILE"
         wtype -k ctrl+v
-        sleep 0.2
+        sleep 0.5
+        echo "$(date): Method 2 completed, waiting..." >> "$LOG_FILE"
 
         # Method 3: Try ydotool if available
         if command -v ydotool &> /dev/null; then
             echo "$(date): Method 3 - Using ydotool" >> "$LOG_FILE"
             ydotool key ctrl+v
-            sleep 0.2
+            sleep 0.5
+            echo "$(date): Method 3 completed, waiting..." >> "$LOG_FILE"
         fi
 
         # Method 4: Try xdotool if available
         if command -v xdotool &> /dev/null; then
             echo "$(date): Method 4 - Using xdotool" >> "$LOG_FILE"
             xdotool key ctrl+v
-            sleep 0.2
+            sleep 0.5
+            echo "$(date): Method 4 completed, waiting..." >> "$LOG_FILE"
         fi
 
-        # Method 5: Direct text injection using wtype
+        # Method 5: Direct text injection using wtype (most reliable)
         if [ -n "$clipboard_content" ]; then
-            echo "$(date): Method 5 - Direct text injection" >> "$LOG_FILE"
+            echo "$(date): Method 5 - Direct text injection (most reliable)" >> "$LOG_FILE"
+            sleep 0.5  # Give time for previous methods to settle
             echo "$clipboard_content" | wtype -
+            sleep 0.3  # Give time for text to be typed
             echo "$(date): Injected text directly: '${clipboard_content:0:50}'" >> "$LOG_FILE"
         fi
         ;;
