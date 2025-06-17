@@ -165,6 +165,16 @@ chars = "\u001Bf"
 key = "Right"
 mods = "Alt"
 
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Alt"
+
 [scrolling]
 history = 20000
 multiplier = 3
