@@ -93,13 +93,13 @@ selected=$(printf '%s\n' "${options[@]}" | rofi \
     -dmenu \
     -i \
     -p "$header" \
-    -theme-str "
+        -theme-str "
         * {
-            bg: $BG;
-            fg: $FG;
-            accent: $ACCENT;
-            accent-alt: $ACCENT_ALT;
-            selected: $SELECTED;
+            bg: ${BG};
+            fg: ${FG};
+            accent: ${ACCENT};
+            accent-alt: ${ACCENT_ALT};
+            selected: ${SELECTED};
         }
 
         window {
@@ -125,13 +125,13 @@ selected=$(printf '%s\n' "${options[@]}" | rofi \
         prompt {
             background-color: transparent;
             text-color: @accent;
-            font: 'JetBrainsMono Nerd Font Bold 12';
+            font: \"JetBrainsMono Nerd Font Bold 12\";
         }
 
         entry {
             background-color: transparent;
             text-color: @fg;
-            font: 'JetBrainsMono Nerd Font 12';
+            font: \"JetBrainsMono Nerd Font 12\";
         }
 
         listview {
@@ -146,7 +146,7 @@ selected=$(printf '%s\n' "${options[@]}" | rofi \
             text-color: @fg;
             border-radius: 8px;
             padding: 10px 12px;
-            font: 'JetBrainsMono Nerd Font 11';
+            font: \"JetBrainsMono Nerd Font 11\";
         }
 
         element selected {
