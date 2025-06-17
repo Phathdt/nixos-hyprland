@@ -24,8 +24,9 @@ window {
     location: center;
     anchor: center;
     width: 450px;
-    border: 2px solid @accent;
+    border: 2px solid;
     border-radius: 12px;
+    border-color: @accent;
     background-color: @bg-primary;
     cursor: "default";
 }
@@ -77,6 +78,8 @@ element {
 element selected {
     background-color: @bg-selected;
     text-color: @accent;
+    border: 1px solid;
+    border-color: @accent-alt;
 }
 
 element-text {
