@@ -82,6 +82,9 @@
     openvpn
     networkmanager-openvpn
     openvpn3
+    wireguard-tools
+    openconnect
+    openconnect_openssl
 
     # Development tools
     docker
