@@ -42,7 +42,12 @@
   };
 
   # Tailscale VPN
-  services.tailscale.enable = true;
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "client";
+    # Auto-connect on boot (requires auth key setup)
+    extraUpFlags = [ "--accept-routes" ];
+  };
 
   # NetworkManager with VPN support
   networking.networkmanager = {
