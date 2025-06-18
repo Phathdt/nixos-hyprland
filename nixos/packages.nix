@@ -30,7 +30,7 @@
     # Version control
     git
     git-cola
-    gitk
+    gitFull
 
     # Wayland/Hyprland ecosystem
     grim
