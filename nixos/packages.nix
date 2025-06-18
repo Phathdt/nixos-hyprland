@@ -84,6 +84,7 @@
     openvpn
     networkmanager-openvpn
     networkmanagerapplet
+    tailscale
 
     # Development tools
     docker

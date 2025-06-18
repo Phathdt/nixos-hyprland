@@ -41,6 +41,9 @@
     enableOnBoot = true;
   };
 
+  # Tailscale VPN
+  services.tailscale.enable = true;
+
   # NetworkManager with VPN support
   networking.networkmanager = {
     enable = true;
