@@ -146,9 +146,12 @@
     gtk-engine-murrine
     sassc
 
-    # Input methods - NOTE: fcitx5 itself is installed via i18n.inputMethod, not here
+    # Input methods
+    fcitx5
     libsForQt5.fcitx5-qt
     kdePackages.fcitx5-qt
+    fcitx5-gtk
+    fcitx5-unikey
     fcitx5-configtool
 
     # Icon themes
