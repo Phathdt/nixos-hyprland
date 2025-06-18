@@ -17,16 +17,19 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Simple Keyboard Layout Method for Vietnamese
-  services.xserver.xkb = {
-    layout = "us,vn";
-    variant = ",";
-    options = "grp:alt_shift_toggle,grp_led:scroll";
+  # Try IBus Unikey as alternative
+  i18n.inputMethod = {
+    enable = true;
+    type = "ibus";
+    ibus.engines = with pkgs.ibus-engines; [
+      unikey
+      bamboo
+    ];
   };
 
-  # For Wayland (Hyprland)
   environment.variables = {
-    XKB_DEFAULT_LAYOUT = "us,vn";
-    XKB_DEFAULT_OPTIONS = "grp:alt_shift_toggle,grp_led:scroll";
+    GTK_IM_MODULE = "ibus";
+    QT_IM_MODULE = "ibus";
+    XMODIFIERS = "@im=ibus";
   };
 }
