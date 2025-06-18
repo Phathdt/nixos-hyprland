@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo "Setting up fcitx5 Vietnamese input method..."
 
