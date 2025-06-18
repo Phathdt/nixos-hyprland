@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Get current keyboard layout
 current_layout=$(hyprctl devices | grep -A 10 "Keyboard" | grep "active keymap" | head -1 | awk '{print $3}')
