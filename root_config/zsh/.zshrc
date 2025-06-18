@@ -40,6 +40,7 @@ zplug load
 alias vi=nvim
 alias vim=nvim
 alias n=nvim
+alias code=cursor
 
 # Git aliases
 alias gpall="git push origin --all"
