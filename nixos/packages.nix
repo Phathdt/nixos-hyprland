@@ -146,14 +146,6 @@
     gtk-engine-murrine
     sassc
 
-    # Input methods
-    fcitx5
-    libsForQt5.fcitx5-qt
-    kdePackages.fcitx5-qt
-    fcitx5-gtk
-    fcitx5-unikey
-    fcitx5-configtool
-
     # Icon themes
     colloid-icon-theme
     numix-icon-theme

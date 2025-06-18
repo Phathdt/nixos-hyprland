@@ -18,16 +18,9 @@
   };
 
   i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-unikey
-      fcitx5-gtk
+    enabled = "ibus";
+    ibus.engines = with pkgs.ibus-engines; [
+      bamboo
     ];
-  };
-
-  environment.variables = {
-    GTK_IM_MODULE = "fcitx";
-    QT_IM_MODULE = "fcitx";
-    XMODIFIERS = "@im=fcitx";
   };
 }
