@@ -52,6 +52,8 @@ alias dev='cd ~/Documents/Dev/ && echo "Welcome Dev"'
 alias down='cd ~/Downloads/ && echo "Welcome Downloads"'
 alias optimex='cd ~/Documents/Dev/optimex/ && echo "Welcome Optimex"'
 
+alias c='code . &'
+
 # Docker
 export DOCKER_BUILDKIT=0
 
