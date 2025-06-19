@@ -50,6 +50,7 @@ alias gcod="git checkout develop && git pull origin develop"
 # Directory shortcuts
 alias dev='cd ~/Documents/Dev/ && echo "Welcome Dev"'
 alias down='cd ~/Downloads/ && echo "Welcome Downloads"'
+alias optimex='cd ~/Documents/Dev/optimex/ && echo "Welcome Optimex"'
 
 # Docker
 export DOCKER_BUILDKIT=0
