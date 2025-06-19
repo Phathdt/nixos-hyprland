@@ -4,7 +4,7 @@ CACHE_FILE="/tmp/fcitx5_state"
 CURRENT_IM=""
 
 get_current_im() {
-    fcitx5-remote -n 2>/dev/null || echo "keyboard-us"
+    ~/.config/scripts/fcitx5-fallback.sh -n 2>/dev/null || echo "keyboard-us"
 }
 
 send_notification() {
