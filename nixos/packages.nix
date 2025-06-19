@@ -21,9 +21,7 @@
     fcitx5-unikey
     fcitx5-gtk
     libsForQt5.fcitx5-qt
-    libsForQt5.fcitx5-with-addons
     kdePackages.fcitx5-qt
-    kdePackages.fcitx5-with-addons
 
     # Shell and terminal
     oh-my-zsh
