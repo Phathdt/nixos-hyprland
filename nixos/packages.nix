@@ -74,6 +74,7 @@
     # Web browsers
     brave
     google-chrome
+    firefox
 
     # Media and audio
     pavucontrol
