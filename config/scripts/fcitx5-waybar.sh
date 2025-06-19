@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 get_current_im() {
-    fcitx5-remote -n 2>/dev/null || echo "keyboard-us"
+    ~/.config/scripts/fcitx5-fallback.sh -n 2>/dev/null || echo "keyboard-us"
 }
 
 format_output() {

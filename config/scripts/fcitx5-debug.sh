@@ -14,11 +14,11 @@ fi
 echo ""
 
 echo "📋 Available Input Methods:"
-fcitx5-remote -l 2>/dev/null || echo "  ❌ Cannot list input methods"
+~/.config/scripts/fcitx5-fallback.sh -l 2>/dev/null || echo "  ❌ Cannot list input methods"
 echo ""
 
 echo "📋 Current Input Method:"
-current_im=$(fcitx5-remote -n 2>/dev/null)
+current_im=$(~/.config/scripts/fcitx5-fallback.sh -n 2>/dev/null)
 if [ $? -eq 0 ]; then
     echo "  ✅ Current: $current_im"
 else
@@ -27,11 +27,11 @@ fi
 echo ""
 
 echo "📋 Testing Toggle:"
-echo "  🔄 Current state: $(fcitx5-remote -n 2>/dev/null || echo 'unknown')"
+echo "  🔄 Current state: $(~/.config/scripts/fcitx5-fallback.sh -n 2>/dev/null || echo 'unknown')"
 echo "  🔄 Trying to toggle..."
-fcitx5-remote -t 2>/dev/null
+~/.config/scripts/fcitx5-fallback.sh -t 2>/dev/null
 sleep 1
-echo "  🔄 New state: $(fcitx5-remote -n 2>/dev/null || echo 'unknown')"
+echo "  🔄 New state: $(~/.config/scripts/fcitx5-fallback.sh -n 2>/dev/null || echo 'unknown')"
 echo ""
 
 echo "📋 Environment Variables:"
