@@ -20,9 +20,6 @@
     fcitx5
     fcitx5-unikey
     fcitx5-gtk
-    fcitx5-configtool
-    fcitx5-lua
-    fcitx5-chinese-addons
     libsForQt5.fcitx5-qt
     libsForQt5.fcitx5-with-addons
     kdePackages.fcitx5-qt
