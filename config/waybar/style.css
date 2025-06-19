@@ -257,32 +257,6 @@ window#waybar.hidden {
   color: #292d3e;
 }
 
-/* Input Method */
-#custom-input-method {
-  color: #89ddff;
-  font-size: 14px;
-  padding: 0 12px;
-  margin: 0 2px;
-  background-color: #32364a;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-#custom-input-method:hover {
-  background-color: #3e4357;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-#custom-input-method.vietnamese {
-  color: #c3e88d;
-  background-color: rgba(195, 232, 141, 0.1);
-}
-
-#custom-input-method.english {
-  color: #82aaff;
-  background-color: rgba(130, 170, 255, 0.1);
-}
-
 /* Tooltips */
 tooltip {
   background-color: #3c4057;

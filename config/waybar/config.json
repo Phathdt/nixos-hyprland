@@ -7,7 +7,6 @@
   "modules-center": ["clock"],
   "modules-right": [
     "tray",
-    "custom/input-method",
     "pulseaudio",
     "network",
     "cpu",
@@ -82,12 +81,5 @@
     "format": "󰐥",
     "tooltip": false,
     "on-click": "wlogout --protocol layer-shell"
-  },
-  "custom/input-method": {
-    "exec": "~/.config/scripts/input-method-status.sh",
-    "interval": 2,
-    "return-type": "json",
-    "on-click": "~/.config/scripts/input-method-switch.sh",
-    "format": "{}"
   }
 }
