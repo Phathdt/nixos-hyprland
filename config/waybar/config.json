@@ -88,7 +88,7 @@
     "exec": "~/.config/scripts/fcitx5-waybar.sh",
     "interval": 1,
     "tooltip": true,
-    "tooltip-format": "Input Method: {}",
-    "on-click": "fcitx5-remote -t"
+    "tooltip-format": "Input Method: {} (Click to toggle)",
+    "on-click": "~/.config/scripts/fcitx5-toggle.sh"
   }
 }
