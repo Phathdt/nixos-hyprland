@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 get_current_im() {
     fcitx5-remote -n 2>/dev/null || echo "keyboard-us"
