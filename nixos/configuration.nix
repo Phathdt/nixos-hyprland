@@ -17,7 +17,6 @@
     ./gtk.nix
     ./services.nix
     ./development.nix
-    ./input-method.nix
   ];
 
   system.stateVersion = "25.05";

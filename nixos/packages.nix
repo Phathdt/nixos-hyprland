@@ -16,13 +16,6 @@
     wget
     lsof
 
-    # Input method
-    fcitx5
-    fcitx5-unikey
-    fcitx5-gtk
-    libsForQt5.fcitx5-qt
-    kdePackages.fcitx5-qt
-
     # Shell and terminal
     oh-my-zsh
     tmux
