@@ -19,6 +19,5 @@
 
   i18n.supportedLocales = [
     "en_US.UTF-8/UTF-8"
-    "vi_VN.UTF-8/UTF-8"
   ];
 }
