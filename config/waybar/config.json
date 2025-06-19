@@ -7,7 +7,6 @@
   "modules-center": ["clock"],
   "modules-right": [
     "tray",
-    "custom/fcitx5",
     "pulseaudio",
     "network",
     "cpu",
@@ -82,13 +81,5 @@
     "format": "󰐥",
     "tooltip": false,
     "on-click": "wlogout --protocol layer-shell"
-  },
-  "custom/fcitx5": {
-    "format": "{}",
-    "exec": "~/.config/scripts/fcitx5-waybar.sh",
-    "interval": 1,
-    "tooltip": true,
-    "tooltip-format": "Input Method: {}",
-    "on-click": "fcitx5-remote -t"
   }
 }
