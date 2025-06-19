@@ -9,6 +9,13 @@
       General = {
         Enable = "Source,Sink,Media,Socket";
         Experimental = true;
+        # Enable all audio profiles
+        Class = "0x000100";
+        # Auto-enable audio profiles
+        AutoEnable = true;
+      };
+      Policy = {
+        AutoEnable = true;
       };
     };
   };
@@ -23,7 +30,20 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
+    # Enable Bluetooth audio support
+    wireplumber.enable = true;
   };
+
+  # Additional audio packages for Bluetooth
+  environment.systemPackages = with pkgs; [
+    # Bluetooth audio tools
+    bluez-tools
+    bluez-alsa
+    # Audio control tools
+    wireplumber
+    # GUI tools
+    pavucontrol
+  ];
 
   # Power management
   services.upower.enable = true;

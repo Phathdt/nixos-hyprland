@@ -67,6 +67,9 @@
     # Media and audio
     pavucontrol
     playerctl
+    # PipeWire audio tools
+    wireplumber
+    pipewire
 
     # System monitoring and control
     cliphist
@@ -76,6 +79,7 @@
     blueman
     bluez
     bluez-tools
+    bluez-alsa
 
     # Communication
     telegram-desktop
