@@ -101,7 +101,8 @@ window#waybar.hidden {
 #bluetooth,
 #tray,
 #idle_inhibitor,
-#custom-power {
+#custom-power,
+#custom-bluetooth {
   padding: 0 12px;
   margin: 0 2px;
   background-color: #32364a;
@@ -119,7 +120,8 @@ window#waybar.hidden {
 #pulseaudio:hover,
 #bluetooth:hover,
 #idle_inhibitor:hover,
-#custom-power:hover {
+#custom-power:hover,
+#custom-bluetooth:hover {
   background-color: #3e4357;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
@@ -218,6 +220,37 @@ window#waybar.hidden {
 #bluetooth.connected {
   color: #c3e88d;
   background-color: rgba(195, 232, 141, 0.1);
+}
+
+/* Custom Bluetooth Module */
+#custom-bluetooth {
+  color: #82aaff;
+  font-size: 16px;
+  padding: 0 10px;
+}
+
+#custom-bluetooth:hover {
+  background-color: #3e4357;
+  box-shadow: 0 4px 12px rgba(130, 170, 255, 0.2);
+}
+
+#custom-bluetooth.connected {
+  color: #c3e88d;
+  background-color: rgba(195, 232, 141, 0.1);
+}
+
+#custom-bluetooth.on {
+  color: #82aaff;
+}
+
+#custom-bluetooth.off {
+  color: #676e95;
+  background-color: #3c4057;
+}
+
+#custom-bluetooth.disabled {
+  color: #676e95;
+  background-color: #3c4057;
 }
 
 /* Tray */

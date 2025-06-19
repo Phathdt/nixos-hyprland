@@ -7,6 +7,7 @@
   "modules-center": ["clock"],
   "modules-right": [
     "tray",
+    "custom/bluetooth",
     "pulseaudio",
     "network",
     "cpu",
@@ -48,6 +49,16 @@
     "format": "{:%d %b %H:%M:%S}",
     "format-alt": "{:%A, %d %B %Y}",
     "interval": 1
+  },
+  "custom/bluetooth": {
+    "exec": "~/.config/scripts/bluetooth-waybar.sh status",
+    "exec-if": "command -v bluetoothctl",
+    "tooltip": true,
+    "tooltip-format": "{}",
+    "on-click": "~/.config/scripts/bluetooth-waybar.sh click left",
+    "on-click-middle": "~/.config/scripts/bluetooth-waybar.sh click middle",
+    "interval": 5,
+    "return-type": "json"
   },
   "cpu": {
     "format": "󰍛 {usage}%",
