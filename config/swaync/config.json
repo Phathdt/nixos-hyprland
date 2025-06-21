@@ -27,8 +27,8 @@
     "title",
     "dnd",
     "volume",
-    "backlight",
-    "buttons-grid",
+    "menubar#wifi",
+    "menubar#bluetooth",
     "mpris",
     "notifications"
   ],
@@ -38,43 +38,39 @@
       "clear-all-button": true,
       "button-text": "󰎟"
     },
-    "buttons-grid": {
-      "actions": [
-        {
-          "label": "󰖩\nWi-Fi",
-          "command": "sh ~/.config/scripts/toggle-wifi.sh"
-        },
-        {
-          "label": "󰍉\nWiFi Settings",
-          "command": "nm-connection-editor"
-        },
-        {
-          "label": "󰂯\nBluetooth",
-          "command": "sh ~/.config/scripts/toggle-bluetooth.sh"
-        },
-        {
-          "label": "󰂱\nBT Manager",
-          "command": "blueman-manager"
-        },
-        {
-          "label": "󰌶\nNight Light",
-          "command": "busctl --user call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n 4500"
-        },
-        {
-          "label": "󰐾\nDark Style",
-          "command": "gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'"
-        }
-      ]
-    },
-    "backlight": {
-      "label": "󰃞",
-      "device": "intel_backlight",
-      "actions": {
-        "on-click-right": "brightnessctl set 100%",
-        "on-scroll-up": "brightnessctl set 5%+",
-        "on-scroll-down": "brightnessctl set 5%-"
+    "menubar#wifi": {
+      "menu#toggle": {
+        "label": "󰖩 Wi-Fi",
+        "position": "left",
+        "actions": [
+          {
+            "label": "󰖩 Toggle WiFi",
+            "command": "sh ~/.config/scripts/toggle-wifi.sh"
+          },
+          {
+            "label": "󰍉 WiFi Settings",
+            "command": "nm-connection-editor"
+          }
+        ]
       }
     },
+    "menubar#bluetooth": {
+      "menu#toggle": {
+        "label": "󰂯 Bluetooth",
+        "position": "left",
+        "actions": [
+          {
+            "label": "󰂯 Toggle Bluetooth",
+            "command": "sh ~/.config/scripts/toggle-bluetooth.sh"
+          },
+          {
+            "label": "󰂱 Bluetooth Manager",
+            "command": "blueman-manager"
+          }
+        ]
+      }
+    },
+
     "volume": {
       "label": "󰕾",
       "expand-button-label": "󰐕",

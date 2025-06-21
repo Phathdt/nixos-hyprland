@@ -156,6 +156,8 @@ label {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
   margin: 10px;
   padding: 12px;
+  min-width: 420px;
+  min-height: 600px;
 }
 
 .control-center-list {
@@ -175,18 +177,8 @@ label {
   box-shadow: none;
 }
 
-.notification-group > box {
-  background: transparent;
-  padding: 6px;
-  margin: 0px;
-  border: none;
-  border-radius: 8px;
-  box-shadow: none;
-}
-
 .notification-row {
   outline: none;
-  transition: all 200ms ease;
   background: @base;
   border: 1px solid @surface0;
   margin: 8px 4px;
@@ -201,234 +193,155 @@ label {
 }
 
 .control-center-list > row,
-.control-center-list > row:focus,
-.control-center-list > row:hover {
+.notification-row {
+  outline: none;
   background: transparent;
-  border: none;
   margin: 0px;
-  padding: 8px 12px;
-  box-shadow: none;
+  padding: 0px;
 }
 
 .blank-window {
-  background: transparent;
+  background: alpha(black, 0.25);
 }
 
 .widget-title {
-  margin: 0px;
+  color: @text;
   background: @surface0;
-  border-radius: 12px 12px 0px 0px;
-  border: 1px solid @surface1;
-  border-bottom: none;
+  padding: 8px 12px;
+  margin: 8px 12px 0px 12px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .widget-title > label {
-  margin: 16px 12px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   color: @text;
 }
 
 .widget-title > button {
-  font-weight: 600;
-  padding: 8px 12px;
-  margin-right: 12px;
   background: transparent;
-  color: @text;
   border: none;
   border-radius: 8px;
+  color: @text;
+  padding: 4px 8px;
 }
 
 .widget-title > button:hover {
   background: @mauve;
-  color: @base;
+  color: @crust;
 }
 
 .widget-label {
-  margin: 0px;
-  padding: 0px;
-  min-height: 5px;
+  margin: 8px 12px 0px 12px;
   background: @surface0;
-  border-radius: 0px 0px 12px 12px;
-  border: 1px solid @surface1;
-  border-top: none;
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-weight: 600;
+  color: @text;
 }
 
 .widget-label > label {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   color: @text;
 }
 
-/* Buttons Grid - Ubuntu style */
-.widget-buttons-grid {
+.widget-menubar {
   background: @surface0;
   border: 2px solid @surface1;
   border-radius: 12px;
-  margin: 8px 12px;
+  margin: 4px 12px;
   padding: 8px;
 }
 
-.widget-buttons-grid > flowbox {
-  background: transparent;
-}
-
-.widget-buttons-grid > flowbox > flowboxchild {
+.widget-menubar button {
   background: @base;
-  border-radius: 8px;
-  min-height: 70px;
-  min-width: 70px;
-  margin: 3px;
-  padding: 4px;
-  border: 1px solid @surface2;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.widget-buttons-grid > flowbox > flowboxchild > button {
-  background: transparent;
-  border: none;
-  border-radius: 6px;
-  color: @text;
-  font-size: 11px;
+  min-width: 380px;
+  min-height: 46px;
+  margin: 2px 0px;
+  font-size: 14px;
   font-weight: 500;
-  padding: 6px;
-  min-height: 60px;
-  min-width: 60px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  color: @text;
+  border: 1px solid @surface2;
 }
 
-.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+.widget-menubar button:hover {
   background: @mauve;
   color: @crust;
-  transition: all 0.15s ease;
-  box-shadow: 0 4px 8px rgba(199, 146, 234, 0.3);
-}
-
-.widget-buttons-grid > flowbox > flowboxchild > button:active {
-  background: @blue;
-  color: @crust;
-}
-
-/* Status-based coloring for toggles */
-.widget-buttons-grid > flowbox > flowboxchild.wifi-enabled {
-  background: alpha(@green, 0.2);
-  border-color: @green;
-}
-
-.widget-buttons-grid > flowbox > flowboxchild.wifi-disabled {
-  background: alpha(@red, 0.2);
-  border-color: @red;
-}
-
-.widget-buttons-grid > flowbox > flowboxchild.bluetooth-enabled {
-  background: alpha(@blue, 0.2);
-  border-color: @blue;
-}
-
-.widget-buttons-grid > flowbox > flowboxchild.bluetooth-disabled {
-  background: alpha(@red, 0.2);
-  border-color: @red;
-}
-
-/* Backlight widget */
-.widget-backlight {
-  background: @surface0;
-  border: 1px solid @surface1;
-  border-radius: 12px;
-  margin: 8px 12px;
-  padding: 8px;
-}
-
-.widget-backlight > scale {
-  background: transparent;
-  border-radius: 8px;
-  margin: 0px;
-  padding: 8px;
-  min-height: 40px;
-}
-
-.widget-backlight > label {
-  background: transparent;
-  margin: 0px;
-  padding: 8px;
-  color: @text;
-  font-size: 16px;
 }
 
 .widget-volume {
   background: @surface0;
-  border: 1px solid @surface1;
-  border-top: none;
-  border-bottom: none;
+  padding: 8px 12px;
+  margin: 8px 12px 0px 12px;
+  border-radius: 12px;
   font-size: 14px;
-  font-weight: 500;
-  border-radius: 0px;
-  margin: 0px;
-  padding: 0px;
+  font-weight: 600;
+  color: @text;
 }
 
 .widget-volume > box {
-  background: @base;
-  border-radius: 8px;
-  margin: 8px 12px;
-  min-height: 48px;
-  border: 1px solid @surface1;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .widget-volume > box > label {
-  min-width: 48px;
-  padding: 0px;
   color: @text;
+  font-weight: 600;
 }
 
 .widget-volume > box > button {
-  min-width: 48px;
-  box-shadow: none;
-  padding: 0px;
+  background: transparent;
+  border: none;
   color: @text;
-  border-radius: 6px;
+  padding: 4px;
 }
 
 .widget-volume > box > button:hover {
-  background: @surface0;
+  color: @mauve;
 }
 
 .widget-volume > revealer > list {
   background: @base;
+  border: 1px solid @surface1;
+  padding: 4px;
   border-radius: 8px;
   margin-top: 8px;
-  padding: 4px;
-  border: 1px solid @surface1;
 }
 
 .widget-volume > revealer > list > row {
-  padding-left: 12px;
-  min-height: 40px;
   background: transparent;
   color: @text;
+  padding: 4px 8px;
+  border-radius: 6px;
 }
 
 .widget-volume > revealer > list > row:hover {
   background: @surface0;
-  border-radius: 6px;
 }
 
 .widget-dnd {
-  margin: 8px 12px;
-  font-size: 14px;
-  font-weight: 500;
+  background: @surface0;
+  padding: 8px 12px;
+  margin: 8px 12px 0px 12px;
+  border-radius: 12px;
 }
 
 .widget-dnd > switch {
-  background: @surface0;
-  font-size: initial;
+  background: @surface2;
   border-radius: 20px;
-  box-shadow: none;
-  padding: 2px;
-  border: 1px solid @surface1;
+  border: none;
+  min-width: 50px;
+  min-height: 24px;
 }
 
 .widget-dnd > switch:hover {
-  background: @surface1;
+  background: @overlay0;
 }
 
 .widget-dnd > switch:checked {
@@ -441,65 +354,63 @@ label {
 
 .widget-dnd > switch slider {
   background: @text;
-  border-radius: 18px;
+  border-radius: 50%;
   margin: 2px;
 }
 
 .widget-mpris {
-  padding: 8px 12px;
-  margin-bottom: 0px;
+  background: @surface0;
+  padding: 12px;
+  margin: 8px 12px 0px 12px;
+  border-radius: 12px;
 }
 
 .widget-mpris > box {
-  padding: 8px;
-  margin: 0px;
-  border-radius: 12px;
-  background: @base;
-  border: 1px solid @surface1;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 8px;
+  padding: 0px;
 }
 
 .widget-mpris-title {
   color: @text;
   font-weight: 600;
-  font-size: 16px;
-  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+  font-size: 14px;
 }
 
 .widget-mpris-subtitle {
-  color: @subtext1;
-  font-size: 14px;
-  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+  color: @subtext0;
+  font-size: 12px;
 }
 
 .widget-mpris-player {
-  border-radius: 8px;
-  margin: 0px;
+  color: @subtext1;
+  font-size: 12px;
 }
 
 scale {
-  padding: 0px;
-  margin: 0px 12px;
+  min-height: 8px;
 }
 
 scale trough {
-  border-radius: 6px;
-  background: @surface0;
+  background: @surface2;
+  border-radius: 4px;
   min-height: 8px;
 }
 
 scale highlight {
-  border-radius: 6px;
-  min-height: 8px;
   background: @mauve;
+  border-radius: 4px;
 }
 
 scale slider {
-  margin: -6px;
-  min-width: 12px;
-  min-height: 12px;
   background: @text;
+  border: none;
   border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  min-width: 16px;
+  min-height: 16px;
+  margin: -4px;
 }
 
 scale slider:hover {
@@ -507,5 +418,5 @@ scale slider:hover {
 }
 
 .right.overlay-indicator {
-  all: unset;
+  background: @surface0;
 }
