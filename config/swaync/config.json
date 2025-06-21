@@ -1,0 +1,125 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "cssPriority": "user",
+  "control-center-margin-top": 22,
+  "control-center-margin-bottom": 2,
+  "control-center-margin-right": 1,
+  "control-center-margin-left": 0,
+  "notification-icon-size": 64,
+  "notification-body-image-height": 128,
+  "notification-body-image-width": 200,
+  "timeout": 6,
+  "timeout-low": 3,
+  "timeout-critical": 0,
+  "fit-to-screen": false,
+  "control-center-width": 400,
+  "control-center-height": 915,
+  "notification-window-width": 375,
+  "keyboard-shortcuts": true,
+  "image-visibility": "when-available",
+  "transition-time": 200,
+  "hide-on-clear": false,
+  "hide-on-action": true,
+  "script-fail-notify": true,
+  "widgets": [
+    "title",
+    "dnd",
+    "menubar#settings",
+    "volume",
+    "mpris",
+    "notifications"
+  ],
+  "widget-config": {
+    "title": {
+      "text": "󰂚 Quick Settings",
+      "clear-all-button": true,
+      "button-text": "󰎟"
+    },
+    "menubar#settings": {
+      "menu#wifi": {
+        "label": "\t󰖩   WiFi Settings\t",
+        "position": "left",
+        "actions": [
+          {
+            "label": "󰖩 Toggle WiFi",
+            "command": "sh ~/.config/scripts/toggle-wifi.sh"
+          },
+          {
+            "label": "󰖩 Turn WiFi On",
+            "command": "nmcli radio wifi on && notify-send 'WiFi' 'WiFi enabled' -i network-wireless"
+          },
+          {
+            "label": "󰖪 Turn WiFi Off",
+            "command": "nmcli radio wifi off && notify-send 'WiFi' 'WiFi disabled' -i network-wireless-offline"
+          },
+          {
+            "label": "󰕧 Open WiFi Menu",
+            "command": "sh ~/.config/scripts/wifi-menu.sh"
+          }
+        ]
+      },
+      "menu#bluetooth": {
+        "label": "\t󰂯   Bluetooth\t  ",
+        "position": "left",
+        "actions": [
+          {
+            "label": "󰂯 Toggle Bluetooth",
+            "command": "sh ~/.config/scripts/toggle-bluetooth.sh"
+          },
+          {
+            "label": "󰂯 Turn Bluetooth On",
+            "command": "bluetoothctl power on && notify-send 'Bluetooth' 'Bluetooth enabled' -i bluetooth"
+          },
+          {
+            "label": "󰂲 Turn Bluetooth Off",
+            "command": "bluetoothctl power off && notify-send 'Bluetooth' 'Bluetooth disabled' -i bluetooth-disabled"
+          },
+          {
+            "label": "󰂱 Open Bluetooth Manager",
+            "command": "blueman-manager"
+          }
+        ]
+      }
+    },
+    "volume": {
+      "label": "󰕾",
+      "expand-button-label": "󰐕",
+      "collapse-button-label": "󰐖",
+      "show-per-app": true,
+      "show-per-app-icon": true,
+      "show-per-app-label": true
+    },
+    "dnd": {
+      "text": "󰂛 Do Not Disturb"
+    },
+    "mpris": {
+      "image-size": 96,
+      "image-radius": 4
+    },
+    "label": {
+      "text": "Notifications",
+      "clear-all-button": true,
+      "button-text": "󰎟"
+    }
+  },
+  "scripts": {
+    "wifi-status": {
+      "exec": "nmcli radio wifi",
+      "urgency": "Normal"
+    }
+  },
+  "notification-visibility": {
+    "spotify": {
+      "state": "enabled",
+      "urgency": "Low",
+      "app-name": "Spotify"
+    },
+    "youtube-music": {
+      "state": "enabled",
+      "urgency": "Low",
+      "app-name": "com.github.th_ch.youtube_music"
+    }
+  }
+}

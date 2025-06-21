@@ -1,0 +1,478 @@
+@define-color shadow rgba(0, 0, 0, 0.25);
+
+/* Material Palenight Theme */
+@define-color base   #292D3E;
+@define-color mantle #1E1E2E;
+@define-color crust  #1A1A1A;
+
+@define-color text     #EEFFFF;
+@define-color subtext0 #A6ACCD;
+@define-color subtext1 #BFC7D5;
+
+@define-color surface0 #3A3F58;
+@define-color surface1 #444A73;
+@define-color surface2 #4E5579;
+
+@define-color overlay0 #676E95;
+@define-color overlay1 #717CB4;
+@define-color overlay2 #8087A2;
+
+@define-color blue      #82AAFF;
+@define-color lavender  #B4BEFE;
+@define-color sapphire  #89DDFF;
+@define-color sky       #89DCEB;
+@define-color teal      #4FD6BE;
+@define-color green     #C3E88D;
+@define-color yellow    #FFCB6B;
+@define-color peach     #F78C6C;
+@define-color maroon    #FF5370;
+@define-color red       #FF5370;
+@define-color mauve     #C792EA;
+@define-color pink      #F07178;
+@define-color flamingo  #F2CDCD;
+@define-color rosewater #F5E0DC;
+
+@define-color base_lighter  #2E3440;
+@define-color mauve_lighter #D3A4F4;
+
+* {
+  font-family: 'Product Sans', 'Noto Sans', sans-serif;
+  background-clip: border-box;
+}
+
+label {
+  color: @text;
+}
+
+.notification {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  background: @base;
+  margin: 8px;
+}
+
+.notification button {
+  background: transparent;
+  border-radius: 8px;
+  border: none;
+  margin: 0px;
+  padding: 8px;
+}
+
+.notification button:hover {
+  background: @surface0;
+}
+
+.notification-content {
+  min-height: 64px;
+  margin: 12px;
+  padding: 0px;
+  border-radius: 8px;
+}
+
+.close-button {
+  background: transparent;
+  color: @text;
+  border-radius: 50%;
+  margin: 4px;
+}
+
+.close-button:hover {
+  background: @red;
+  color: @base;
+}
+
+.notification-default-action,
+.notification-action {
+  background: transparent;
+  border: none;
+  color: @text;
+}
+
+.notification-default-action {
+  border-radius: 12px;
+}
+
+.notification-default-action:not(:only-child) {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.notification-action {
+  border-radius: 0px;
+  padding: 8px;
+}
+
+.notification-action:first-child {
+  border-bottom-left-radius: 12px;
+}
+
+.notification-action:last-child {
+  border-bottom-right-radius: 12px;
+}
+
+.notification-action:hover {
+  background: @surface0;
+}
+
+.summary {
+  color: @text;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0px;
+}
+
+.time {
+  color: @subtext0;
+  font-size: 12px;
+  text-shadow: none;
+  margin: 0px;
+  padding: 2px 0px;
+}
+
+.body {
+  font-size: 14px;
+  font-weight: 400;
+  color: @subtext1;
+  text-shadow: none;
+  margin: 0px;
+}
+
+.body-image {
+  border-radius: 8px;
+}
+
+.top-action-title {
+  color: @text;
+  text-shadow: none;
+  font-weight: 600;
+}
+
+.control-center {
+  background: alpha(@crust, 0.95);
+  border-radius: 16px;
+  border: 1px solid @surface0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  margin: 10px;
+  padding: 8px;
+}
+
+.control-center-list {
+  background: transparent;
+  min-height: 5px;
+  border-radius: 12px;
+}
+
+.control-center-list-placeholder,
+.notification-group-icon,
+.notification-group {
+  color: @subtext0;
+}
+
+.notification-group {
+  opacity: 1;
+  box-shadow: none;
+}
+
+.notification-group > box {
+  background: transparent;
+  padding: 6px;
+  margin: 0px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.notification-row {
+  outline: none;
+  transition: all 200ms ease;
+  background: @base;
+  border: 1px solid @surface0;
+  margin: 8px 4px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.notification-row:focus,
+.notification-row:hover {
+  background: @surface0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.control-center-list > row,
+.control-center-list > row:focus,
+.control-center-list > row:hover {
+  background: transparent;
+  border: none;
+  margin: 0px;
+  padding: 8px 12px;
+  box-shadow: none;
+}
+
+.blank-window {
+  background: transparent;
+}
+
+.widget-title {
+  margin: 0px;
+  background: @surface0;
+  border-radius: 12px 12px 0px 0px;
+  border: 1px solid @surface1;
+  border-bottom: none;
+}
+
+.widget-title > label {
+  margin: 16px 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: @text;
+}
+
+.widget-title > button {
+  font-weight: 600;
+  padding: 8px 12px;
+  margin-right: 12px;
+  background: transparent;
+  color: @text;
+  border: none;
+  border-radius: 8px;
+}
+
+.widget-title > button:hover {
+  background: @mauve;
+  color: @base;
+}
+
+.widget-label {
+  margin: 0px;
+  padding: 0px;
+  min-height: 5px;
+  background: @surface0;
+  border-radius: 0px 0px 12px 12px;
+  border: 1px solid @surface1;
+  border-top: none;
+}
+
+.widget-label > label {
+  font-size: 14px;
+  font-weight: 500;
+  color: @text;
+}
+
+.widget-menubar {
+  background: @surface0;
+  border: 1px solid @surface1;
+  border-top: none;
+  border-bottom: none;
+}
+
+.widget-menubar > box > box {
+  margin: 8px 12px;
+  min-height: 48px;
+  border-radius: 8px;
+  background: transparent;
+}
+
+.widget-menubar > box > box > button {
+  background: @base;
+  min-width: 180px;
+  min-height: 48px;
+  margin-right: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0px;
+  border-radius: 8px;
+  color: @text;
+  border: 1px solid @surface1;
+}
+
+.widget-menubar > box > box > button:nth-child(2) {
+  margin-right: 0px;
+}
+
+.widget-menubar button:focus {
+  box-shadow: none;
+}
+
+.widget-menubar button:hover {
+  background: @mauve;
+  color: @base;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.widget-menubar > box > revealer > box {
+  margin: 8px 12px;
+  background: @base;
+  border-radius: 8px;
+  border: 1px solid @surface1;
+}
+
+.widget-menubar > box > revealer > box > button {
+  background: transparent;
+  min-height: 44px;
+  padding: 8px 12px;
+  margin: 4px;
+  border-radius: 6px;
+  color: @text;
+}
+
+.widget-menubar > box > revealer > box > button:hover {
+  background: @surface0;
+}
+
+.widget-volume {
+  background: @surface0;
+  border: 1px solid @surface1;
+  border-top: none;
+  border-bottom: none;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.widget-volume > box {
+  background: @base;
+  border-radius: 8px;
+  margin: 8px 12px;
+  min-height: 48px;
+  border: 1px solid @surface1;
+}
+
+.widget-volume > box > label {
+  min-width: 48px;
+  padding: 0px;
+  color: @text;
+}
+
+.widget-volume > box > button {
+  min-width: 48px;
+  box-shadow: none;
+  padding: 0px;
+  color: @text;
+  border-radius: 6px;
+}
+
+.widget-volume > box > button:hover {
+  background: @surface0;
+}
+
+.widget-volume > revealer > list {
+  background: @base;
+  border-radius: 8px;
+  margin-top: 8px;
+  padding: 4px;
+  border: 1px solid @surface1;
+}
+
+.widget-volume > revealer > list > row {
+  padding-left: 12px;
+  min-height: 40px;
+  background: transparent;
+  color: @text;
+}
+
+.widget-volume > revealer > list > row:hover {
+  background: @surface0;
+  border-radius: 6px;
+}
+
+.widget-dnd {
+  margin: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.widget-dnd > switch {
+  background: @surface0;
+  font-size: initial;
+  border-radius: 20px;
+  box-shadow: none;
+  padding: 2px;
+  border: 1px solid @surface1;
+}
+
+.widget-dnd > switch:hover {
+  background: @surface1;
+}
+
+.widget-dnd > switch:checked {
+  background: @mauve;
+}
+
+.widget-dnd > switch:checked:hover {
+  background: @mauve_lighter;
+}
+
+.widget-dnd > switch slider {
+  background: @text;
+  border-radius: 18px;
+  margin: 2px;
+}
+
+.widget-mpris {
+  padding: 8px 12px;
+  margin-bottom: 0px;
+}
+
+.widget-mpris > box {
+  padding: 8px;
+  margin: 0px;
+  border-radius: 12px;
+  background: @base;
+  border: 1px solid @surface1;
+}
+
+.widget-mpris-title {
+  color: @text;
+  font-weight: 600;
+  font-size: 16px;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.widget-mpris-subtitle {
+  color: @subtext1;
+  font-size: 14px;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.widget-mpris-player {
+  border-radius: 8px;
+  margin: 0px;
+}
+
+scale {
+  padding: 0px;
+  margin: 0px 12px;
+}
+
+scale trough {
+  border-radius: 6px;
+  background: @surface0;
+  min-height: 8px;
+}
+
+scale highlight {
+  border-radius: 6px;
+  min-height: 8px;
+  background: @mauve;
+}
+
+scale slider {
+  margin: -6px;
+  min-width: 12px;
+  min-height: 12px;
+  background: @text;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+scale slider:hover {
+  background: @mauve;
+}
+
+.right.overlay-indicator {
+  all: unset;
+}
