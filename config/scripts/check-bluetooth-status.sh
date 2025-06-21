@@ -2,7 +2,7 @@
 
 status=$(bluetoothctl show | grep "Powered" | awk '{print $2}')
 if [ "$status" = "yes" ]; then
-    echo "enabled"
+    echo '{"text": "󰂯 Bluetooth", "class": "bluetooth-enabled", "tooltip": "Bluetooth is enabled"}'
 else
-    echo "disabled"
+    echo '{"text": "󰂯 Bluetooth", "class": "bluetooth-disabled", "tooltip": "Bluetooth is disabled"}'
 fi

@@ -27,8 +27,8 @@
     "title",
     "dnd",
     "volume",
-    "menubar#wifi",
-    "menubar#bluetooth",
+    "custom#wifi",
+    "custom#bluetooth",
     "mpris",
     "notifications"
   ],
@@ -38,37 +38,21 @@
       "clear-all-button": true,
       "button-text": "󰎟"
     },
-    "menubar#wifi": {
-      "menu#toggle": {
-        "label": "󰖩 Wi-Fi",
-        "position": "left",
-        "actions": [
-          {
-            "label": "󰖩 Toggle WiFi",
-            "command": "sh ~/.config/scripts/toggle-wifi.sh"
-          },
-          {
-            "label": "󰍉 WiFi Settings",
-            "command": "nm-connection-editor"
-          }
-        ]
-      }
+    "custom#wifi": {
+      "exec": "sh ~/.config/scripts/check-wifi-status.sh",
+      "return-type": "json",
+      "interval": 3,
+      "format": "󰖩 Wi-Fi",
+      "on-click": "sh ~/.config/scripts/toggle-wifi.sh",
+      "on-click-right": "nm-connection-editor"
     },
-    "menubar#bluetooth": {
-      "menu#toggle": {
-        "label": "󰂯 Bluetooth",
-        "position": "left",
-        "actions": [
-          {
-            "label": "󰂯 Toggle Bluetooth",
-            "command": "sh ~/.config/scripts/toggle-bluetooth.sh"
-          },
-          {
-            "label": "󰂱 Bluetooth Manager",
-            "command": "blueman-manager"
-          }
-        ]
-      }
+    "custom#bluetooth": {
+      "exec": "sh ~/.config/scripts/check-bluetooth-status.sh",
+      "return-type": "json",
+      "interval": 3,
+      "format": "󰂯 Bluetooth",
+      "on-click": "sh ~/.config/scripts/toggle-bluetooth.sh",
+      "on-click-right": "blueman-manager"
     },
 
     "volume": {

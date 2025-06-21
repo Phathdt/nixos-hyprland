@@ -2,7 +2,7 @@
 
 status=$(nmcli radio wifi)
 if [ "$status" = "enabled" ]; then
-    echo "enabled"
+    echo '{"text": "󰖩 Wi-Fi", "class": "wifi-enabled", "tooltip": "WiFi is enabled"}'
 else
-    echo "disabled"
+    echo '{"text": "󰖩 Wi-Fi", "class": "wifi-disabled", "tooltip": "WiFi is disabled"}'
 fi

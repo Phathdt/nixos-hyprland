@@ -201,7 +201,7 @@ label {
 }
 
 .blank-window {
-  background: alpha(black, 0.25);
+  background: transparent;
 }
 
 .widget-title {
@@ -248,30 +248,51 @@ label {
   color: @text;
 }
 
-.widget-menubar {
+.widget-custom {
   background: @surface0;
-  border: 2px solid @surface1;
+  padding: 8px 12px;
+  margin: 8px 12px 0px 12px;
   border-radius: 12px;
-  margin: 4px 12px;
-  padding: 8px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.widget-menubar button {
-  background: @base;
-  min-width: 380px;
-  min-height: 46px;
-  margin: 2px 0px;
+.widget-custom button {
+  background: transparent;
+  border: none;
+  color: @text;
   font-size: 14px;
   font-weight: 500;
   padding: 8px 16px;
-  border-radius: 10px;
-  color: @text;
-  border: 1px solid @surface2;
+  border-radius: 8px;
+  min-width: 200px;
+  text-align: left;
 }
 
-.widget-menubar button:hover {
-  background: @mauve;
-  color: @crust;
+.widget-custom button:hover {
+  background: @surface1;
+}
+
+.widget-custom.wifi-enabled {
+  background: alpha(@green, 0.15);
+  border: 1px solid @green;
+}
+
+.widget-custom.wifi-disabled {
+  background: alpha(@red, 0.15);
+  border: 1px solid @red;
+}
+
+.widget-custom.bluetooth-enabled {
+  background: alpha(@blue, 0.15);
+  border: 1px solid @blue;
+}
+
+.widget-custom.bluetooth-disabled {
+  background: alpha(@red, 0.15);
+  border: 1px solid @red;
 }
 
 .widget-volume {
