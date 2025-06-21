@@ -27,8 +27,7 @@
     "title",
     "dnd",
     "volume",
-    "label#wifi",
-    "label#bluetooth",
+    "buttons-grid",
     "mpris",
     "notifications"
   ],
@@ -38,15 +37,23 @@
       "clear-all-button": true,
       "button-text": "󰎟"
     },
-    "label#wifi": {
-      "text": "󰖩 Wi-Fi",
-      "on-click": "sh ~/.config/scripts/toggle-wifi.sh",
-      "on-click-right": "nm-connection-editor"
-    },
-    "label#bluetooth": {
-      "text": "󰂯 Bluetooth",
-      "on-click": "sh ~/.config/scripts/toggle-bluetooth.sh",
-      "on-click-right": "blueman-manager"
+    "buttons-grid": {
+      "actions": [
+        {
+          "label": "󰖩 Wi-Fi",
+          "type": "toggle",
+          "active": true,
+          "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && nmcli radio wifi on || nmcli radio wifi off'",
+          "update-command": "sh -c '[[ $(nmcli radio wifi) == \"enabled\" ]] && echo true || echo false'"
+        },
+        {
+          "label": "󰂯 Bluetooth",
+          "type": "toggle",
+          "active": true,
+          "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && bluetoothctl power on || bluetoothctl power off'",
+          "update-command": "sh -c '[[ $(bluetoothctl show | grep \"Powered\" | awk \"{print $2}\") == \"yes\" ]] && echo true || echo false'"
+        }
+      ]
     },
 
     "volume": {

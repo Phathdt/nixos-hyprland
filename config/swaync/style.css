@@ -248,18 +248,27 @@ label {
   color: @text;
 }
 
-.widget-label#wifi,
-.widget-label#bluetooth {
+.widget-buttons-grid {
   background: @surface0;
-  padding: 8px 12px;
+  border-radius: 12px;
   margin: 8px 12px 0px 12px;
+  padding: 8px;
+}
+
+.widget-buttons-grid > flowbox {
+  background: transparent;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild {
+  background: @base;
   border-radius: 12px;
   min-height: 48px;
+  margin: 4px 0px;
+  padding: 8px 12px;
   border: 2px solid @surface1;
 }
 
-.widget-label#wifi button,
-.widget-label#bluetooth button {
+.widget-buttons-grid > flowbox > flowboxchild > button {
   background: transparent;
   border: none;
   color: @text;
@@ -267,13 +276,21 @@ label {
   font-weight: 500;
   padding: 8px 16px;
   border-radius: 8px;
-  min-width: 320px;
+  min-width: 300px;
 }
 
-.widget-label#wifi button:hover,
-.widget-label#bluetooth button:hover {
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background: @surface1;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
   background: @mauve;
   color: @crust;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild.toggle:checked {
+  background: alpha(@mauve, 0.2);
+  border-color: @mauve;
 }
 
 .widget-volume {
