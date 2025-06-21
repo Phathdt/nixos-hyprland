@@ -12,7 +12,7 @@
   "margin-left": 10,
   "margin-right": 10,
   "margin-bottom": 0,
-  "modules-left": ["hyprland/workspaces", "hyprland/window", "cava"],
+  "modules-left": ["hyprland/workspaces", "cava"],
   "modules-center": ["clock"],
   "modules-right": [
     "cpu",
@@ -110,12 +110,17 @@
     "tooltip-format": " {used:.1f}GB/{total:.1f}GB"
   },
   "network": {
-    "format-wifi": "󰤨 Wi-Fi",
-    "format-ethernet": "󱘖 Wired",
-    "format-linked": "󱘖 {ifname} (No IP)",
-    "format-disconnected": "󰤮 Off",
-    "format-alt": "󰤨 {signalStrength}%",
-    "tooltip-format": "󱘖 {ipaddr}  {bandwidthUpBytes}  {bandwidthDownBytes}"
+    "format-wifi": "󰤨  {bandwidthDownBytes}  {bandwidthUpBytes}",
+    "format-ethernet": "󱘖  {bandwidthDownBytes}  {bandwidthUpBytes}",
+    "format-linked": "󱘖 {ifname}  {bandwidthDownBytes}  {bandwidthUpBytes}",
+    "format-disconnected": "󰤮 Disconnected",
+    "format-alt": "󰤨 {signalStrength}% | {essid}",
+    "tooltip-format": "󱘖 {ipaddr}\nInterface: {ifname}\nDown:  {bandwidthDownBytes}\nUp:  {bandwidthUpBytes}",
+    "tooltip-format-wifi": "󰤨 {essid} ({signalStrength}%)\n󱘖 {ipaddr}\nDown:  {bandwidthDownBytes}\nUp:  {bandwidthUpBytes}",
+    "tooltip-format-ethernet": "󱘖 Ethernet\n󱘖 {ipaddr}\nDown:  {bandwidthDownBytes}\nUp:  {bandwidthUpBytes}",
+    "tooltip-format-disconnected": "󰤮 Network Disconnected",
+    "interval": 2,
+    "max-length": 50
   },
   "bluetooth": {
     "format": "󰂯",
