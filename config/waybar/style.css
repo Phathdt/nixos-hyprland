@@ -127,7 +127,6 @@ tooltip label {
 #custom-weather.showyIcyDay,
 #custom-weather.snowyIcyNight,
 #custom-weather.sunnyDay,
-#custom-gpuinfo,
 #cava {
   padding-top: 3px;
   padding-bottom: 3px;
@@ -182,10 +181,6 @@ tooltip label {
 #custom-icon {
   font-size: 15px;
   color: #cba6f7;
-}
-
-#custom-gpuinfo {
-  color: @maroon;
 }
 
 #cpu {

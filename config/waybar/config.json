@@ -15,7 +15,6 @@
   "modules-left": ["hyprland/workspaces", "hyprland/window", "cava"],
   "modules-center": ["clock"],
   "modules-right": [
-    "custom/gpuinfo",
     "cpu",
     "memory",
     "pulseaudio",
@@ -72,14 +71,7 @@
     "bar_delimiter": 0,
     "on-click": "playerctl play-pause"
   },
-  "custom/gpuinfo": {
-    "exec": "~/.config/scripts/gpuinfo.sh",
-    "return-type": "json",
-    "format": "󰢮 {}",
-    "interval": 5,
-    "tooltip": true,
-    "max-length": 1000
-  },
+
   "clock": {
     "format": "󰃭 {:%a %d %b %R}",
     "format-alt": "󰃭 {:%I:%M %p}",
