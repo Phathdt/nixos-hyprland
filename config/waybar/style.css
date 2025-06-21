@@ -1,262 +1,212 @@
 /* Material Palenight Theme for Waybar */
 
 * {
-  border: none;
-  border-radius: 0;
-  font-family: 'JetBrainsMono Nerd Font', 'Roboto', 'Helvetica', 'Arial',
-    sans-serif;
+  font-family: 'JetBrainsMono Nerd Font';
   font-size: 14px;
-  min-height: 0;
+  font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+  margin: 0px;
+  padding: 0px;
 }
 
-/* Material Palenight Color Palette
- * Primary: #292d3e, Secondary: #32364a, Tertiary: #3c4057
- * Text: #a6accd (primary), #676e95 (secondary)
- * Accents: #82aaff (blue), #c792ea (purple), #ffcb6b (yellow)
- * States: #f07178 (error), #c3e88d (success), #89ddff (info)
- * Borders: #444267, Hover: #3e4357, Active: #4a5073
- */
+@define-color base   #1e1e2e;
+@define-color mantle #181825;
+@define-color crust  #11111b;
+
+@define-color text     #cdd6f4;
+@define-color subtext0 #a6adc8;
+@define-color subtext1 #bac2de;
+
+@define-color surface0 #313244;
+@define-color surface1 #45475a;
+@define-color surface2 #585b70;
+
+@define-color overlay0 #6c7086;
+@define-color overlay1 #7f849c;
+@define-color overlay2 #9399b2;
+
+@define-color blue      #89b4fa;
+@define-color lavender  #b4befe;
+@define-color sapphire  #74c7ec;
+@define-color sky       #89dceb;
+@define-color teal      #94e2d5;
+@define-color green     #a6e3a1;
+@define-color yellow    #f9e2af;
+@define-color peach     #fab387;
+@define-color maroon    #eba0ac;
+@define-color red       #f38ba8;
+@define-color mauve     #cba6f7;
+@define-color pink      #f5c2e7;
+@define-color flamingo  #f2cdcd;
+@define-color rosewater #f5e0dc;
 
 window#waybar {
-  background-color: #292d3e;
-  color: #a6accd;
   transition-property: background-color;
   transition-duration: 0.5s;
-  border-bottom: 2px solid #444267;
+  background: transparent;
+  border-radius: 10px;
 }
 
 window#waybar.hidden {
   opacity: 0.2;
 }
 
-/* Workspaces */
-#workspaces {
-  margin: 0 4px;
-}
-
-#workspaces button {
-  padding: 0 8px;
-  margin: 0 2px;
-  background-color: transparent;
-  color: #676e95;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-  min-width: 30px;
-}
-
-#workspaces button:hover {
-  background-color: #3e4357;
-  color: #a6accd;
-  box-shadow: 0 2px 8px rgba(130, 170, 255, 0.2);
-}
-
-#workspaces button.active {
-  background-color: #82aaff;
-  color: #292d3e;
-  font-weight: bold;
-  box-shadow: 0 2px 12px rgba(130, 170, 255, 0.4);
-}
-
-#workspaces button.urgent {
-  background-color: #f07178;
-  color: #292d3e;
-  animation: urgent-blink 1s linear infinite alternate;
-}
-
-@keyframes urgent-blink {
-  to {
-    background-color: #ffcb6b;
-  }
-}
-
-/* Window title */
-#window {
-  margin: 0 8px;
-  padding: 0 12px;
-  background-color: #32364a;
-  color: #a6accd;
+tooltip {
+  background: #1e1e2e;
   border-radius: 8px;
-  font-weight: 500;
 }
 
-/* Clock */
-#clock {
-  padding: 0 16px;
-  background-color: #32364a;
-  color: #89ddff;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 15px;
-  margin: 0 4px;
+tooltip label {
+  color: #cad3f5;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
-/* System modules */
-#cpu,
-#memory,
-#temperature,
+.modules-left {
+  background: @base;
+  border: 1px solid @blue;
+  padding-right: 15px;
+  padding-left: 2px;
+  border-radius: 10px;
+}
+
+.modules-center {
+  background: @base;
+  border: 0.5px solid @overlay0;
+  padding-right: 5px;
+  padding-left: 5px;
+  border-radius: 10px;
+}
+
+.modules-right {
+  background: @base;
+  border: 1px solid @blue;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-radius: 10px;
+}
+
 #backlight,
+#backlight-slider,
 #battery,
+#bluetooth,
+#clock,
+#cpu,
+#disk,
+#keyboard-state,
+#memory,
+#mode,
+#mpris,
 #network,
 #pulseaudio,
-#bluetooth,
+#pulseaudio-slider,
+#taskbar button,
+#taskbar,
+#temperature,
 #tray,
-#idle_inhibitor,
-#custom-power,
-#custom-bluetooth {
-  padding: 0 12px;
-  margin: 0 2px;
-  background-color: #32364a;
-  color: #a6accd;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+#window,
+#wireplumber,
+#workspaces,
+#custom-backlight,
+#custom-cycle_wall,
+#custom-keybinds,
+#custom-keyboard,
+#custom-light_dark,
+#custom-lock,
+#custom-menu,
+#custom-power_vertical,
+#custom-swaync,
+#custom-updater,
+#custom-weather,
+#custom-weather.clearNight,
+#custom-weather.cloudyFoggyDay,
+#custom-weather.cloudyFoggyNight,
+#custom-weather.default,
+#custom-weather.rainyDay,
+#custom-weather.rainyNight,
+#custom-weather.severe,
+#custom-weather.showyIcyDay,
+#custom-weather.snowyIcyNight,
+#custom-weather.sunnyDay,
+#custom-gpuinfo,
+#cava {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 6px;
+  padding-left: 6px;
 }
 
-#cpu:hover,
-#memory:hover,
-#temperature:hover,
-#backlight:hover,
-#battery:hover,
-#network:hover,
-#pulseaudio:hover,
-#bluetooth:hover,
-#idle_inhibitor:hover,
-#custom-power:hover,
-#custom-bluetooth:hover {
-  background-color: #3e4357;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* CPU */
-#cpu {
-  color: #c3e88d;
-}
-
-/* Memory */
-#memory {
-  color: #c792ea;
-}
-
-/* Temperature */
-#temperature {
-  color: #89ddff;
-}
-
-#temperature.critical {
-  color: #f07178;
-  animation: critical-blink 0.5s linear infinite alternate;
-}
-
-@keyframes critical-blink {
-  to {
-    background-color: #f07178;
-    color: #292d3e;
-  }
-}
-
-/* Backlight */
+#bluetooth,
 #backlight {
-  color: #ffcb6b;
+  color: @blue;
 }
 
-/* Battery */
 #battery {
-  color: #c3e88d;
+  color: @green;
 }
 
-#battery.charging {
-  color: #89ddff;
-  background-color: rgba(137, 221, 255, 0.1);
-}
-
-#battery.warning:not(.charging) {
-  color: #ffcb6b;
-  background-color: rgba(255, 203, 107, 0.1);
+@keyframes blink {
+  to {
+    color: @surface0;
+  }
 }
 
 #battery.critical:not(.charging) {
-  color: #f07178;
-  background-color: rgba(240, 113, 120, 0.1);
-  animation: battery-blink 0.5s linear infinite alternate;
+  background-color: @red;
+  color: @text;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  box-shadow: inset 0 -3px transparent;
 }
 
-@keyframes battery-blink {
-  to {
-    background-color: #f07178;
-    color: #292d3e;
-  }
+#custom-updates {
+  color: @blue;
 }
 
-/* Network */
-#network {
-  color: #82aaff;
+#custom-notification {
+  color: #dfdfdf;
+  padding: 0px 5px;
+  border-radius: 5px;
 }
 
-#network.disconnected {
-  color: #f07178;
-  background-color: rgba(240, 113, 120, 0.1);
+#language {
+  color: @blue;
 }
 
-/* Audio */
-#pulseaudio {
-  color: #c792ea;
+#clock {
+  color: @yellow;
 }
 
-#pulseaudio.muted {
-  color: #676e95;
-  background-color: #3c4057;
+#custom-icon {
+  font-size: 15px;
+  color: #cba6f7;
 }
 
-/* Bluetooth */
-#bluetooth {
-  color: #82aaff;
+#custom-gpuinfo {
+  color: @maroon;
 }
 
-#bluetooth.disabled,
-#bluetooth.off {
-  color: #676e95;
-  background-color: #3c4057;
+#cpu {
+  color: @yellow;
 }
 
-#bluetooth.connected {
-  color: #c3e88d;
-  background-color: rgba(195, 232, 141, 0.1);
+#custom-keyboard,
+#memory {
+  color: @green;
 }
 
-/* Custom Bluetooth Module */
-#custom-bluetooth {
-  color: #82aaff;
-  font-size: 16px;
-  padding: 0 10px;
+#disk {
+  color: @sapphire;
 }
 
-#custom-bluetooth:hover {
-  background-color: #3e4357;
-  box-shadow: 0 4px 12px rgba(130, 170, 255, 0.2);
+#temperature {
+  color: @teal;
 }
 
-#custom-bluetooth.connected {
-  color: #c3e88d;
-  background-color: rgba(195, 232, 141, 0.1);
-}
-
-#custom-bluetooth.on {
-  color: #82aaff;
-}
-
-#custom-bluetooth.off {
-  color: #676e95;
-  background-color: #3c4057;
-}
-
-#custom-bluetooth.disabled {
-  color: #676e95;
-  background-color: #3c4057;
-}
-
-/* Tray */
-#tray {
-  background-color: #32364a;
-  padding: 0 8px;
+#temperature.critical {
+  background-color: @red;
 }
 
 #tray > .passive {
@@ -265,54 +215,167 @@ window#waybar.hidden {
 
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  background-color: #f07178;
 }
 
-/* Idle inhibitor */
-#idle_inhibitor {
-  color: #676e95;
+#keyboard-state {
+  color: @flamingo;
 }
 
-#idle_inhibitor.activated {
-  color: #ffcb6b;
-  background-color: rgba(255, 203, 107, 0.1);
+#workspaces button {
+  box-shadow: none;
+  text-shadow: none;
+  padding: 0px;
+  border-radius: 9px;
+  padding-left: 4px;
+  padding-right: 4px;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
-/* Power button */
-#custom-power {
-  color: #f07178;
-  font-size: 16px;
-  padding: 0 10px;
+#workspaces button:hover {
+  border-radius: 10px;
+  color: @overlay0;
+  background-color: @surface0;
+  padding-left: 2px;
+  padding-right: 2px;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
-#custom-power:hover {
-  background-color: #f07178;
-  color: #292d3e;
+#workspaces button.persistent {
+  color: @surface1;
+  border-radius: 10px;
 }
 
-/* Tooltips */
-tooltip {
-  background-color: #3c4057;
-  color: #a6accd;
-  border: 1px solid #444267;
-  border-radius: 8px;
-  padding: 8px 12px;
+#workspaces button.active {
+  color: @peach;
+  border-radius: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
-tooltip label {
-  color: #a6accd;
+#workspaces button.urgent {
+  color: @red;
+  border-radius: 0px;
 }
 
-/* Mode (resize/move) */
-#mode {
-  background-color: #ffcb6b;
-  color: #292d3e;
-  border-radius: 8px;
-  padding: 0 12px;
-  font-weight: bold;
+#taskbar button.active {
+  padding-left: 8px;
+  padding-right: 8px;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
-/* Note: GTK3 CSS doesn't support @media queries for responsive design */
+#taskbar button:hover {
+  padding-left: 2px;
+  padding-right: 2px;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#custom-cava_mviz {
+  color: @pink;
+}
+
+#cava {
+  color: @pink;
+}
+
+#mpris {
+  color: @pink;
+}
+
+#custom-menu {
+  color: @rosewater;
+}
+
+#custom-updater {
+  color: @red;
+}
+
+#custom-light_dark {
+  color: @blue;
+}
+
+#custom-weather {
+  color: @lavender;
+}
+
+#custom-lock {
+  color: @maroon;
+}
+
+#pulseaudio {
+  color: @lavender;
+}
+
+#pulseaudio.bluetooth {
+  color: @pink;
+}
+
+#pulseaudio.muted {
+  color: @red;
+}
+
+#window {
+  color: @mauve;
+}
+
+#custom-waybar-mpris {
+  color: @lavender;
+}
+
+#network {
+  color: @blue;
+}
+
+#network.disconnected,
+#network.disabled {
+  background-color: @surface0;
+  color: @text;
+}
+
+#pulseaudio-slider slider {
+  min-width: 0px;
+  min-height: 0px;
+  opacity: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+
+#pulseaudio-slider trough {
+  min-width: 80px;
+  min-height: 5px;
+  border-radius: 5px;
+}
+
+#pulseaudio-slider highlight {
+  min-height: 10px;
+  border-radius: 5px;
+}
+
+#backlight-slider slider {
+  min-width: 0px;
+  min-height: 0px;
+  opacity: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+
+#backlight-slider trough {
+  min-width: 80px;
+  min-height: 10px;
+  border-radius: 5px;
+}
+
+#backlight-slider highlight {
+  min-width: 10px;
+  border-radius: 5px;
+}
 
 /* Animation for smooth transitions */
 * {
