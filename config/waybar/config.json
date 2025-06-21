@@ -110,14 +110,14 @@
     "tooltip-format": " {used:.1f}GB/{total:.1f}GB"
   },
   "network": {
-    "format-wifi": "󰤨  {bandwidthDownBytes}  {bandwidthUpBytes}",
-    "format-ethernet": "󱘖  {bandwidthDownBytes}  {bandwidthUpBytes}",
-    "format-linked": "󱘖 {ifname}  {bandwidthDownBytes}  {bandwidthUpBytes}",
+    "format-wifi": "󰤨 󰇚{bandwidthDownBytes} 󰕒{bandwidthUpBytes}",
+    "format-ethernet": "󱘖 󰇚{bandwidthDownBytes} 󰕒{bandwidthUpBytes}",
+    "format-linked": "󱘖 {ifname} 󰇚{bandwidthDownBytes} 󰕒{bandwidthUpBytes}",
     "format-disconnected": "󰤮 Disconnected",
     "format-alt": "󰤨 {signalStrength}% | {essid}",
-    "tooltip-format": "󱘖 {ipaddr}\nInterface: {ifname}\nDown:  {bandwidthDownBytes}\nUp:  {bandwidthUpBytes}",
-    "tooltip-format-wifi": "󰤨 {essid} ({signalStrength}%)\n󱘖 {ipaddr}\nDown:  {bandwidthDownBytes}\nUp:  {bandwidthUpBytes}",
-    "tooltip-format-ethernet": "󱘖 Ethernet\n󱘖 {ipaddr}\nDown:  {bandwidthDownBytes}\nUp:  {bandwidthUpBytes}",
+    "tooltip-format": "󱘖 {ipaddr}\nInterface: {ifname}\n󰇚 Download: {bandwidthDownBytes}\n󰕒 Upload: {bandwidthUpBytes}",
+    "tooltip-format-wifi": "󰤨 {essid} ({signalStrength}%)\n󱘖 {ipaddr}\n󰇚 Download: {bandwidthDownBytes}\n󰕒 Upload: {bandwidthUpBytes}",
+    "tooltip-format-ethernet": "󱘖 Ethernet\n󱘖 {ipaddr}\n󰇚 Download: {bandwidthDownBytes}\n󰕒 Upload: {bandwidthUpBytes}",
     "tooltip-format-disconnected": "󰤮 Network Disconnected",
     "interval": 2,
     "max-length": 50
