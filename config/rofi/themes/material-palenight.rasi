@@ -4,23 +4,60 @@
  */
 
 * {
-    /* Material Palenight Colors */
-    bg-primary:     #292D3E;
-    bg-secondary:   #1E1E2E;
-    bg-selected:    #3A3F58;
-    bg-urgent:      #F07178;
+    /* Material Palenight Colors - Enhanced */
+    base:           #292D3E;
+    mantle:         #1E1E2E;
+    crust:          #181825;
 
-    fg-primary:     #EEFFFF;
-    fg-secondary:   #A6ACCD;
-    fg-selected:    #FFFFFF;
-    fg-urgent:      #292D3E;
+    text:           #EEFFFF;
+    subtext0:       #A6ACCD;
+    subtext1:       #BAC2DE;
 
-    accent:         #C792EA;
-    accent-alt:     #82AAFF;
-    accent-urgent:  #FF5370;
+    surface0:       #3A3F58;
+    surface1:       #444A67;
+    surface2:       #4E5576;
 
-    border-color:   #3A3F58;
-    separatorcolor: #3A3F58;
+    overlay0:       #676E95;
+    overlay1:       #7F849C;
+    overlay2:       #939AB2;
+
+    blue:           #82AAFF;
+    lavender:       #B4BEFE;
+    sapphire:       #74C7EC;
+    sky:            #89DCEB;
+    teal:           #94E2D5;
+    green:          #A6E3A1;
+    yellow:         #F9E2AF;
+    peach:          #FAB387;
+    maroon:         #EBA0AC;
+    red:            #F38BA8;
+    mauve:          #C792EA;
+    pink:           #F5C2E7;
+    flamingo:       #F2CDCD;
+    rosewater:      #F5E0DC;
+
+    /* Theme Variables */
+    bg-primary:     @base;
+    bg-secondary:   @mantle;
+    bg-selected:    @surface0;
+    bg-urgent:      @red;
+
+    fg-primary:     @text;
+    fg-secondary:   @subtext0;
+    fg-selected:    @text;
+    fg-urgent:      @base;
+
+    accent:         @mauve;
+    accent-alt:     @blue;
+    accent-urgent:  @red;
+
+    border-color:   @surface0;
+    separatorcolor: @surface0;
+
+    /* Layout */
+    width: 700;
+    font: "JetBrainsMono Nerd Font 14";
+    border-radius: 12px;
 
     background-color: transparent;
     text-color: @fg-primary;
@@ -31,7 +68,8 @@ window {
     location: center;
     anchor: center;
     fullscreen: false;
-    width: 600px;
+    width: @width;
+    height: 500px;
     x-offset: 0px;
     y-offset: 0px;
 
@@ -39,31 +77,31 @@ window {
     margin: 0px;
     padding: 0px;
     border: 2px solid;
-    border-radius: 12px;
-    border-color: @border-color;
+    border-radius: @border-radius;
+    border-color: @accent-alt;
     background-color: @bg-primary;
     cursor: "default";
 }
 
 mainbox {
     enabled: true;
-    spacing: 10px;
+    spacing: 12px;
     margin: 0px;
-    padding: 20px;
+    padding: 24px;
     border: 0px solid;
-    border-radius: 0px 0px 0px 0px;
+    border-radius: 0px;
     border-color: @border-color;
     background-color: transparent;
-    children: [ "inputbar", "message", "listview" ];
+    children: [ "inputbar", "message", "listview", "mode-switcher" ];
 }
 
 inputbar {
     enabled: true;
-    spacing: 10px;
-    margin: 0px 0px 10px 0px;
-    padding: 12px 16px;
+    spacing: 12px;
+    margin: 0px 0px 12px 0px;
+    padding: 16px 20px;
     border: 0px solid;
-    border-radius: 8px;
+    border-radius: 10px;
     border-color: @border-color;
     background-color: @bg-secondary;
     text-color: @fg-primary;
@@ -72,9 +110,11 @@ inputbar {
 
 prompt {
     enabled: true;
-    background-color: transparent;
-    text-color: @accent;
-    font: "JetBrainsMono Nerd Font Bold 12";
+    background-color: @accent;
+    text-color: @bg-primary;
+    font: "JetBrainsMono Nerd Font Bold 14";
+    padding: 8px 12px;
+    border-radius: 6px;
 }
 
 textbox-prompt-colon {
@@ -83,7 +123,8 @@ textbox-prompt-colon {
     str: "";
     background-color: transparent;
     text-color: @accent;
-    font: "JetBrainsMono Nerd Font 12";
+    font: "JetBrainsMono Nerd Font 14";
+    padding: 8px 4px;
 }
 
 entry {
@@ -91,9 +132,10 @@ entry {
     background-color: transparent;
     text-color: @fg-primary;
     cursor: text;
-    placeholder: "Search applications...";
+    placeholder: "Search...";
     placeholder-color: @fg-secondary;
-    font: "JetBrainsMono Nerd Font 12";
+    font: "JetBrainsMono Nerd Font 14";
+    padding: 8px 0px;
 }
 
 listview {
@@ -108,7 +150,7 @@ listview {
     fixed-height: true;
     fixed-columns: true;
 
-    spacing: 4px;
+    spacing: 6px;
     margin: 0px;
     padding: 0px;
     border: 0px solid;
@@ -120,7 +162,7 @@ listview {
 }
 
 scrollbar {
-    handle-width: 5px;
+    handle-width: 6px;
     handle-color: @accent;
     border-radius: 8px;
     background-color: @bg-secondary;
@@ -130,7 +172,7 @@ element {
     enabled: true;
     spacing: 12px;
     margin: 0px;
-    padding: 12px;
+    padding: 12px 16px;
     border: 0px solid;
     border-radius: 8px;
     border-color: @border-color;
@@ -148,7 +190,7 @@ element selected.normal {
     background-color: @bg-selected;
     text-color: @fg-selected;
     border: 1px solid;
-    border-color: @accent;
+    border-color: @accent-alt;
 }
 
 element alternate.normal {
@@ -159,7 +201,7 @@ element alternate.normal {
 element-icon {
     background-color: transparent;
     text-color: inherit;
-    size: 24px;
+    size: 28px;
     cursor: inherit;
 }
 
@@ -170,15 +212,15 @@ element-text {
     cursor: inherit;
     vertical-align: 0.5;
     horizontal-align: 0.0;
-    font: "JetBrainsMono Nerd Font 11";
+    font: "JetBrainsMono Nerd Font 13";
 }
 
 message {
     enabled: true;
-    margin: 0px 0px 10px 0px;
-    padding: 12px;
+    margin: 0px 0px 12px 0px;
+    padding: 16px;
     border: 0px solid;
-    border-radius: 8px;
+    border-radius: 10px;
     border-color: @border-color;
     background-color: @bg-secondary;
     text-color: @fg-primary;
@@ -189,8 +231,41 @@ textbox {
     text-color: @fg-primary;
     vertical-align: 0.5;
     horizontal-align: 0.0;
-    highlight: none;
-    font: "JetBrainsMono Nerd Font 11";
+    highlight: @accent;
+    blink: true;
+    markup: true;
+    font: "JetBrainsMono Nerd Font 13";
+}
+
+mode-switcher {
+    enabled: true;
+    spacing: 8px;
+    margin: 12px 0px 0px 0px;
+    padding: 0px;
+    border: 0px solid;
+    border-radius: 0px;
+    border-color: @border-color;
+    background-color: transparent;
+    text-color: @fg-primary;
+}
+
+button {
+    enabled: true;
+    padding: 12px 16px;
+    border: 0px solid;
+    border-radius: 8px;
+    border-color: @border-color;
+    background-color: @bg-secondary;
+    text-color: @fg-secondary;
+    cursor: pointer;
+    font: "JetBrainsMono Nerd Font 13";
+}
+
+button selected {
+    background-color: @accent;
+    text-color: @bg-primary;
+    border: 1px solid;
+    border-color: @accent;
 }
 
 error-message {

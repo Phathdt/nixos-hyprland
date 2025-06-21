@@ -1,16 +1,52 @@
 * {
-    bg-col:  #24273a;
-    bg-col-light: #24273a;
-    border-col: #24273a;
-    selected-col: #24273a;
-    blue: #8aadf4;
-    fg-col: #cad3f5;
-    fg-col2: #ed8796;
-    grey: #6e738d;
-    teal: #8bd5ca;
+    /* Catppuccin Macchiato Colors - Enhanced */
+    base:         #24273a;
+    mantle:       #1e2030;
+    crust:        #181926;
 
-    width: 600;
-    border-radius: 15px;
+    text:         #cad3f5;
+    subtext0:     #a5adcb;
+    subtext1:     #b8c0e0;
+
+    surface0:     #363a4f;
+    surface1:     #494d64;
+    surface2:     #5b6078;
+
+    overlay0:     #6e738d;
+    overlay1:     #8087a2;
+    overlay2:     #939ab7;
+
+    blue:         #8aadf4;
+    lavender:     #b7bdf8;
+    sapphire:     #7dc4e4;
+    sky:          #91d7e3;
+    teal:         #8bd5ca;
+    green:        #a6da95;
+    yellow:       #eed49f;
+    peach:        #f5a97f;
+    maroon:       #ee99a0;
+    red:          #ed8796;
+    mauve:        #c6a0f6;
+    pink:         #f5bde6;
+    flamingo:     #f0c6c6;
+    rosewater:    #f4dbd6;
+
+    /* Theme Variables */
+    bg-col:       @base;
+    bg-col-light: @surface0;
+    border-col:   @blue;
+    selected-col: @surface1;
+    fg-col:       @text;
+    fg-col2:      @subtext0;
+    grey:         @overlay0;
+
+    /* Layout */
+    width: 700;
+    font: "JetBrainsMono Nerd Font 14";
+    border-radius: 12px;
+
+    background-color: transparent;
+    text-color: @fg-col;
 }
 
 element-text, element-icon , mode-switcher {
@@ -19,94 +55,205 @@ element-text, element-icon , mode-switcher {
 }
 
 window {
-    height: 360px;
-    border: 2px;
-    border-color: @teal;
+    transparency: "real";
+    location: center;
+    anchor: center;
+    fullscreen: false;
+    width: @width;
+    height: 500px;
+    x-offset: 0px;
+    y-offset: 0px;
+
+    enabled: true;
+    margin: 0px;
+    padding: 0px;
+    border: 2px solid;
+    border-radius: @border-radius;
+    border-color: @border-col;
     background-color: @bg-col;
+    cursor: "default";
 }
 
 mainbox {
-    background-color: @bg-col;
+    enabled: true;
+    spacing: 12px;
+    margin: 0px;
+    padding: 24px;
+    border: 0px solid;
+    border-radius: 0px;
+    border-color: @border-col;
+    background-color: transparent;
+    children: [ "inputbar", "message", "listview", "mode-switcher" ];
 }
 
 inputbar {
-    children: [prompt,entry];
-    background-color: @bg-col;
-    border-radius: 5px;
-    padding: 2px;
+    enabled: true;
+    spacing: 12px;
+    margin: 0px 0px 12px 0px;
+    padding: 16px 20px;
+    border: 0px solid;
+    border-radius: 10px;
+    border-color: @border-col;
+    background-color: @bg-col-light;
+    text-color: @fg-col;
+    children: [ "prompt", "textbox-prompt-colon", "entry" ];
 }
 
 prompt {
+    enabled: true;
     background-color: @blue;
-    padding: 6px;
     text-color: @bg-col;
-    border-radius: 3px;
-    margin: 20px 0px 0px 20px;
+    font: "JetBrainsMono Nerd Font Bold 14";
+    padding: 8px 12px;
+    border-radius: 6px;
 }
 
 textbox-prompt-colon {
+    enabled: true;
     expand: false;
-    str: ":";
+    str: "";
+    background-color: transparent;
+    text-color: @blue;
+    font: "JetBrainsMono Nerd Font 14";
+    padding: 8px 4px;
 }
 
 entry {
-    padding: 6px;
-    margin: 20px 0px 0px 10px;
+    enabled: true;
+    background-color: transparent;
     text-color: @fg-col;
-    background-color: @bg-col;
+    cursor: text;
+    placeholder: "Search...";
+    placeholder-color: @fg-col2;
+    font: "JetBrainsMono Nerd Font 14";
+    padding: 8px 0px;
 }
 
 listview {
-    border: 0px 0px 0px;
-    padding: 6px 0px 0px;
-    margin: 10px 0px 0px 20px;
-    columns: 2;
-    lines: 5;
-    background-color: @bg-col;
+    enabled: true;
+    columns: 1;
+    lines: 8;
+    cycle: true;
+    dynamic: true;
+    scrollbar: false;
+    layout: vertical;
+    reverse: false;
+    fixed-height: true;
+    fixed-columns: true;
+
+    spacing: 6px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px solid;
+    border-radius: 0px;
+    border-color: @border-col;
+    background-color: transparent;
+    text-color: @fg-col;
+    cursor: "default";
 }
 
 element {
-    padding: 5px;
-    background-color: @bg-col;
-    text-color: @fg-col  ;
+    enabled: true;
+    spacing: 12px;
+    margin: 0px;
+    padding: 12px 16px;
+    border: 0px solid;
+    border-radius: 8px;
+    border-color: @border-col;
+    background-color: transparent;
+    text-color: @fg-col;
+    cursor: pointer;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @fg-col;
+}
+
+element selected.normal {
+    background-color: @selected-col;
+    text-color: @teal;
+    border: 1px solid;
+    border-color: @blue;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color: @fg-col;
 }
 
 element-icon {
-    size: 25px;
+    background-color: transparent;
+    text-color: inherit;
+    size: 28px;
+    cursor: inherit;
 }
 
-element selected {
-    background-color:  @selected-col ;
-    text-color: @teal  ;
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    highlight: @blue;
+    cursor: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+    font: "JetBrainsMono Nerd Font 13";
 }
 
-mode-switcher {
-    spacing: 0;
-  }
-
-button {
-    padding: 10px;
+scrollbar {
+    handle-width: 6px;
+    handle-color: @blue;
+    border-radius: 8px;
     background-color: @bg-col-light;
-    text-color: @grey;
-    vertical-align: 0.5; 
-    horizontal-align: 0.5;
-}
-
-button selected {
-  background-color: @bg-col;
-  text-color: @blue;
 }
 
 message {
+    enabled: true;
+    margin: 0px 0px 12px 0px;
+    padding: 16px;
+    border: 0px solid;
+    border-radius: 10px;
+    border-color: @border-col;
     background-color: @bg-col-light;
-    margin: 2px;
-    padding: 2px;
-    border-radius: 5px;
+    text-color: @fg-col;
 }
 
 textbox {
-    padding: 6px;
-    margin: 20px 0px 0px 20px;
-    text-color: @blue;
+    background-color: transparent;
+    text-color: @fg-col;
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+    highlight: @blue;
+    blink: true;
+    markup: true;
+}
+
+mode-switcher {
+    enabled: true;
+    spacing: 8px;
+    margin: 12px 0px 0px 0px;
+    padding: 0px;
+    border: 0px solid;
+    border-radius: 0px;
+    border-color: @border-col;
+    background-color: transparent;
+    text-color: @fg-col;
+}
+
+button {
+    enabled: true;
+    padding: 12px 16px;
+    border: 0px solid;
+    border-radius: 8px;
+    border-color: @border-col;
     background-color: @bg-col-light;
+    text-color: @fg-col2;
+    cursor: pointer;
+    font: "JetBrainsMono Nerd Font 13";
+}
+
+button selected {
+    background-color: @blue;
+    text-color: @bg-col;
+    border: 1px solid;
+    border-color: @blue;
 }

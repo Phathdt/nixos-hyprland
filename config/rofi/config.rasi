@@ -1,16 +1,17 @@
 configuration{
-    modi: "drun,run,window";
+    modi: "drun,run,window,combi";
     icon-theme: "Papirus-Dark";
-    font: "JetBrainsMono Nerd Font Regular 12";
+    font: "JetBrainsMono Nerd Font Regular 14";
     show-icons: true;
     terminal: "alacritty";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;
     hide-scrollbar: true;
-    display-drun: "  Apps";
+    display-drun: "󰀻  Apps";
     display-run: "  Run";
     display-window: "  Windows";
+    display-combi: "  All";
     sidebar-mode: false;
     hover-select: true;
     me-select-entry: "";
@@ -22,9 +23,25 @@ configuration{
     auto-select: false;
     parse-hosts: true;
     parse-known-hosts: true;
-    combi-modi: "drun,run";
+    combi-modi: "drun,run,window";
     matching: "fuzzy";
     tokenize: true;
+    sort: true;
+    levenshtein-sort: true;
+    normalize-match: true;
+    max-history-size: 25;
+    combi-hide-mode-prefix: false;
+    display-combi: "  Search";
+    drun-match-fields: "name,generic,exec,categories,keywords";
+    drun-categories: "";
+    drun-show-actions: false;
+    drun-url-launcher: "xdg-open";
+    run-shell-command: "{terminal} -e {cmd}";
+    window-match-fields: "title,class,role,name,desktop";
+    window-command: "wmctrl -i -R {window}";
+    window-format: "{w} · {c} · {t}";
+    click-to-exit: true;
+    show-match: true;
 }
 
 @theme "~/.config/rofi/themes/material-palenight.rasi"
