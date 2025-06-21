@@ -109,6 +109,7 @@
     lazygit
     ctop
     dive
+    neofetch
 
     # File and text processing
     ripgrep
