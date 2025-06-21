@@ -150,12 +150,12 @@ label {
 }
 
 .control-center {
-  background: alpha(@crust, 0.95);
+  background: @base;
   border-radius: 16px;
-  border: 1px solid @surface0;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  border: 2px solid @surface1;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
   margin: 10px;
-  padding: 8px;
+  padding: 12px;
 }
 
 .control-center-list {
@@ -262,10 +262,11 @@ label {
 
 /* Buttons Grid - Ubuntu style */
 .widget-buttons-grid {
-  background: transparent;
-  border: none;
+  background: @surface0;
+  border: 2px solid @surface1;
+  border-radius: 12px;
   margin: 8px 12px;
-  padding: 0px;
+  padding: 8px;
 }
 
 .widget-buttons-grid > flowbox {
@@ -273,37 +274,60 @@ label {
 }
 
 .widget-buttons-grid > flowbox > flowboxchild {
-  background: @surface0;
-  border-radius: 12px;
-  min-height: 80px;
-  min-width: 80px;
-  margin: 4px;
-  padding: 8px;
-  border: 1px solid @surface1;
+  background: @base;
+  border-radius: 8px;
+  min-height: 70px;
+  min-width: 70px;
+  margin: 3px;
+  padding: 4px;
+  border: 1px solid @surface2;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button {
   background: transparent;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   color: @text;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
-  padding: 8px;
-  min-height: 64px;
-  min-width: 64px;
+  padding: 6px;
+  min-height: 60px;
+  min-width: 60px;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button:hover {
   background: @mauve;
-  color: @base;
-  transform: scale(1.05);
-  transition: all 0.2s ease;
+  color: @crust;
+  transform: scale(1.02);
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 8px rgba(199, 146, 234, 0.3);
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button:active {
   background: @blue;
-  color: @base;
+  color: @crust;
+}
+
+/* Status-based coloring for toggles */
+.widget-buttons-grid > flowbox > flowboxchild.wifi-enabled {
+  background: alpha(@green, 0.2);
+  border-color: @green;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild.wifi-disabled {
+  background: alpha(@red, 0.2);
+  border-color: @red;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild.bluetooth-enabled {
+  background: alpha(@blue, 0.2);
+  border-color: @blue;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild.bluetooth-disabled {
+  background: alpha(@red, 0.2);
+  border-color: @red;
 }
 
 /* Backlight widget */
