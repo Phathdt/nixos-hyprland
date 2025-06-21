@@ -27,8 +27,8 @@
     "title",
     "dnd",
     "volume",
-    "custom#wifi",
-    "custom#bluetooth",
+    "label#wifi",
+    "label#bluetooth",
     "mpris",
     "notifications"
   ],
@@ -38,19 +38,13 @@
       "clear-all-button": true,
       "button-text": "󰎟"
     },
-    "custom#wifi": {
-      "exec": "sh ~/.config/scripts/check-wifi-status.sh",
-      "return-type": "json",
-      "interval": 3,
-      "format": "󰖩 Wi-Fi",
+    "label#wifi": {
+      "text": "󰖩 Wi-Fi",
       "on-click": "sh ~/.config/scripts/toggle-wifi.sh",
       "on-click-right": "nm-connection-editor"
     },
-    "custom#bluetooth": {
-      "exec": "sh ~/.config/scripts/check-bluetooth-status.sh",
-      "return-type": "json",
-      "interval": 3,
-      "format": "󰂯 Bluetooth",
+    "label#bluetooth": {
+      "text": "󰂯 Bluetooth",
       "on-click": "sh ~/.config/scripts/toggle-bluetooth.sh",
       "on-click-right": "blueman-manager"
     },

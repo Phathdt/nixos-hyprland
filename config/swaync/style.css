@@ -248,18 +248,18 @@ label {
   color: @text;
 }
 
-.widget-custom {
+.widget-label#wifi,
+.widget-label#bluetooth {
   background: @surface0;
   padding: 8px 12px;
   margin: 8px 12px 0px 12px;
   border-radius: 12px;
   min-height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  border: 2px solid @surface1;
 }
 
-.widget-custom button {
+.widget-label#wifi button,
+.widget-label#bluetooth button {
   background: transparent;
   border: none;
   color: @text;
@@ -267,32 +267,13 @@ label {
   font-weight: 500;
   padding: 8px 16px;
   border-radius: 8px;
-  min-width: 200px;
-  text-align: left;
+  min-width: 320px;
 }
 
-.widget-custom button:hover {
-  background: @surface1;
-}
-
-.widget-custom.wifi-enabled {
-  background: alpha(@green, 0.15);
-  border: 1px solid @green;
-}
-
-.widget-custom.wifi-disabled {
-  background: alpha(@red, 0.15);
-  border: 1px solid @red;
-}
-
-.widget-custom.bluetooth-enabled {
-  background: alpha(@blue, 0.15);
-  border: 1px solid @blue;
-}
-
-.widget-custom.bluetooth-disabled {
-  background: alpha(@red, 0.15);
-  border: 1px solid @red;
+.widget-label#wifi button:hover,
+.widget-label#bluetooth button:hover {
+  background: @mauve;
+  color: @crust;
 }
 
 .widget-volume {
