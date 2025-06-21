@@ -14,8 +14,8 @@
   "timeout-low": 3,
   "timeout-critical": 0,
   "fit-to-screen": false,
-  "control-center-width": 400,
-  "control-center-height": 915,
+  "control-center-width": 380,
+  "control-center-height": 600,
   "notification-window-width": 375,
   "keyboard-shortcuts": true,
   "image-visibility": "when-available",
@@ -26,8 +26,9 @@
   "widgets": [
     "title",
     "dnd",
-    "menubar#settings",
     "volume",
+    "backlight",
+    "buttons-grid",
     "mpris",
     "notifications"
   ],
@@ -37,50 +38,37 @@
       "clear-all-button": true,
       "button-text": "󰎟"
     },
-    "menubar#settings": {
-      "menu#wifi": {
-        "label": "\t󰖩   WiFi Settings\t",
-        "position": "left",
-        "actions": [
-          {
-            "label": "󰖩 Toggle WiFi",
-            "command": "sh ~/.config/scripts/toggle-wifi.sh"
-          },
-          {
-            "label": "󰖩 Turn WiFi On",
-            "command": "nmcli radio wifi on && notify-send 'WiFi' 'WiFi enabled' -i network-wireless"
-          },
-          {
-            "label": "󰖪 Turn WiFi Off",
-            "command": "nmcli radio wifi off && notify-send 'WiFi' 'WiFi disabled' -i network-wireless-offline"
-          },
-          {
-            "label": "󰕧 Open WiFi Menu",
-            "command": "sh ~/.config/scripts/wifi-menu.sh"
-          }
-        ]
-      },
-      "menu#bluetooth": {
-        "label": "\t󰂯   Bluetooth\t  ",
-        "position": "left",
-        "actions": [
-          {
-            "label": "󰂯 Toggle Bluetooth",
-            "command": "sh ~/.config/scripts/toggle-bluetooth.sh"
-          },
-          {
-            "label": "󰂯 Turn Bluetooth On",
-            "command": "bluetoothctl power on && notify-send 'Bluetooth' 'Bluetooth enabled' -i bluetooth"
-          },
-          {
-            "label": "󰂲 Turn Bluetooth Off",
-            "command": "bluetoothctl power off && notify-send 'Bluetooth' 'Bluetooth disabled' -i bluetooth-disabled"
-          },
-          {
-            "label": "󰂱 Open Bluetooth Manager",
-            "command": "blueman-manager"
-          }
-        ]
+    "buttons-grid": {
+      "actions": [
+        {
+          "label": "󰖩\nWi-Fi",
+          "command": "sh ~/.config/scripts/toggle-wifi.sh"
+        },
+        {
+          "label": "󰂯\nBluetooth",
+          "command": "sh ~/.config/scripts/toggle-bluetooth.sh"
+        },
+        {
+          "label": "󰌶\nNight Light",
+          "command": "busctl --user call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n 4500"
+        },
+        {
+          "label": "󰐾\nDark Style",
+          "command": "gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'"
+        },
+        {
+          "label": "✈\nAirplane Mode",
+          "command": "nmcli radio all off && bluetoothctl power off"
+        }
+      ]
+    },
+    "backlight": {
+      "label": "󰃞",
+      "device": "intel_backlight",
+      "actions": {
+        "on-click-right": "brightnessctl set 100%",
+        "on-scroll-up": "brightnessctl set 5%+",
+        "on-scroll-down": "brightnessctl set 5%-"
       }
     },
     "volume": {

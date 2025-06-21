@@ -260,65 +260,75 @@ label {
   color: @text;
 }
 
-.widget-menubar {
-  background: @surface0;
-  border: 1px solid @surface1;
-  border-top: none;
-  border-bottom: none;
+/* Buttons Grid - Ubuntu style */
+.widget-buttons-grid {
+  background: transparent;
+  border: none;
+  margin: 8px 12px;
+  padding: 0px;
 }
 
-.widget-menubar > box > box {
-  margin: 8px 12px;
-  min-height: 48px;
-  border-radius: 8px;
+.widget-buttons-grid > flowbox {
   background: transparent;
 }
 
-.widget-menubar > box > box > button {
-  background: @base;
-  min-width: 180px;
-  min-height: 48px;
-  margin-right: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 0px;
-  border-radius: 8px;
-  color: @text;
+.widget-buttons-grid > flowbox > flowboxchild {
+  background: @surface0;
+  border-radius: 12px;
+  min-height: 80px;
+  min-width: 80px;
+  margin: 4px;
+  padding: 8px;
   border: 1px solid @surface1;
 }
 
-.widget-menubar > box > box > button:nth-child(2) {
-  margin-right: 0px;
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: @text;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px;
+  min-height: 64px;
+  min-width: 64px;
 }
 
-.widget-menubar button:focus {
-  box-shadow: none;
-}
-
-.widget-menubar button:hover {
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
   background: @mauve;
   color: @base;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  transition: all 0.2s ease;
 }
 
-.widget-menubar > box > revealer > box {
-  margin: 8px 12px;
-  background: @base;
-  border-radius: 8px;
-  border: 1px solid @surface1;
+.widget-buttons-grid > flowbox > flowboxchild > button:active {
+  background: @blue;
+  color: @base;
 }
 
-.widget-menubar > box > revealer > box > button {
-  background: transparent;
-  min-height: 44px;
-  padding: 8px 12px;
-  margin: 4px;
-  border-radius: 6px;
-  color: @text;
-}
-
-.widget-menubar > box > revealer > box > button:hover {
+/* Backlight widget */
+.widget-backlight {
   background: @surface0;
+  border: 1px solid @surface1;
+  border-radius: 12px;
+  margin: 8px 12px;
+  padding: 8px;
+}
+
+.widget-backlight > scale {
+  background: transparent;
+  border-radius: 8px;
+  margin: 0px;
+  padding: 8px;
+  min-height: 40px;
+}
+
+.widget-backlight > label {
+  background: transparent;
+  margin: 0px;
+  padding: 8px;
+  color: @text;
+  font-size: 16px;
 }
 
 .widget-volume {

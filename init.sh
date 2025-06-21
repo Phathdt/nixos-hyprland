@@ -322,8 +322,34 @@ if [ "$SKIP_WAYBAR" = false ]; then
     else
         print_warning "Waybar not found, will be available after NixOS rebuild"
     fi
+
+    # Setup SwayNC notification center
+    print_status "Setting up SwayNC notification center..."
+    if command -v swaync >/dev/null 2>&1; then
+        # Check if we have a display
+        if [ -n "$DISPLAY" ] || [ -n "$WAYLAND_DISPLAY" ]; then
+            # Kill existing swaync if running
+            pkill swaync 2>/dev/null || true
+            sleep 1
+
+            # Start swaync
+            swaync &
+            sleep 2
+
+            if pgrep -x "swaync" > /dev/null; then
+                print_success "SwayNC started with Ubuntu-style control center!"
+            else
+                print_warning "SwayNC may need manual restart after reboot"
+            fi
+        else
+            print_warning "No display available - SwayNC will start automatically on NixOS with Hyprland"
+            print_success "SwayNC configuration ready for Ubuntu-style control center!"
+        fi
+    else
+        print_warning "SwayNC not found, will be available after NixOS rebuild"
+    fi
 else
-    print_warning "Skipping Waybar setup"
+    print_warning "Skipping Waybar and SwayNC setup"
 fi
 
 print_success "🎉 Setup completed!"
@@ -341,6 +367,7 @@ if [ "$SKIP_PLUGINS" = false ]; then
 fi
 if [ "$SKIP_WAYBAR" = false ]; then
     echo "  • Waybar with Material Palenight theme"
+    echo "  • SwayNC notification center with Ubuntu-style controls"
     echo "  • Wlogout power menu"
 fi
 echo ""
@@ -351,6 +378,8 @@ if [ "$SKIP_NIXOS" = false ]; then
 fi
 if [ "$SKIP_WAYBAR" = false ]; then
     echo "  • Waybar will auto-start with Hyprland"
+    echo "  • SwayNC will auto-start with Hyprland"
+    echo "  • Click settings icon (󰒓) in Waybar for quick settings"
     echo "  • Click power button (󰐥) in Waybar for logout menu"
 fi
 echo ""
@@ -361,6 +390,7 @@ echo "  • All configs: ~/.config/"
 echo ""
 print_status "🔧 Useful commands:"
 echo "  • Restart Waybar: pkill waybar && waybar -c ~/.config/waybar/config.json -s ~/.config/waybar/style.css &"
+echo "  • Restart SwayNC: pkill swaync && swaync &"
 echo "  • Rebuild NixOS: sudo nixos-rebuild switch"
 echo "  • Update dotfiles only: $0 --dotfiles-only"
 echo "  • Rebuild NixOS only: $0 --nixos-only"
