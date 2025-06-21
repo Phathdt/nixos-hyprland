@@ -51,7 +51,7 @@
     waybar
     wlogout
     eww
-    swaync
+    swaynotificationcenter
 
     # Terminal emulators
     alacritty
