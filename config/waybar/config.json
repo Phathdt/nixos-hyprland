@@ -12,7 +12,7 @@
   "margin-left": 10,
   "margin-right": 10,
   "margin-bottom": 0,
-  "modules-left": ["hyprland/workspaces", "cava"],
+  "modules-left": ["hyprland/workspaces", "hyprland/window", "cava"],
   "modules-center": ["clock"],
   "modules-right": [
     "custom/gpuinfo",
@@ -28,6 +28,20 @@
     "all-outputs": true,
     "active-only": false,
     "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
+      "default": ""
+    },
     "persistent-workspaces": {
       "*": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     }
@@ -61,14 +75,14 @@
   "custom/gpuinfo": {
     "exec": "~/.config/scripts/gpuinfo.sh",
     "return-type": "json",
-    "format": " {}",
+    "format": "󰢮 {}",
     "interval": 5,
     "tooltip": true,
     "max-length": 1000
   },
   "clock": {
-    "format": "{:%a %d %b %R}",
-    "format-alt": "{:%I:%M %p}",
+    "format": "󰃭 {:%a %d %b %R}",
+    "format-alt": "󰃭 {:%I:%M %p}",
     "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
       "mode": "month",
@@ -112,27 +126,29 @@
     "tooltip-format": "󱘖 {ipaddr}  {bandwidthUpBytes}  {bandwidthDownBytes}"
   },
   "bluetooth": {
-    "format": "",
-    "format-connected": " {num_connections}",
-    "tooltip-format": " {device_alias}",
+    "format": "󰂯",
+    "format-disabled": "󰂲",
+    "format-off": "󰂲",
+    "format-connected": "󰂱 {num_connections}",
+    "tooltip-format": "󰂯 {device_alias}",
     "tooltip-format-connected": "{device_enumerate}",
-    "tooltip-format-enumerate-connected": " {device_alias}",
+    "tooltip-format-enumerate-connected": "󰂱 {device_alias}",
     "on-click": "blueman-manager"
   },
   "pulseaudio": {
-    "format": "{icon} {volume}",
-    "format-muted": " ",
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 Muted",
     "on-click": "pavucontrol -t 3",
     "tooltip-format": "{icon} {desc} // {volume}%",
     "scroll-step": 4,
     "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["", "", ""]
+      "headphone": "󰋋",
+      "hands-free": "󱡏",
+      "headset": "󰋎",
+      "phone": "󰏲",
+      "portable": "󰦧",
+      "car": "󰄋",
+      "default": ["󰕿", "󰖀", "󰕾"]
     }
   },
   "tray": {
