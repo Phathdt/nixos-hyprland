@@ -2,10 +2,10 @@
 
 .settings-panel {
   background-color: #292d3e;
-  border: 1px solid #82aaff;
+  border: 1px solid #676e95;
   border-radius: 16px;
   padding: 20px;
-  color: #eeffff;
+  color: #a6accd;
   font-family: 'JetBrainsMono Nerd Font';
   font-size: 14px;
 }
@@ -27,7 +27,7 @@
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid #444a67;
 }
 
 .power-btn {
@@ -47,13 +47,13 @@
 }
 
 .power-btn.shutdown:hover {
-  background-color: #f38ba8;
+  background-color: #f07178;
   color: white;
 }
 
 .power-btn.dnd:hover {
-  background-color: #82aaff;
-  color: white;
+  background-color: #ffcb6b;
+  color: #292d3e;
 }
 
 .connectivity-section {
@@ -61,12 +61,12 @@
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid #444a67;
 }
 
 .connectivity-item {
   background-color: #444a67;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid #515772;
   border-radius: 10px;
   padding: 14px;
   margin-bottom: 10px;
@@ -125,15 +125,15 @@
 }
 
 .connectivity-item .toggle-switch.enabled {
-  background-color: #a6e3a1;
-  color: white;
-  border-color: #a6e3a1;
+  background-color: #c3e88d;
+  color: #292d3e;
+  border-color: #c3e88d;
 }
 
 .connectivity-item .toggle-switch.disabled {
-  background-color: #f38ba8;
+  background-color: #f07178;
   color: white;
-  border-color: #f38ba8;
+  border-color: #f07178;
 }
 
 .connectivity-item.wifi.enabled .icon {
@@ -159,12 +159,12 @@
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid #444a67;
 }
 
 .audio-controls {
   background-color: #444a67;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid #515772;
   border-radius: 10px;
   padding: 14px;
   margin-bottom: 10px;
@@ -182,12 +182,12 @@
 }
 
 .mic-toggle.active {
-  background-color: #a6e3a1;
-  color: white;
+  background-color: #c3e88d;
+  color: #292d3e;
 }
 
 .mic-toggle.muted {
-  background-color: #f38ba8;
+  background-color: #f07178;
   color: white;
 }
 
@@ -199,7 +199,7 @@
 
 .volume-control {
   background-color: #444a67;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid #515772;
   border-radius: 10px;
   padding: 14px;
 }
@@ -238,11 +238,11 @@
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid #444a67;
 }
 
 .music-section.playing {
-  border: 1px solid #a6e3a1;
+  border: 1px solid #c3e88d;
 }
 
 .music-header {
@@ -251,7 +251,7 @@
 
 .music-icon {
   font-size: 22px;
-  color: #a6e3a1;
+  color: #c3e88d;
 }
 
 .music-app {
@@ -265,12 +265,12 @@
   padding: 12px;
   background-color: #444a67;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid #515772;
 }
 
 .music-thumbnail {
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid #676e95;
 }
 
 .music-info {
@@ -302,12 +302,12 @@
 
 .music-btn:hover {
   background-color: #4e5576;
-  color: #a6e3a1;
+  color: #c3e88d;
 }
 
 .music-btn.play-pause {
-  background-color: #a6e3a1;
-  color: white;
+  background-color: #c3e88d;
+  color: #292d3e;
   font-size: 20px;
 }
 
@@ -315,7 +315,7 @@
   background-color: #3a3f58;
   border-radius: 12px;
   padding: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid #444a67;
 }
 
 .notifications-header {
@@ -340,13 +340,13 @@
 }
 
 .clear-notifications:hover {
-  background-color: #f38ba8;
+  background-color: #f07178;
   color: white;
 }
 
 .notification-item {
   background-color: #444a67;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid #515772;
   border-radius: 10px;
   padding: 12px;
   margin-bottom: 8px;

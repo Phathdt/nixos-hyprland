@@ -187,8 +187,8 @@
       :spacing 12
       (image :class "music-thumbnail"
         :path "${music-arturl != '' ? music-arturl : ''}"
-        :image-width 64
-        :image-height 64
+        :image-width 80
+        :image-height 80
       :visible "${music-arturl != ''}")
       (box :class "music-info"
         :orientation "v"
