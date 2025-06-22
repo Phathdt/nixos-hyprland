@@ -71,6 +71,7 @@
     # PipeWire audio tools
     wireplumber
     pipewire
+    pulseaudio
 
     # System monitoring and control
     cliphist
