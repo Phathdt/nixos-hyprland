@@ -1,106 +1,23 @@
-/* Material Palenight Theme for wlogout */
-
-* {
-  background-image: none;
-  box-shadow: none;
-  font-family: 'JetBrainsMono Nerd Font';
-}
-
-window {
-  background-color: rgba(41, 45, 62, 0.95);
-  backdrop-filter: blur(10px);
-}
-
-button {
-  color: #eeffff;
-  background-color: #3a3f58;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #676e95;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 35%;
-  border-radius: 16px;
-  margin: 15px;
-  min-width: 120px;
-  min-height: 120px;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  font-size: 14px;
-  font-weight: bold;
-}
-
-button:focus,
-button:active,
-button:hover {
-  background-color: #444a67;
-  border-color: #c792ea;
-  color: #c792ea;
-  transform: scale(1.08);
-  box-shadow: 0 8px 32px rgba(199, 146, 234, 0.4);
-}
-
 #lock {
-  background-image: none;
-}
-
-#lock:before {
-  content: '󰌾';
-  font-family: 'JetBrainsMono Nerd Font';
-  font-size: 48px;
-  color: #c792ea;
+  background-image: url('~/.config/wlogout/icons/lock.svg');
 }
 
 #logout {
-  background-image: none;
-}
-
-#logout:before {
-  content: '󰍃';
-  font-family: 'JetBrainsMono Nerd Font';
-  font-size: 48px;
-  color: #c792ea;
+  background-image: url('~/.config/wlogout/icons/logout.svg');
 }
 
 #suspend {
-  background-image: none;
-}
-
-#suspend:before {
-  content: '󰤄';
-  font-family: 'JetBrainsMono Nerd Font';
-  font-size: 48px;
-  color: #c792ea;
+  background-image: url('~/.config/wlogout/icons/suspend.svg');
 }
 
 #hibernate {
-  background-image: none;
-}
-
-#hibernate:before {
-  content: '󰋊';
-  font-family: 'JetBrainsMono Nerd Font';
-  font-size: 48px;
-  color: #c792ea;
+  background-image: url('~/.config/wlogout/icons/hibernate.svg');
 }
 
 #shutdown {
-  background-image: none;
-}
-
-#shutdown:before {
-  content: '⏻';
-  font-family: 'JetBrainsMono Nerd Font';
-  font-size: 48px;
-  color: #c792ea;
+  background-image: url('~/.config/wlogout/icons/shutdown.svg');
 }
 
 #reboot {
-  background-image: none;
-}
-
-#reboot:before {
-  content: '󰜉';
-  font-family: 'JetBrainsMono Nerd Font';
-  font-size: 48px;
-  color: #c792ea;
+  background-image: url('~/.config/wlogout/icons/reboot.svg');
 }
