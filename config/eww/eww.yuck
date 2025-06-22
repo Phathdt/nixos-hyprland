@@ -50,9 +50,9 @@
     :orientation "h"
     :space-evenly true
     :spacing 8
-    (button :class "power-btn shutdown"
-      :onclick "systemctl poweroff"
-      :tooltip "Shutdown"
+    (button :class "power-btn wlogout"
+      :onclick "wlogout"
+      :tooltip "Power Menu"
     "⏻")
     (button :class "power-btn dnd"
       :onclick "swaync-client -dn"

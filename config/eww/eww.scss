@@ -71,8 +71,13 @@ window {
   border-color: #c792ea;
 }
 
-.power-btn.shutdown:hover {
-  background-color: #f07178;
+.power-btn.wlogout:hover {
+  background-color: #c792ea;
+  color: white;
+}
+
+.power-btn.lock:hover {
+  background-color: #82aaff;
   color: white;
 }
 

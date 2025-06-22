@@ -3,34 +3,40 @@
 * {
   background-image: none;
   box-shadow: none;
+  font-family: 'JetBrainsMono Nerd Font';
 }
 
 window {
   background-color: rgba(41, 45, 62, 0.95);
+  backdrop-filter: blur(10px);
 }
 
 button {
-  color: #a6accd;
-  background-color: #32364a;
+  color: #eeffff;
+  background-color: #3a3f58;
   border-style: solid;
   border-width: 2px;
-  border-color: #444267;
+  border-color: #676e95;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 25%;
-  border-radius: 12px;
-  margin: 10px;
-  transition: all 0.3s ease;
+  background-size: 35%;
+  border-radius: 16px;
+  margin: 15px;
+  min-width: 120px;
+  min-height: 120px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-size: 14px;
+  font-weight: bold;
 }
 
 button:focus,
 button:active,
 button:hover {
-  background-color: #3e4357;
-  border-color: #82aaff;
-  color: #82aaff;
-  transform: scale(1.05);
-  box-shadow: 0 4px 20px rgba(130, 170, 255, 0.3);
+  background-color: #444a67;
+  border-color: #c792ea;
+  color: #c792ea;
+  transform: scale(1.08);
+  box-shadow: 0 8px 32px rgba(199, 146, 234, 0.4);
 }
 
 #lock {
