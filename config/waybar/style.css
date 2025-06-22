@@ -70,14 +70,35 @@ tooltip label {
 }
 
 .modules-center {
-  background: @base;
-  border: 0.5px solid @overlay0;
-  padding-right: 5px;
-  padding-left: 5px;
-  border-radius: 10px;
+  background: transparent;
+  border: none;
+  padding: 0px;
 }
 
 .modules-right {
+  background: transparent;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.modules-right > widget:first-child {
+  margin-right: 10px;
+}
+
+#group-monitor {
+  background: @base;
+  border: 1px solid @overlay0;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-radius: 10px;
+}
+
+#group-monitor * {
+  pointer-events: none;
+}
+
+#group-control {
   background: @base;
   border: 1px solid @blue;
   padding-right: 15px;
