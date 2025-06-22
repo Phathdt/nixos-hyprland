@@ -125,9 +125,9 @@
 }
 
 .connectivity-item .toggle-switch.enabled {
-  background-color: #c3e88d;
-  color: #292d3e;
-  border-color: #c3e88d;
+  background-color: #c792ea;
+  color: white;
+  border-color: #c792ea;
 }
 
 .connectivity-item .toggle-switch.disabled {
@@ -182,8 +182,8 @@
 }
 
 .mic-toggle.active {
-  background-color: #c3e88d;
-  color: #292d3e;
+  background-color: #c792ea;
+  color: white;
 }
 
 .mic-toggle.muted {
@@ -242,7 +242,7 @@
 }
 
 .music-section.playing {
-  border: 1px solid #c3e88d;
+  border: 1px solid #c792ea;
 }
 
 .music-header {
@@ -251,7 +251,7 @@
 
 .music-icon {
   font-size: 22px;
-  color: #c3e88d;
+  color: #c792ea;
 }
 
 .music-app {
@@ -302,12 +302,12 @@
 
 .music-btn:hover {
   background-color: #4e5576;
-  color: #c3e88d;
+  color: #c792ea;
 }
 
 .music-btn.play-pause {
-  background-color: #c3e88d;
-  color: #292d3e;
+  background-color: #c792ea;
+  color: white;
   font-size: 20px;
 }
 
