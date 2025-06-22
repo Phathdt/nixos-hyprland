@@ -34,14 +34,54 @@ button:hover {
   background-image: none;
 }
 
+#lock label {
+  font-family: 'JetBrainsMono Nerd Font';
+}
+
+#lock label:before {
+  content: '󰌾 ';
+  font-size: 24px;
+  color: #c792ea;
+}
+
 #logout {
   background-image: none;
+}
+
+#logout label {
+  font-family: 'JetBrainsMono Nerd Font';
+}
+
+#logout label:before {
+  content: '󰍃 ';
+  font-size: 24px;
+  color: #c792ea;
 }
 
 #shutdown {
   background-image: none;
 }
 
+#shutdown label {
+  font-family: 'JetBrainsMono Nerd Font';
+}
+
+#shutdown label:before {
+  content: '⏻ ';
+  font-size: 24px;
+  color: #c792ea;
+}
+
 #reboot {
   background-image: none;
+}
+
+#reboot label {
+  font-family: 'JetBrainsMono Nerd Font';
+}
+
+#reboot label:before {
+  content: '󰜉 ';
+  font-size: 24px;
+  color: #c792ea;
 }
