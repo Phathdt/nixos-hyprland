@@ -93,27 +93,55 @@
   font-size: 12px;
 }
 
-.connectivity-item .toggle-btn {
+.connectivity-item .settings-btn {
   background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  border-radius: 6px;
   color: #a6accd;
-  font-size: 18px;
+  font-size: 14px;
   padding: 6px;
-  min-width: 32px;
-  min-height: 32px;
+  min-width: 28px;
+  min-height: 28px;
 }
 
-.connectivity-item .toggle-btn:hover {
+.connectivity-item .settings-btn:hover {
   background-color: rgba(255, 255, 255, 0.1);
   color: #eeffff;
+}
+
+.connectivity-item .toggle-switch {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  color: #a6accd;
+  font-size: 16px;
+  padding: 6px 10px;
+  min-width: 36px;
+  min-height: 28px;
+}
+
+.connectivity-item .toggle-switch:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.connectivity-item .toggle-switch.enabled {
+  background-color: #a6e3a1;
+  color: white;
+  border-color: #a6e3a1;
+}
+
+.connectivity-item .toggle-switch.disabled {
+  background-color: #f38ba8;
+  color: white;
+  border-color: #f38ba8;
 }
 
 .connectivity-item.wifi.enabled .icon {
   color: #82aaff;
 }
 
-.connectivity-item.wifi.enabled .toggle-btn {
+.connectivity-item.wifi.enabled .settings-btn:hover {
+  background-color: rgba(130, 170, 255, 0.2);
   color: #82aaff;
 }
 
@@ -121,7 +149,8 @@
   color: #c792ea;
 }
 
-.connectivity-item.bluetooth.enabled .toggle-btn {
+.connectivity-item.bluetooth.enabled .settings-btn:hover {
+  background-color: rgba(199, 146, 234, 0.2);
   color: #c792ea;
 }
 
