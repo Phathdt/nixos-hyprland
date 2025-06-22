@@ -4,7 +4,7 @@
     :y "42px"
     :anchor "top right"
     :width "400px"
-  :height "auto")
+  :height "650px")
   :stacking "overlay"
   :reserve (struts :distance "0px" :side "top")
   :windowtype "normal"
