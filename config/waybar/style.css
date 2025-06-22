@@ -94,10 +94,6 @@ tooltip label {
   border-radius: 10px;
 }
 
-#group-monitor * {
-  pointer-events: none;
-}
-
 #group-control {
   background: @base;
   border: 1px solid @blue;
