@@ -161,9 +161,11 @@
     papirus-icon-theme
     tela-icon-theme
 
-    # SDDM themes and cursor
+    # SDDM dependencies and cursor
     libsForQt5.sddm-kcm
-    sddm-astronaut
     bibata-cursors
+    qt6.qtsvg
+    qt6.qtvirtualkeyboard
+    qt6.qtmultimedia
   ];
 }

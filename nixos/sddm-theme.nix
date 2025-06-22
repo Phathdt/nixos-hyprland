@@ -1,5 +1,12 @@
+{ pkgs, ... }:
+
+let
+  sddm-astronaut-custom = pkgs.sddm-astronaut.overrideAttrs (oldAttrs: {
+    postInstall = (oldAttrs.postInstall or "") + ''
+      # Create custom theme config
+      cat > $out/share/sddm/themes/sddm-astronaut/theme.conf << EOF
 [General]
-Background="Backgrounds/space-1.jpg"
+Background="Backgrounds/astronaut.jpg"
 DimBackgroundImage="0.0"
 ScaleImageCropped=true
 ScreenWidth=1920
@@ -15,12 +22,6 @@ InterfaceShadowOpacity=0.6
 RoundCorners=20
 ScreenPadding=0
 Font="JetBrainsMono Nerd Font"
-FontSize=
-
-[Blur Settings]
-FullBlur=false
-PartialBlur=true
-BlurRadius=100
 
 [Input]
 PLACEHOLDER_TEXT_COLOR="#676e95"
@@ -39,3 +40,13 @@ HOVER_BUTTON_BORDER_COLOR="#82aaff"
 [Clock]
 CLOCK_COLOR="#eeffff"
 CLOCK_FONT_SIZE=72
+EOF
+
+      # Update metadata to use astronaut theme by default
+      sed -i 's/ConfigFile=.*/ConfigFile=Themes\/astronaut.conf/' $out/share/sddm/themes/sddm-astronaut/metadata.desktop
+    '';
+  });
+in
+{
+  environment.systemPackages = [ sddm-astronaut-custom ];
+}
