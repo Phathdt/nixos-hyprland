@@ -152,7 +152,7 @@
   "custom/settings": {
     "tooltip": "Settings Panel",
     "format": "󰒓",
-    "on-click": "~/.config/eww/scripts/toggle-settings-panel.sh",
+    "on-click": "~/.config/eww/scripts/simple-toggle.sh",
     "on-click-right": "swaync-client -d -sw"
   },
   "tray": {
