@@ -17,7 +17,9 @@
     (box :class "settings-container"
       :halign "end"
       :valign "start"
-      (settings-content)
+      (eventbox :onclick ""
+        (settings-content)
+      )
     )
   )
 )
@@ -51,7 +53,7 @@
     :space-evenly true
     :spacing 8
     (button :class "power-btn wlogout"
-      :onclick "wlogout"
+      :onclick "wlogout && eww close settings-panel"
       :tooltip "Power Menu"
     "⏻")
     (button :class "power-btn dnd"
