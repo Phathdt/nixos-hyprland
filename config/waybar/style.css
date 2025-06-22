@@ -86,7 +86,7 @@ tooltip label {
   margin-right: 10px;
 }
 
-#group-monitor {
+widget > box > #group-monitor {
   background: @base;
   border: 1px solid @overlay0;
   padding-right: 15px;
@@ -94,7 +94,7 @@ tooltip label {
   border-radius: 10px;
 }
 
-#group-control {
+widget > box > #group-control {
   background: @base;
   border: 1px solid @blue;
   padding-right: 15px;

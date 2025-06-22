@@ -66,8 +66,8 @@
   },
 
   "clock": {
-    "format": "󰃭 {:%a %d %b %R}",
-    "format-alt": "󰃭 {:%I:%M %p}",
+    "format": "{:%a %d %b %R}",
+    "format-alt": "{:%I:%M %p}",
     "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
       "mode": "month",
