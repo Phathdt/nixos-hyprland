@@ -6,11 +6,15 @@
     xwayland.enable = true;
   };
 
-  services.greetd = {
+  services.displayManager.sddm = {
     enable = true;
+    wayland.enable = true;
+    theme = "sddm-astronaut-theme";
     settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+      Theme = {
+        Current = "sddm-astronaut-theme";
+        CursorTheme = "Bibata-Modern-Classic";
+        Font = "JetBrainsMono Nerd Font";
       };
     };
   };
