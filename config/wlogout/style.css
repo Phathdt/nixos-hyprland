@@ -27,6 +27,11 @@ button {
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   font-size: 14px;
   font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 button:focus,
@@ -39,19 +44,19 @@ button:hover {
   box-shadow: 0 8px 32px rgba(199, 146, 234, 0.4);
 }
 
-#lock {
-  background-image: none;
-}
-
 #lock:before {
   content: '󰌾';
   font-family: 'JetBrainsMono Nerd Font';
   font-size: 48px;
   color: #c792ea;
+  display: block;
+  margin-bottom: 8px;
 }
 
-#logout {
-  background-image: none;
+#lock:after {
+  content: 'Lock';
+  font-size: 12px;
+  color: #eeffff;
 }
 
 #logout:before {
@@ -59,10 +64,14 @@ button:hover {
   font-family: 'JetBrainsMono Nerd Font';
   font-size: 48px;
   color: #c792ea;
+  display: block;
+  margin-bottom: 8px;
 }
 
-#suspend {
-  background-image: none;
+#logout:after {
+  content: 'Logout';
+  font-size: 12px;
+  color: #eeffff;
 }
 
 #suspend:before {
@@ -70,10 +79,14 @@ button:hover {
   font-family: 'JetBrainsMono Nerd Font';
   font-size: 48px;
   color: #c792ea;
+  display: block;
+  margin-bottom: 8px;
 }
 
-#hibernate {
-  background-image: none;
+#suspend:after {
+  content: 'Suspend';
+  font-size: 12px;
+  color: #eeffff;
 }
 
 #hibernate:before {
@@ -81,10 +94,14 @@ button:hover {
   font-family: 'JetBrainsMono Nerd Font';
   font-size: 48px;
   color: #c792ea;
+  display: block;
+  margin-bottom: 8px;
 }
 
-#shutdown {
-  background-image: none;
+#hibernate:after {
+  content: 'Hibernate';
+  font-size: 12px;
+  color: #eeffff;
 }
 
 #shutdown:before {
@@ -92,10 +109,14 @@ button:hover {
   font-family: 'JetBrainsMono Nerd Font';
   font-size: 48px;
   color: #c792ea;
+  display: block;
+  margin-bottom: 8px;
 }
 
-#reboot {
-  background-image: none;
+#shutdown:after {
+  content: 'Shutdown';
+  font-size: 12px;
+  color: #eeffff;
 }
 
 #reboot:before {
@@ -103,4 +124,12 @@ button:hover {
   font-family: 'JetBrainsMono Nerd Font';
   font-size: 48px;
   color: #c792ea;
+  display: block;
+  margin-bottom: 8px;
+}
+
+#reboot:after {
+  content: 'Reboot';
+  font-size: 12px;
+  color: #eeffff;
 }
