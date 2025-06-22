@@ -127,6 +127,7 @@ tooltip label {
 #custom-weather.showyIcyDay,
 #custom-weather.snowyIcyNight,
 #custom-weather.sunnyDay,
+#custom-microphone,
 #cava {
   padding-top: 3px;
   padding-bottom: 3px;
@@ -312,6 +313,18 @@ tooltip label {
 
 #pulseaudio.muted {
   color: @red;
+}
+
+#custom-microphone {
+  color: @mauve;
+}
+
+#custom-microphone.muted {
+  color: @red;
+}
+
+#custom-microphone.active {
+  color: @mauve;
 }
 
 #window {

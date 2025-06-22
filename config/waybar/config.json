@@ -18,6 +18,7 @@
     "cpu",
     "memory",
     "pulseaudio",
+    "custom/microphone",
     "bluetooth",
     "network",
     "custom/settings",
@@ -148,6 +149,14 @@
       "car": "󰄋",
       "default": ["󰕿", "󰖀", "󰕾"]
     }
+  },
+  "custom/microphone": {
+    "tooltip": "Microphone Status",
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/get-mic-status.sh",
+    "on-click": "~/.config/eww/scripts/toggle-mic.sh",
+    "interval": 1,
+    "return-type": "json"
   },
   "custom/settings": {
     "tooltip": "Settings Panel",
