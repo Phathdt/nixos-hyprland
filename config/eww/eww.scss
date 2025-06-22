@@ -1,92 +1,447 @@
-* {
-  all: unset;
-  font-family: 'JetBrainsMono Nerd Font', 'SF Pro Display', monospace,
-    sans-serif;
-}
+// Material Palenight Color Scheme
+$base: #292d3e;
+$mantle: #1e1e2e;
+$crust: #181825;
+$text: #eeffff;
+$subtext0: #a6accd;
+$subtext1: #bac2de;
+$surface0: #3a3f58;
+$surface1: #444a67;
+$surface2: #4e5576;
+$overlay0: #676e95;
+$overlay1: #7f849c;
+$overlay2: #939ab2;
+$blue: #82aaff;
+$lavender: #b4befe;
+$sapphire: #74c7ec;
+$sky: #89dceb;
+$teal: #94e2d5;
+$green: #a6e3a1;
+$yellow: #f9e2af;
+$peach: #fab387;
+$maroon: #eba0ac;
+$red: #f38ba8;
+$mauve: #c792ea;
+$pink: #f5c2e7;
+$flamingo: #f2cdcd;
+$rosewater: #f5e0dc;
 
-.wifi-popup {
-  background: #292d3e;
+// Main panel styling
+.settings-panel {
+  background-color: $base;
+  border: 2px solid $surface0;
   border-radius: 12px;
-  padding: 20px;
-  border: 2px solid #3a3f58;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  min-width: 320px;
+  padding: 16px;
+  color: $text;
+  font-family: 'JetBrainsMono Nerd Font';
+  font-size: 14px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-.popup-header {
-  padding-bottom: 16px;
-  border-bottom: 2px solid #3a3f58;
-  margin-bottom: 16px;
-}
-
-.popup-title {
-  font-size: 18px;
-  font-weight: bold;
-  color: #eeffff;
-}
-
-.wifi-toggle {
-  border-radius: 16px;
-  min-width: 48px;
-  min-height: 28px;
-  font-size: 12px;
-  font-weight: 600;
-  transition: all 0.2s ease;
-}
-
-.wifi-toggle.enabled {
-  background: #c792ea;
-  color: #292d3e;
-}
-
-.wifi-toggle.disabled {
-  background: #3a3f58;
-  color: #a6accd;
-}
-
-.wifi-list {
-  scrollbar-width: none;
-}
-
-.wifi-item {
-  background: transparent;
+// Power controls section
+.power-section {
+  background-color: $surface0;
   border-radius: 8px;
   padding: 12px;
-  margin: 4px 0;
+  margin-bottom: 8px;
+}
+
+.power-btn {
+  background-color: transparent;
+  border: 2px solid $surface1;
+  border-radius: 8px;
+  color: $text;
+  font-size: 18px;
+  padding: 12px;
+  min-width: 45px;
+  min-height: 45px;
   transition: all 0.2s ease;
-  border: 1px solid transparent;
+
+  &:hover {
+    background-color: $surface1;
+    border-color: $mauve;
+    color: $mauve;
+  }
+
+  &.shutdown:hover {
+    border-color: $red;
+    color: $red;
+  }
+
+  &.lock:hover {
+    border-color: $yellow;
+    color: $yellow;
+  }
+
+  &.dnd:hover {
+    border-color: $blue;
+    color: $blue;
+  }
 }
 
-.wifi-item:hover {
-  background: #3a3f58;
-  border-color: #82aaff;
+// Connectivity section
+.connectivity-section {
+  background-color: $surface0;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
 }
 
-.wifi-item.connected {
-  background: rgba(199, 146, 234, 0.15);
-  border: 1px solid #c792ea;
+.connectivity-item {
+  background-color: $surface1;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 8px;
+  transition: all 0.2s ease;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .icon {
+    font-size: 20px;
+    color: $subtext0;
+    min-width: 24px;
+  }
+
+  .title {
+    font-weight: bold;
+    color: $text;
+    font-size: 14px;
+  }
+
+  .status {
+    color: $subtext0;
+    font-size: 12px;
+  }
+
+  .toggle-btn {
+    background-color: transparent;
+    border: none;
+    color: $subtext0;
+    font-size: 16px;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: $surface2;
+      color: $text;
+    }
+  }
+
+  &.wifi {
+    &.enabled {
+      .icon {
+        color: $blue;
+      }
+      .toggle-btn {
+        color: $blue;
+      }
+    }
+
+    &.disabled {
+      .icon {
+        color: $overlay0;
+      }
+      .status {
+        color: $overlay0;
+      }
+    }
+  }
+
+  &.bluetooth {
+    &.enabled {
+      .icon {
+        color: $mauve;
+      }
+      .toggle-btn {
+        color: $mauve;
+      }
+    }
+
+    &.disabled {
+      .icon {
+        color: $overlay0;
+      }
+      .status {
+        color: $overlay0;
+      }
+    }
+  }
 }
 
-.wifi-icon {
-  font-size: 20px;
-  color: #82aaff;
-  min-width: 28px;
+// Audio section
+.audio-section {
+  background-color: $surface0;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
 }
 
-.wifi-name {
-  font-size: 14px;
-  font-weight: 600;
-  color: #eeffff;
+.audio-controls {
+  background-color: $surface1;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 8px;
+
+  .mic-toggle {
+    background-color: transparent;
+    border: 2px solid $surface2;
+    border-radius: 6px;
+    color: $text;
+    font-size: 16px;
+    padding: 8px;
+    min-width: 40px;
+    min-height: 40px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: $surface2;
+    }
+
+    &.active {
+      border-color: $green;
+      color: $green;
+
+      &:hover {
+        background-color: rgba($green, 0.1);
+      }
+    }
+
+    &.muted {
+      border-color: $red;
+      color: $red;
+
+      &:hover {
+        background-color: rgba($red, 0.1);
+      }
+    }
+  }
+
+  .mic-label {
+    color: $text;
+    font-size: 12px;
+    margin-left: 8px;
+  }
 }
 
-.wifi-status {
-  font-size: 11px;
-  color: #a6accd;
-  font-weight: 500;
+.volume-control {
+  background-color: $surface1;
+  border-radius: 6px;
+  padding: 12px;
+
+  .volume-icon {
+    background-color: transparent;
+    border: none;
+    color: $blue;
+    font-size: 18px;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: $surface2;
+      color: $sapphire;
+    }
+  }
+
+  .volume-slider {
+    margin: 0 12px;
+
+    slider {
+      background-color: $surface2;
+      border-radius: 4px;
+      min-height: 6px;
+    }
+
+    highlight {
+      background-color: $blue;
+      border-radius: 4px;
+    }
+
+    trough {
+      background-color: $surface2;
+      border-radius: 4px;
+      min-height: 6px;
+    }
+  }
+
+  .volume-label {
+    color: $text;
+    font-size: 12px;
+    min-width: 35px;
+  }
 }
 
-.wifi-signal {
+// Music section
+.music-section {
+  background-color: $surface0;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+
+  &.playing {
+    border: 1px solid $green;
+    background-color: rgba($green, 0.05);
+  }
+
+  &.idle {
+    border: 1px solid $surface1;
+  }
+}
+
+.music-header {
+  margin-bottom: 8px;
+
+  .music-icon {
+    font-size: 18px;
+    color: $green;
+  }
+
+  .music-app {
+    color: $text;
+    font-weight: bold;
+    font-size: 12px;
+  }
+}
+
+.music-info {
+  margin-bottom: 12px;
+
+  .music-title {
+    color: $text;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  .music-artist {
+    color: $subtext0;
+    font-size: 12px;
+  }
+}
+
+.music-controls {
+  .music-btn {
+    background-color: transparent;
+    border: 2px solid $surface1;
+    border-radius: 6px;
+    color: $text;
+    font-size: 16px;
+    padding: 8px;
+    min-width: 40px;
+    min-height: 40px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: $surface1;
+      border-color: $green;
+      color: $green;
+    }
+
+    &.play-pause {
+      border-color: $green;
+      color: $green;
+
+      &:hover {
+        background-color: rgba($green, 0.1);
+      }
+    }
+  }
+}
+
+// Notifications section
+.notifications-section {
+  background-color: $surface0;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.notifications-header {
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid $surface1;
+
+  .notifications-title {
+    color: $text;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .clear-notifications {
+    background-color: transparent;
+    border: none;
+    color: $subtext0;
+    font-size: 14px;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: $surface1;
+      color: $red;
+    }
+  }
+}
+
+.notifications-list {
+  scrollbar {
+    background-color: $surface1;
+    border-radius: 4px;
+
+    slider {
+      background-color: $overlay0;
+      border-radius: 4px;
+      min-width: 6px;
+
+      &:hover {
+        background-color: $overlay1;
+      }
+    }
+  }
+}
+
+.notification-item {
+  background-color: $surface1;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 6px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: $surface2;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.notification-header {
+  margin-bottom: 6px;
+
+  .notification-app {
+    color: $blue;
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  .notification-time {
+    color: $subtext0;
+    font-size: 10px;
+  }
+}
+
+.notification-summary {
+  color: $text;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.notification-body {
+  color: $subtext0;
   font-size: 12px;
-  color: #c792ea;
-  font-weight: 600;
+  line-height: 1.3;
 }

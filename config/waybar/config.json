@@ -20,7 +20,7 @@
     "pulseaudio",
     "bluetooth",
     "network",
-    "custom/swaync",
+    "custom/settings",
     "tray"
   ],
   "hyprland/workspaces": {
@@ -149,10 +149,10 @@
       "default": ["󰕿", "󰖀", "󰕾"]
     }
   },
-  "custom/swaync": {
-    "tooltip": "Quick Settings",
+  "custom/settings": {
+    "tooltip": "Settings Panel",
     "format": "󰒓",
-    "on-click": "swaync-client -t -sw",
+    "on-click": "~/.config/eww/scripts/toggle-settings-panel.sh",
     "on-click-right": "swaync-client -d -sw"
   },
   "tray": {
