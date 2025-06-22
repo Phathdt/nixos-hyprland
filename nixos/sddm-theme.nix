@@ -7,7 +7,7 @@
       themeConfig = {
         General = {
           HeaderText = "Hi Boss";
-          Background = "/home/phat/.config/sddm/black_hole.jpg";
+          Background = "/home/phathdt/.config/sddm/black_hole.jpg";
           FontSize = "12.0";
           ScreenWidth = "1920";
           ScreenHeight = "1080";
