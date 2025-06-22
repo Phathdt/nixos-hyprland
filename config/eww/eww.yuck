@@ -3,7 +3,7 @@
   :geometry (geometry :x "10px"
     :y "42px"
     :anchor "top right"
-    :width "400px"
+    :width "450px"
   :height "650px")
   :stacking "overlay"
   :reserve (struts :distance "0px" :side "top")
