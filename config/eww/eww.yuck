@@ -1,17 +1,24 @@
 (defwindow settings-panel
   :monitor 0
-  :geometry (geometry :x "10px"
-    :y "42px"
-    :anchor "top right"
-    :width "450px"
-  :height "650px")
+  :geometry (geometry :x "0px"
+    :y "0px"
+    :anchor "top left"
+    :width "100%"
+  :height "100%")
   :stacking "overlay"
   :reserve (struts :distance "0px" :side "top")
   :windowtype "normal"
   :wm-ignore false
   :focusable true
-  (eventbox :onhoverlost "eww close settings-panel"
-    (settings-content)
+  (eventbox :onclick "eww close settings-panel"
+    :class "settings-overlay"
+    (box :class "settings-container"
+      :halign "end"
+      :valign "start"
+      (eventbox :onclick ""
+        (settings-content)
+      )
+    )
   )
 )
 

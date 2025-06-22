@@ -1,5 +1,15 @@
 /* Simple EWW CSS - Only basic properties */
 
+.settings-overlay {
+  background-color: transparent;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.settings-container {
+  padding: 42px 10px 0px 0px;
+}
+
 .settings-panel {
   background-color: #292d3e;
   border: 1px solid #676e95;
@@ -8,6 +18,8 @@
   color: #a6accd;
   font-family: 'JetBrainsMono Nerd Font';
   font-size: 14px;
+  width: 450px;
+  height: 650px;
 }
 
 .panel-header {
