@@ -37,11 +37,38 @@ if [[ -n "$current_player" ]]; then
     if [[ -z "$artist" ]]; then
         artist="Unknown Artist"
     fi
-    if [[ -z "$artUrl" ]]; then
-        artUrl=""
+
+    # Handle artwork URL
+    processedArtUrl=""
+    if [[ -n "$artUrl" ]]; then
+        if [[ "$artUrl" == http* ]]; then
+            # HTTP/HTTPS URLs can be used directly
+            processedArtUrl="$artUrl"
+        elif [[ "$artUrl" == file://* ]]; then
+            # Local file URLs need to be copied to accessible location
+            localPath="${artUrl#file://}"
+            if [[ -f "$localPath" ]]; then
+                # Create cache directory if it doesn't exist
+                cacheDir="$HOME/.cache/eww-music"
+                mkdir -p "$cacheDir"
+
+                # Copy file to cache with unique name
+                fileName=$(basename "$localPath")
+                extension="${fileName##*.}"
+                if [[ "$extension" == "$fileName" ]]; then
+                    extension="jpg"
+                fi
+                cachedFile="$cacheDir/current_artwork.$extension"
+
+                cp "$localPath" "$cachedFile" 2>/dev/null
+                if [[ -f "$cachedFile" ]]; then
+                    processedArtUrl="$cachedFile"
+                fi
+            fi
+        fi
     fi
 
-    echo "{\"playing\": $playing, \"title\": \"$title\", \"artist\": \"$artist\", \"app\": \"$app\", \"icon\": \"$icon\", \"artUrl\": \"$artUrl\"}"
+    echo "{\"playing\": $playing, \"title\": \"$title\", \"artist\": \"$artist\", \"app\": \"$app\", \"icon\": \"$icon\", \"artUrl\": \"$processedArtUrl\"}"
 else
     echo "{\"playing\": false, \"title\": \"\", \"artist\": \"\", \"app\": \"\", \"icon\": \"\", \"artUrl\": \"\"}"
 fi
