@@ -178,12 +178,7 @@
   },
   "group/monitor": {
     "orientation": "horizontal",
-    "modules": ["cpu", "memory", "network#monitor"],
-    "drawer": {
-      "transition-duration": 0,
-      "children-class": "monitor-group",
-      "transition-left-to-right": false
-    }
+    "modules": ["cpu", "memory", "network#monitor"]
   },
   "group/control": {
     "orientation": "horizontal",
@@ -195,11 +190,6 @@
       "custom/settings",
       "clock",
       "tray"
-    ],
-    "drawer": {
-      "transition-duration": 0,
-      "children-class": "control-group",
-      "transition-left-to-right": false
-    }
+    ]
   }
 }

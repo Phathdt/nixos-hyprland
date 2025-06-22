@@ -82,7 +82,7 @@ tooltip label {
   margin: 0px;
 }
 
-.monitor-group {
+.modules-right > widget:first-child > * {
   background: @base;
   border: 1px solid @overlay0;
   padding-right: 15px;
@@ -91,7 +91,7 @@ tooltip label {
   margin-right: 10px;
 }
 
-.control-group {
+.modules-right > widget:last-child > * {
   background: @base;
   border: 1px solid @blue;
   padding-right: 15px;
