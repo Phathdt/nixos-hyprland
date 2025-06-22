@@ -40,28 +40,13 @@ $gradient-danger: linear-gradient(135deg, #{$red} 0%, #{$maroon} 100%);
 
 // Main panel styling
 .settings-panel {
-  background: $gradient-primary;
+  background-color: #292d3e;
   border: 1px solid rgba(130, 170, 255, 0.2);
   border-radius: 16px;
   padding: 20px;
-  color: $text;
+  color: #eeffff;
   font-family: 'JetBrainsMono Nerd Font';
   font-size: 14px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
 }
 
 .panel-header {
@@ -70,208 +55,148 @@ $gradient-danger: linear-gradient(135deg, #{$red} 0%, #{$maroon} 100%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
   .panel-title {
-    color: $text;
+    color: #eeffff;
     font-size: 18px;
     font-weight: 700;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    background: $gradient-accent;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
   }
 }
 
 // Power controls section
 .power-section {
-  background: $gradient-secondary;
+  background-color: #3a3f58;
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .power-btn {
-  background: rgba(255, 255, 255, 0.02);
+  background-color: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  color: $text;
+  color: #eeffff;
   font-size: 20px;
   padding: 14px;
   min-width: 50px;
   min-height: 50px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.05);
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-  }
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    border-color: $mauve;
-
-    &::before {
-      transform: translateX(0);
-    }
+    background-color: #444a67;
+    border-color: #c792ea;
   }
 
   &.shutdown:hover {
-    background: $gradient-danger;
-    border-color: $red;
+    background-color: #f38ba8;
+    border-color: #f38ba8;
     color: white;
   }
 
   &.dnd:hover {
-    background: $gradient-accent;
-    border-color: $blue;
+    background-color: #82aaff;
+    border-color: #82aaff;
     color: white;
   }
 }
 
 // Connectivity section
 .connectivity-section {
-  background: $gradient-secondary;
+  background-color: #3a3f58;
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .connectivity-item {
-  background: rgba(255, 255, 255, 0.02);
+  background-color: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 10px;
   padding: 14px;
   margin-bottom: 10px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
 
   &:last-child {
     margin-bottom: 0;
   }
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background: transparent;
-    transition: background 0.3s ease;
-  }
-
   &:hover {
-    transform: translateX(4px);
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.05);
   }
 
   .icon {
     font-size: 22px;
-    color: $subtext0;
+    color: #a6accd;
     min-width: 28px;
-    text-shadow: 0 0 10px currentColor;
   }
 
   .title {
     font-weight: 600;
-    color: $text;
+    color: #eeffff;
     font-size: 15px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   }
 
   .status {
-    color: $subtext0;
+    color: #a6accd;
     font-size: 12px;
-    opacity: 0.8;
   }
 
   .toggle-btn {
-    background: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
-    color: $subtext0;
+    color: #a6accd;
     font-size: 18px;
     padding: 6px;
     min-width: 32px;
     min-height: 32px;
-    transition: all 0.3s ease;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.1);
-      transform: scale(1.1);
-      color: $text;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #eeffff;
     }
   }
 
   &.wifi {
     &.enabled {
-      &::before {
-        background: $gradient-accent;
-      }
       .icon {
-        background: $gradient-accent;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: #82aaff;
       }
       .toggle-btn {
-        color: $blue;
+        color: #82aaff;
         &:hover {
-          background: rgba(130, 170, 255, 0.2);
+          background-color: rgba(130, 170, 255, 0.2);
         }
       }
     }
 
     &.disabled {
       .icon {
-        color: $overlay0;
+        color: #676e95;
       }
       .status {
-        color: $overlay0;
+        color: #676e95;
       }
     }
   }
 
   &.bluetooth {
     &.enabled {
-      &::before {
-        background: $gradient-warning;
-      }
       .icon {
-        background: $gradient-warning;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: #c792ea;
       }
       .toggle-btn {
-        color: $mauve;
+        color: #c792ea;
         &:hover {
-          background: rgba(199, 146, 234, 0.2);
+          background-color: rgba(199, 146, 234, 0.2);
         }
       }
     }
 
     &.disabled {
       .icon {
-        color: $overlay0;
+        color: #676e95;
       }
       .status {
-        color: $overlay0;
+        color: #676e95;
       }
     }
   }
