@@ -1,24 +1,24 @@
 {
   "label": "lock",
   "action": "hyprlock",
-  "text": "󰌾\nLock",
+  "text": "󰌾 Lock",
   "keybind": "l"
 }
 {
   "label": "logout",
   "action": "hyprctl dispatch exit 0; systemctl restart sddm",
-  "text": "󰍃\nLogout",
+  "text": "󰍃 Logout",
   "keybind": "e"
 }
 {
   "label": "shutdown",
   "action": "systemctl poweroff",
-  "text": "⏻\nShutdown",
+  "text": "⏻ Shutdown",
   "keybind": "s"
 }
 {
   "label": "reboot",
   "action": "systemctl reboot",
-  "text": "󰜉\nReboot",
+  "text": "󰜉 Reboot",
   "keybind": "r"
 }
