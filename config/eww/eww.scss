@@ -249,25 +249,25 @@ window {
   margin: 0 16px;
 }
 
-.volume-slider scale {
+scale {
   background-color: #3a3f58;
   border-radius: 10px;
   min-height: 8px;
 }
 
-.volume-slider scale trough {
+trough {
   background-color: #3a3f58;
   border: 1px solid #676e95;
   border-radius: 10px;
   min-height: 8px;
 }
 
-.volume-slider scale highlight {
+highlight {
   background-color: #c792ea;
   border-radius: 10px;
 }
 
-.volume-slider scale slider {
+slider {
   background-color: #eeffff;
   border: 2px solid #c792ea;
   border-radius: 50%;
