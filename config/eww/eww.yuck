@@ -27,16 +27,21 @@
     :orientation "v"
     :space-evenly false
     :spacing 16
-    (box :class "panel-header"
-      (label :class "panel-title"
-        :text "Quick Settings"
-      :halign "start")
+    (box :class "settings-content-wrapper"
+      :orientation "v"
+      :space-evenly false
+      :spacing 16
+      (box :class "panel-header"
+        (label :class "panel-title"
+          :text "Quick Settings"
+        :halign "start")
+      )
+      (power-controls)
+      (connectivity-section)
+      (audio-section)
+      (music-section)
+      (notifications-section)
     )
-    (power-controls)
-    (connectivity-section)
-    (audio-section)
-    (music-section)
-    (notifications-section)
   )
 )
 

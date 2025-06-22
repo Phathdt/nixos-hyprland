@@ -18,14 +18,19 @@ window {
 }
 
 .settings-panel {
-  // background-color: #292d3e;
-  background-color: red;
-  border: 1px solid #676e95;
-  border-radius: 16px;
-  padding: 20px;
+  background: transparent;
+  border: none;
+  padding: 0px;
   color: #a6accd;
   font-family: 'JetBrainsMono Nerd Font';
   font-size: 14px;
+}
+
+.settings-content-wrapper {
+  background-color: #292d3e;
+  border: 1px solid #676e95;
+  border-radius: 16px;
+  padding: 20px;
   min-width: 450px;
   min-height: 650px;
 }
