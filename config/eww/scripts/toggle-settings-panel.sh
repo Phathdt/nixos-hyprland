@@ -8,5 +8,5 @@ else
     # Panel was not open, so open it
     eww open settings-panel
     # Start auto-close monitoring in background
-    ~/.config/eww/scripts/auto-close-panel.sh &
+    # ~/.config/eww/scripts/auto-close-panel.sh &
 fi
