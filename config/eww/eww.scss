@@ -1,47 +1,8 @@
-// Material Palenight Color Scheme
-$base: #292d3e;
-$mantle: #1e1e2e;
-$crust: #181825;
-$text: #eeffff;
-$subtext0: #a6accd;
-$subtext1: #bac2de;
-$surface0: #3a3f58;
-$surface1: #444a67;
-$surface2: #4e5576;
-$overlay0: #676e95;
-$overlay1: #7f849c;
-$overlay2: #939ab2;
-$blue: #82aaff;
-$lavender: #b4befe;
-$sapphire: #74c7ec;
-$sky: #89dceb;
-$teal: #94e2d5;
-$green: #a6e3a1;
-$yellow: #f9e2af;
-$peach: #fab387;
-$maroon: #eba0ac;
-$red: #f38ba8;
-$mauve: #c792ea;
-$pink: #f5c2e7;
-$flamingo: #f2cdcd;
-$rosewater: #f5e0dc;
+/* Simple EWW CSS - Only basic properties */
 
-// Gradient colors for enhanced visuals
-$gradient-primary: linear-gradient(135deg, #{$base} 0%, #{$surface0} 100%);
-$gradient-secondary: linear-gradient(
-  135deg,
-  #{$surface0} 0%,
-  #{$surface1} 100%
-);
-$gradient-accent: linear-gradient(135deg, #{$mauve} 0%, #{$blue} 100%);
-$gradient-success: linear-gradient(135deg, #{$green} 0%, #{$teal} 100%);
-$gradient-warning: linear-gradient(135deg, #{$yellow} 0%, #{$peach} 100%);
-$gradient-danger: linear-gradient(135deg, #{$red} 0%, #{$maroon} 100%);
-
-// Main panel styling
 .settings-panel {
   background-color: #292d3e;
-  border: 1px solid rgba(130, 170, 255, 0.2);
+  border: 1px solid #82aaff;
   border-radius: 16px;
   padding: 20px;
   color: #eeffff;
@@ -53,15 +14,14 @@ $gradient-danger: linear-gradient(135deg, #{$red} 0%, #{$maroon} 100%);
   margin-bottom: 8px;
   padding-bottom: 12px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
-  .panel-title {
-    color: #eeffff;
-    font-size: 18px;
-    font-weight: 700;
-  }
 }
 
-// Power controls section
+.panel-title {
+  color: #eeffff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .power-section {
   background-color: #3a3f58;
   border-radius: 12px;
@@ -71,7 +31,7 @@ $gradient-danger: linear-gradient(135deg, #{$red} 0%, #{$maroon} 100%);
 }
 
 .power-btn {
-  background-color: rgba(255, 255, 255, 0.02);
+  background-color: #444a67;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   color: #eeffff;
@@ -79,26 +39,23 @@ $gradient-danger: linear-gradient(135deg, #{$red} 0%, #{$maroon} 100%);
   padding: 14px;
   min-width: 50px;
   min-height: 50px;
-
-  &:hover {
-    background-color: #444a67;
-    border-color: #c792ea;
-  }
-
-  &.shutdown:hover {
-    background-color: #f38ba8;
-    border-color: #f38ba8;
-    color: white;
-  }
-
-  &.dnd:hover {
-    background-color: #82aaff;
-    border-color: #82aaff;
-    color: white;
-  }
 }
 
-// Connectivity section
+.power-btn:hover {
+  background-color: #4e5576;
+  border-color: #c792ea;
+}
+
+.power-btn.shutdown:hover {
+  background-color: #f38ba8;
+  color: white;
+}
+
+.power-btn.dnd:hover {
+  background-color: #82aaff;
+  color: white;
+}
+
 .connectivity-section {
   background-color: #3a3f58;
   border-radius: 12px;
@@ -108,510 +65,282 @@ $gradient-danger: linear-gradient(135deg, #{$red} 0%, #{$maroon} 100%);
 }
 
 .connectivity-item {
-  background-color: rgba(255, 255, 255, 0.02);
+  background-color: #444a67;
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 10px;
   padding: 14px;
   margin-bottom: 10px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-  }
-
-  .icon {
-    font-size: 22px;
-    color: #a6accd;
-    min-width: 28px;
-  }
-
-  .title {
-    font-weight: 600;
-    color: #eeffff;
-    font-size: 15px;
-  }
-
-  .status {
-    color: #a6accd;
-    font-size: 12px;
-  }
-
-  .toggle-btn {
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    color: #a6accd;
-    font-size: 18px;
-    padding: 6px;
-    min-width: 32px;
-    min-height: 32px;
-
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-      color: #eeffff;
-    }
-  }
-
-  &.wifi {
-    &.enabled {
-      .icon {
-        color: #82aaff;
-      }
-      .toggle-btn {
-        color: #82aaff;
-        &:hover {
-          background-color: rgba(130, 170, 255, 0.2);
-        }
-      }
-    }
-
-    &.disabled {
-      .icon {
-        color: #676e95;
-      }
-      .status {
-        color: #676e95;
-      }
-    }
-  }
-
-  &.bluetooth {
-    &.enabled {
-      .icon {
-        color: #c792ea;
-      }
-      .toggle-btn {
-        color: #c792ea;
-        &:hover {
-          background-color: rgba(199, 146, 234, 0.2);
-        }
-      }
-    }
-
-    &.disabled {
-      .icon {
-        color: #676e95;
-      }
-      .status {
-        color: #676e95;
-      }
-    }
-  }
 }
 
-// Audio section
+.connectivity-item:hover {
+  background-color: #4e5576;
+}
+
+.connectivity-item .icon {
+  font-size: 22px;
+  color: #a6accd;
+  min-width: 28px;
+}
+
+.connectivity-item .title {
+  font-weight: bold;
+  color: #eeffff;
+  font-size: 15px;
+}
+
+.connectivity-item .status {
+  color: #a6accd;
+  font-size: 12px;
+}
+
+.connectivity-item .toggle-btn {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #a6accd;
+  font-size: 18px;
+  padding: 6px;
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.connectivity-item .toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #eeffff;
+}
+
+.connectivity-item.wifi.enabled .icon {
+  color: #82aaff;
+}
+
+.connectivity-item.wifi.enabled .toggle-btn {
+  color: #82aaff;
+}
+
+.connectivity-item.bluetooth.enabled .icon {
+  color: #c792ea;
+}
+
+.connectivity-item.bluetooth.enabled .toggle-btn {
+  color: #c792ea;
+}
+
 .audio-section {
-  background: $gradient-secondary;
+  background-color: #3a3f58;
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .audio-controls {
-  background: rgba(255, 255, 255, 0.02);
+  background-color: #444a67;
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 10px;
   padding: 14px;
   margin-bottom: 10px;
+}
 
-  .mic-toggle {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    color: $text;
-    font-size: 18px;
-    padding: 10px;
-    min-width: 44px;
-    min-height: 44px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
+.mic-toggle {
+  background-color: #4e5576;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #eeffff;
+  font-size: 18px;
+  padding: 10px;
+  min-width: 44px;
+  min-height: 44px;
+}
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      transition: all 0.3s ease;
-    }
+.mic-toggle.active {
+  background-color: #a6e3a1;
+  color: white;
+}
 
-    &:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-    }
+.mic-toggle.muted {
+  background-color: #f38ba8;
+  color: white;
+}
 
-    &.active {
-      background: $gradient-success;
-      border-color: $green;
-      color: white;
-
-      &::before {
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.1);
-      }
-
-      &:hover {
-        box-shadow: 0 0 20px rgba(166, 227, 161, 0.4);
-      }
-    }
-
-    &.muted {
-      background: $gradient-danger;
-      border-color: $red;
-      color: white;
-
-      &::before {
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.1);
-      }
-
-      &:hover {
-        box-shadow: 0 0 20px rgba(243, 139, 168, 0.4);
-      }
-    }
-  }
-
-  .mic-label {
-    color: $text;
-    font-size: 13px;
-    font-weight: 500;
-    margin-left: 12px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  }
+.mic-label {
+  color: #eeffff;
+  font-size: 13px;
+  margin-left: 12px;
 }
 
 .volume-control {
-  background: rgba(255, 255, 255, 0.02);
+  background-color: #444a67;
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 10px;
   padding: 14px;
-
-  .volume-icon {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    color: $blue;
-    font-size: 20px;
-    padding: 8px;
-    min-width: 36px;
-    min-height: 36px;
-    transition: all 0.3s ease;
-
-    &:hover {
-      background: $gradient-accent;
-      color: white;
-      transform: scale(1.1);
-      box-shadow: 0 0 20px rgba(130, 170, 255, 0.4);
-    }
-  }
-
-  .volume-slider {
-    margin: 0 16px;
-
-    slider {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 6px;
-      min-height: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    highlight {
-      background: $gradient-accent;
-      border-radius: 6px;
-      box-shadow: 0 0 10px rgba(130, 170, 255, 0.3);
-    }
-
-    trough {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 6px;
-      min-height: 8px;
-    }
-  }
-
-  .volume-label {
-    color: $text;
-    font-size: 13px;
-    font-weight: 600;
-    min-width: 40px;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 6px;
-    padding: 4px 8px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  }
 }
 
-// Music section
+.volume-icon {
+  background-color: #4e5576;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #82aaff;
+  font-size: 20px;
+  padding: 8px;
+  min-width: 36px;
+  min-height: 36px;
+}
+
+.volume-icon:hover {
+  background-color: #82aaff;
+  color: white;
+}
+
+.volume-slider {
+  margin: 0 16px;
+}
+
+.volume-label {
+  color: #eeffff;
+  font-size: 13px;
+  min-width: 40px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
 .music-section {
-  background: $gradient-secondary;
+  background-color: #3a3f58;
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  position: relative;
-  overflow: hidden;
+}
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: $gradient-success;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-  }
-
-  &.playing {
-    border: 1px solid $green;
-    box-shadow: 0 0 20px rgba(166, 227, 161, 0.2);
-
-    &::before {
-      opacity: 0.05;
-    }
-  }
-
-  &.idle {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
+.music-section.playing {
+  border: 1px solid #a6e3a1;
 }
 
 .music-header {
   margin-bottom: 12px;
-  display: flex;
-  align-items: center;
+}
 
-  .music-icon {
-    font-size: 22px;
-    background: $gradient-success;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 0 0 10px currentColor;
-  }
+.music-icon {
+  font-size: 22px;
+  color: #a6e3a1;
+}
 
-  .music-app {
-    color: $text;
-    font-weight: 600;
-    font-size: 13px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    opacity: 0.9;
-  }
+.music-app {
+  color: #eeffff;
+  font-weight: bold;
+  font-size: 13px;
 }
 
 .music-info {
   margin-bottom: 16px;
   padding: 12px;
-  background: rgba(255, 255, 255, 0.02);
+  background-color: #444a67;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-
-  .music-title {
-    color: $text;
-    font-weight: 600;
-    font-size: 15px;
-    margin-bottom: 6px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    line-height: 1.2;
-  }
-
-  .music-artist {
-    color: $subtext0;
-    font-size: 13px;
-    opacity: 0.8;
-    font-weight: 400;
-  }
 }
 
-.music-controls {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-
-  .music-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    color: $text;
-    font-size: 18px;
-    padding: 10px;
-    min-width: 44px;
-    min-height: 44px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      transform: translate(-50%, -50%);
-      transition: all 0.3s ease;
-    }
-
-    &:hover {
-      transform: translateY(-2px) scale(1.05);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-      border-color: $green;
-      color: $green;
-
-      &::before {
-        width: 100%;
-        height: 100%;
-      }
-    }
-
-    &.play-pause {
-      background: $gradient-success;
-      border-color: $green;
-      color: white;
-      font-size: 20px;
-
-      &:hover {
-        background: $gradient-success;
-        box-shadow: 0 0 25px rgba(166, 227, 161, 0.5);
-        transform: translateY(-2px) scale(1.1);
-      }
-    }
-  }
+.music-title {
+  color: #eeffff;
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 6px;
 }
 
-// Notifications section
+.music-artist {
+  color: #a6accd;
+  font-size: 13px;
+}
+
+.music-btn {
+  background-color: #444a67;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #eeffff;
+  font-size: 18px;
+  padding: 10px;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.music-btn:hover {
+  background-color: #4e5576;
+  color: #a6e3a1;
+}
+
+.music-btn.play-pause {
+  background-color: #a6e3a1;
+  color: white;
+  font-size: 20px;
+}
+
 .notifications-section {
-  background: $gradient-secondary;
+  background-color: #3a3f58;
   border-radius: 12px;
   padding: 16px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .notifications-header {
   margin-bottom: 16px;
   padding-bottom: 12px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
-  .notifications-title {
-    color: $text;
-    font-weight: 600;
-    font-size: 15px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  }
-
-  .clear-notifications {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    color: $subtext0;
-    font-size: 16px;
-    padding: 6px 8px;
-    transition: all 0.3s ease;
-
-    &:hover {
-      background: $gradient-danger;
-      color: white;
-      transform: scale(1.1);
-      box-shadow: 0 0 15px rgba(243, 139, 168, 0.4);
-    }
-  }
 }
 
-.notifications-list {
-  scrollbar {
-    background-color: $surface1;
-    border-radius: 4px;
+.notifications-title {
+  color: #eeffff;
+  font-weight: bold;
+  font-size: 15px;
+}
 
-    slider {
-      background-color: $overlay0;
-      border-radius: 4px;
-      min-width: 6px;
+.clear-notifications {
+  background-color: #444a67;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #a6accd;
+  font-size: 16px;
+  padding: 6px 8px;
+}
 
-      &:hover {
-        background-color: $overlay1;
-      }
-    }
-  }
+.clear-notifications:hover {
+  background-color: #f38ba8;
+  color: white;
 }
 
 .notification-item {
-  background: rgba(255, 255, 255, 0.02);
+  background-color: #444a67;
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 10px;
   padding: 12px;
   margin-bottom: 8px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
+}
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 3px;
-    height: 100%;
-    background: $gradient-accent;
-    transform: scaleY(0);
-    transition: transform 0.3s ease;
-  }
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.05);
-    transform: translateX(4px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-
-    &::before {
-      transform: scaleY(1);
-    }
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+.notification-item:hover {
+  background-color: #4e5576;
 }
 
 .notification-header {
   margin-bottom: 6px;
+}
 
-  .notification-app {
-    color: $blue;
-    font-weight: bold;
-    font-size: 12px;
-  }
+.notification-app {
+  color: #82aaff;
+  font-weight: bold;
+  font-size: 12px;
+}
 
-  .notification-time {
-    color: $subtext0;
-    font-size: 10px;
-  }
+.notification-time {
+  color: #a6accd;
+  font-size: 10px;
 }
 
 .notification-summary {
-  color: $text;
+  color: #eeffff;
   font-weight: bold;
   font-size: 13px;
   margin-bottom: 4px;
 }
 
 .notification-body {
-  color: $subtext0;
+  color: #a6accd;
   font-size: 12px;
-  line-height: 1.3;
 }
