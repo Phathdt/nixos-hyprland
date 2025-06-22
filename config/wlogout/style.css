@@ -40,25 +40,67 @@ button:hover {
 }
 
 #lock {
-  background-image: image(url('icons/lock.png'));
+  background-image: none;
+}
+
+#lock:before {
+  content: '󰌾';
+  font-family: 'JetBrainsMono Nerd Font';
+  font-size: 48px;
+  color: #c792ea;
 }
 
 #logout {
-  background-image: image(url('icons/logout.png'));
+  background-image: none;
+}
+
+#logout:before {
+  content: '󰍃';
+  font-family: 'JetBrainsMono Nerd Font';
+  font-size: 48px;
+  color: #c792ea;
 }
 
 #suspend {
-  background-image: image(url('icons/suspend.png'));
+  background-image: none;
+}
+
+#suspend:before {
+  content: '󰤄';
+  font-family: 'JetBrainsMono Nerd Font';
+  font-size: 48px;
+  color: #c792ea;
 }
 
 #hibernate {
-  background-image: image(url('icons/hibernate.png'));
+  background-image: none;
+}
+
+#hibernate:before {
+  content: '󰋊';
+  font-family: 'JetBrainsMono Nerd Font';
+  font-size: 48px;
+  color: #c792ea;
 }
 
 #shutdown {
-  background-image: image(url('icons/shutdown.png'));
+  background-image: none;
+}
+
+#shutdown:before {
+  content: '⏻';
+  font-family: 'JetBrainsMono Nerd Font';
+  font-size: 48px;
+  color: #c792ea;
 }
 
 #reboot {
-  background-image: image(url('icons/reboot.png'));
+  background-image: none;
+}
+
+#reboot:before {
+  content: '󰜉';
+  font-family: 'JetBrainsMono Nerd Font';
+  font-size: 48px;
+  color: #c792ea;
 }
