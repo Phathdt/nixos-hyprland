@@ -7,8 +7,8 @@
   :height "100%")
   :stacking "overlay"
   :reserve (struts :distance "0px" :side "top")
-  :windowtype "normal"
-  :wm-ignore false
+  :windowtype "dock"
+  :wm-ignore true
   :focusable true
   (eventbox :onclick "eww close settings-panel"
     :class "settings-overlay"

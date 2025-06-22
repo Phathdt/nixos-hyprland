@@ -1,5 +1,13 @@
 /* Simple EWW CSS - Only basic properties */
 
+window {
+  background: transparent;
+}
+
+* {
+  background: transparent;
+}
+
 .settings-overlay {
   background: transparent;
 }
@@ -10,7 +18,7 @@
 }
 
 .settings-panel {
-  background-color: #292d3e;
+  background-color: #292d3e !important;
   border: 1px solid #676e95;
   border-radius: 16px;
   padding: 20px;
