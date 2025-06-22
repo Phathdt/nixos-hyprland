@@ -8,18 +8,8 @@
 
   services.displayManager.sddm = {
     enable = true;
-    wayland.enable = true;
-    theme = "sddm-astronaut";
-    settings = {
-      Theme = {
-        Current = "sddm-astronaut";
-        CursorTheme = "Bibata-Modern-Classic";
-        Font = "JetBrainsMono Nerd Font";
-      };
-      General = {
-        InputMethod = "qtvirtualkeyboard";
-      };
-    };
+    package = pkgs.kdePackages.sddm;
+    theme = "sddm-astronaut-theme";
   };
 
   services.xserver = {

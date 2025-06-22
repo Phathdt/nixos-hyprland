@@ -163,6 +163,7 @@
 
     # SDDM dependencies and cursor
     libsForQt5.sddm-kcm
+    kdePackages.sddm
     bibata-cursors
     qt6.qtsvg
     qt6.qtvirtualkeyboard
