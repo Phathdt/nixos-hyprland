@@ -10,14 +10,14 @@
   :windowtype "dock"
   :wm-ignore true
   :focusable true
-  (eventbox :onclick "eww close settings-panel"
-    :class "settings-overlay"
+  (overlay
+    (eventbox :onclick "eww close settings-panel"
+      :class "settings-overlay"
+    )
     (box :class "settings-container"
       :halign "end"
       :valign "start"
-      (eventbox :onclick ""
-        (settings-content)
-      )
+      (settings-content)
     )
   )
 )
