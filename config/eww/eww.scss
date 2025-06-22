@@ -250,15 +250,16 @@ window {
 }
 
 .volume-slider scale {
-  background-color: #515772;
+  background-color: #3a3f58;
   border-radius: 10px;
-  min-height: 6px;
+  min-height: 8px;
 }
 
 .volume-slider scale trough {
-  background-color: #515772;
+  background-color: #3a3f58;
+  border: 1px solid #676e95;
   border-radius: 10px;
-  min-height: 6px;
+  min-height: 8px;
 }
 
 .volume-slider scale highlight {
@@ -267,11 +268,11 @@ window {
 }
 
 .volume-slider scale slider {
-  background-color: #c792ea;
+  background-color: #eeffff;
   border: 2px solid #c792ea;
   border-radius: 50%;
-  min-width: 16px;
-  min-height: 16px;
+  min-width: 18px;
+  min-height: 18px;
 }
 
 .volume-label {
