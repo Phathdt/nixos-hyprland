@@ -26,117 +26,214 @@ $pink: #f5c2e7;
 $flamingo: #f2cdcd;
 $rosewater: #f5e0dc;
 
+// Gradient colors for enhanced visuals
+$gradient-primary: linear-gradient(135deg, #{$base} 0%, #{$surface0} 100%);
+$gradient-secondary: linear-gradient(
+  135deg,
+  #{$surface0} 0%,
+  #{$surface1} 100%
+);
+$gradient-accent: linear-gradient(135deg, #{$mauve} 0%, #{$blue} 100%);
+$gradient-success: linear-gradient(135deg, #{$green} 0%, #{$teal} 100%);
+$gradient-warning: linear-gradient(135deg, #{$yellow} 0%, #{$peach} 100%);
+$gradient-danger: linear-gradient(135deg, #{$red} 0%, #{$maroon} 100%);
+
 // Main panel styling
 .settings-panel {
-  background-color: $base;
-  border: 2px solid $surface0;
-  border-radius: 12px;
-  padding: 16px;
+  background: $gradient-primary;
+  border: 1px solid rgba(130, 170, 255, 0.2);
+  border-radius: 16px;
+  padding: 20px;
   color: $text;
   font-family: 'JetBrainsMono Nerd Font';
   font-size: 14px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.panel-header {
+  margin-bottom: 8px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  .panel-title {
+    color: $text;
+    font-size: 18px;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    background: $gradient-accent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }
 
 // Power controls section
 .power-section {
-  background-color: $surface0;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 8px;
+  background: $gradient-secondary;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .power-btn {
-  background-color: transparent;
-  border: 2px solid $surface1;
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
   color: $text;
-  font-size: 18px;
-  padding: 12px;
-  min-width: 45px;
-  min-height: 45px;
-  transition: all 0.2s ease;
+  font-size: 20px;
+  padding: 14px;
+  min-width: 50px;
+  min-height: 50px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
 
   &:hover {
-    background-color: $surface1;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     border-color: $mauve;
-    color: $mauve;
+
+    &::before {
+      transform: translateX(0);
+    }
   }
 
   &.shutdown:hover {
+    background: $gradient-danger;
     border-color: $red;
-    color: $red;
-  }
-
-  &.lock:hover {
-    border-color: $yellow;
-    color: $yellow;
+    color: white;
   }
 
   &.dnd:hover {
+    background: $gradient-accent;
     border-color: $blue;
-    color: $blue;
+    color: white;
   }
 }
 
 // Connectivity section
 .connectivity-section {
-  background-color: $surface0;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 8px;
+  background: $gradient-secondary;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .connectivity-item {
-  background-color: $surface1;
-  border-radius: 6px;
-  padding: 12px;
-  margin-bottom: 8px;
-  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 10px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
 
   &:last-child {
     margin-bottom: 0;
   }
 
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: transparent;
+    transition: background 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateX(4px);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+
   .icon {
-    font-size: 20px;
+    font-size: 22px;
     color: $subtext0;
-    min-width: 24px;
+    min-width: 28px;
+    text-shadow: 0 0 10px currentColor;
   }
 
   .title {
-    font-weight: bold;
+    font-weight: 600;
     color: $text;
-    font-size: 14px;
+    font-size: 15px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   }
 
   .status {
     color: $subtext0;
     font-size: 12px;
+    opacity: 0.8;
   }
 
   .toggle-btn {
-    background-color: transparent;
-    border: none;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
     color: $subtext0;
-    font-size: 16px;
-    padding: 4px;
-    border-radius: 4px;
-    transition: all 0.2s ease;
+    font-size: 18px;
+    padding: 6px;
+    min-width: 32px;
+    min-height: 32px;
+    transition: all 0.3s ease;
 
     &:hover {
-      background-color: $surface2;
+      background: rgba(255, 255, 255, 0.1);
+      transform: scale(1.1);
       color: $text;
     }
   }
 
   &.wifi {
     &.enabled {
+      &::before {
+        background: $gradient-accent;
+      }
       .icon {
-        color: $blue;
+        background: $gradient-accent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
       .toggle-btn {
         color: $blue;
+        &:hover {
+          background: rgba(130, 170, 255, 0.2);
+        }
       }
     }
 
@@ -152,11 +249,20 @@ $rosewater: #f5e0dc;
 
   &.bluetooth {
     &.enabled {
+      &::before {
+        background: $gradient-warning;
+      }
       .icon {
-        color: $mauve;
+        background: $gradient-warning;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
       .toggle-btn {
         color: $mauve;
+        &:hover {
+          background: rgba(199, 146, 234, 0.2);
+        }
       }
     }
 
@@ -173,179 +279,292 @@ $rosewater: #f5e0dc;
 
 // Audio section
 .audio-section {
-  background-color: $surface0;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 8px;
+  background: $gradient-secondary;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .audio-controls {
-  background-color: $surface1;
-  border-radius: 6px;
-  padding: 12px;
-  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 10px;
 
   .mic-toggle {
-    background-color: transparent;
-    border: 2px solid $surface2;
-    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
     color: $text;
-    font-size: 16px;
-    padding: 8px;
-    min-width: 40px;
-    min-height: 40px;
-    transition: all 0.2s ease;
+    font-size: 18px;
+    padding: 10px;
+    min-width: 44px;
+    min-height: 44px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.3s ease;
+    }
 
     &:hover {
-      background-color: $surface2;
+      transform: scale(1.05);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     }
 
     &.active {
+      background: $gradient-success;
       border-color: $green;
-      color: $green;
+      color: white;
+
+      &::before {
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+      }
 
       &:hover {
-        background-color: rgba($green, 0.1);
+        box-shadow: 0 0 20px rgba(166, 227, 161, 0.4);
       }
     }
 
     &.muted {
+      background: $gradient-danger;
       border-color: $red;
-      color: $red;
+      color: white;
+
+      &::before {
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+      }
 
       &:hover {
-        background-color: rgba($red, 0.1);
+        box-shadow: 0 0 20px rgba(243, 139, 168, 0.4);
       }
     }
   }
 
   .mic-label {
     color: $text;
-    font-size: 12px;
-    margin-left: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-left: 12px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   }
 }
 
 .volume-control {
-  background-color: $surface1;
-  border-radius: 6px;
-  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 14px;
 
   .volume-icon {
-    background-color: transparent;
-    border: none;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
     color: $blue;
-    font-size: 18px;
-    padding: 4px;
-    border-radius: 4px;
-    transition: all 0.2s ease;
+    font-size: 20px;
+    padding: 8px;
+    min-width: 36px;
+    min-height: 36px;
+    transition: all 0.3s ease;
 
     &:hover {
-      background-color: $surface2;
-      color: $sapphire;
+      background: $gradient-accent;
+      color: white;
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(130, 170, 255, 0.4);
     }
   }
 
   .volume-slider {
-    margin: 0 12px;
+    margin: 0 16px;
 
     slider {
-      background-color: $surface2;
-      border-radius: 4px;
-      min-height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      min-height: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     highlight {
-      background-color: $blue;
-      border-radius: 4px;
+      background: $gradient-accent;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(130, 170, 255, 0.3);
     }
 
     trough {
-      background-color: $surface2;
-      border-radius: 4px;
-      min-height: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 6px;
+      min-height: 8px;
     }
   }
 
   .volume-label {
     color: $text;
-    font-size: 12px;
-    min-width: 35px;
+    font-size: 13px;
+    font-weight: 600;
+    min-width: 40px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    padding: 4px 8px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   }
 }
 
 // Music section
 .music-section {
-  background-color: $surface0;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 8px;
+  background: $gradient-secondary;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $gradient-success;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
 
   &.playing {
     border: 1px solid $green;
-    background-color: rgba($green, 0.05);
+    box-shadow: 0 0 20px rgba(166, 227, 161, 0.2);
+
+    &::before {
+      opacity: 0.05;
+    }
   }
 
   &.idle {
-    border: 1px solid $surface1;
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 }
 
 .music-header {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
 
   .music-icon {
-    font-size: 18px;
-    color: $green;
+    font-size: 22px;
+    background: $gradient-success;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 10px currentColor;
   }
 
   .music-app {
     color: $text;
-    font-weight: bold;
-    font-size: 12px;
+    font-weight: 600;
+    font-size: 13px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    opacity: 0.9;
   }
 }
 
 .music-info {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 
   .music-title {
     color: $text;
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 4px;
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 6px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
   }
 
   .music-artist {
     color: $subtext0;
-    font-size: 12px;
+    font-size: 13px;
+    opacity: 0.8;
+    font-weight: 400;
   }
 }
 
 .music-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+
   .music-btn {
-    background-color: transparent;
-    border: 2px solid $surface1;
-    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
     color: $text;
-    font-size: 16px;
-    padding: 8px;
-    min-width: 40px;
-    min-height: 40px;
-    transition: all 0.2s ease;
+    font-size: 18px;
+    padding: 10px;
+    min-width: 44px;
+    min-height: 44px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      transform: translate(-50%, -50%);
+      transition: all 0.3s ease;
+    }
 
     &:hover {
-      background-color: $surface1;
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       border-color: $green;
       color: $green;
+
+      &::before {
+        width: 100%;
+        height: 100%;
+      }
     }
 
     &.play-pause {
+      background: $gradient-success;
       border-color: $green;
-      color: $green;
+      color: white;
+      font-size: 20px;
 
       &:hover {
-        background-color: rgba($green, 0.1);
+        background: $gradient-success;
+        box-shadow: 0 0 25px rgba(166, 227, 161, 0.5);
+        transform: translateY(-2px) scale(1.1);
       }
     }
   }
@@ -353,34 +572,39 @@ $rosewater: #f5e0dc;
 
 // Notifications section
 .notifications-section {
-  background-color: $surface0;
-  border-radius: 8px;
-  padding: 12px;
+  background: $gradient-secondary;
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .notifications-header {
-  margin-bottom: 12px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid $surface1;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
   .notifications-title {
     color: $text;
-    font-weight: bold;
-    font-size: 14px;
+    font-weight: 600;
+    font-size: 15px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   }
 
   .clear-notifications {
-    background-color: transparent;
-    border: none;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
     color: $subtext0;
-    font-size: 14px;
-    padding: 4px;
-    border-radius: 4px;
-    transition: all 0.2s ease;
+    font-size: 16px;
+    padding: 6px 8px;
+    transition: all 0.3s ease;
 
     &:hover {
-      background-color: $surface1;
-      color: $red;
+      background: $gradient-danger;
+      color: white;
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(243, 139, 168, 0.4);
     }
   }
 }
@@ -403,14 +627,35 @@ $rosewater: #f5e0dc;
 }
 
 .notification-item {
-  background-color: $surface1;
-  border-radius: 6px;
-  padding: 10px;
-  margin-bottom: 6px;
-  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: $gradient-accent;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+  }
 
   &:hover {
-    background-color: $surface2;
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+
+    &::before {
+      transform: scaleY(1);
+    }
   }
 
   &:last-child {

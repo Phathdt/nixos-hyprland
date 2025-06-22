@@ -3,20 +3,28 @@
   :geometry (geometry :x "10px"
     :y "42px"
     :anchor "top right"
-    :width "350px"
-  :height "600px")
+    :width "400px"
+  :height "auto")
   :stacking "overlay"
   :reserve (struts :distance "0px" :side "top")
-  :windowtype "dock"
+  :windowtype "normal"
   :wm-ignore false
-  (settings-content)
+  :focusable true
+  (eventbox :onhoverlost "eww close settings-panel"
+    (settings-content)
+  )
 )
 
 (defwidget settings-content []
   (box :class "settings-panel"
     :orientation "v"
     :space-evenly false
-    :spacing 12
+    :spacing 16
+    (box :class "panel-header"
+      (label :class "panel-title"
+        :text "Quick Settings"
+      :halign "start")
+    )
     (power-controls)
     (connectivity-section)
     (audio-section)
@@ -34,10 +42,6 @@
       :onclick "systemctl poweroff"
       :tooltip "Shutdown"
     "⏻")
-    (button :class "power-btn lock"
-      :onclick "hyprlock --config ~/.config/hypr/hyprlock.conf"
-      :tooltip "Lock"
-    "")
     (button :class "power-btn dnd"
       :onclick "swaync-client -dn"
       :tooltip "Do Not Disturb"
