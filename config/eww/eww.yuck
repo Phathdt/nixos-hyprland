@@ -81,14 +81,14 @@
       :space-evenly false
       :spacing 8
       :halign "end"
-      (button :class "settings-btn"
-        :onclick "nm-connection-editor"
-        :tooltip "Network Settings"
-      "󰒓")
       (button :class "toggle-switch ${wifi-status.enabled ? 'enabled' : 'disabled'}"
         :onclick "~/.config/scripts/toggle-wifi.sh"
         :tooltip "${wifi-status.enabled ? 'Disable Wi-Fi' : 'Enable Wi-Fi'}"
       "${wifi-status.enabled ? '󰖪' : '󰖭'}")
+      (button :class "settings-btn"
+        :onclick "nm-connection-editor"
+        :tooltip "Network Settings"
+      "󰒓")
     )
   )
 )
@@ -115,14 +115,14 @@
       :space-evenly false
       :spacing 8
       :halign "end"
-      (button :class "settings-btn"
-        :onclick "blueman-manager"
-        :tooltip "Bluetooth Settings"
-      "󰒓")
       (button :class "toggle-switch ${bluetooth-status.enabled ? 'enabled' : 'disabled'}"
         :onclick "~/.config/scripts/toggle-bluetooth.sh"
         :tooltip "${bluetooth-status.enabled ? 'Disable Bluetooth' : 'Enable Bluetooth'}"
       "${bluetooth-status.enabled ? '󰂯' : '󰂲'}")
+      (button :class "settings-btn"
+        :onclick "blueman-manager"
+        :tooltip "Bluetooth Settings"
+      "󰒓")
     )
   )
 )
