@@ -91,12 +91,28 @@ tooltip label {
   margin-right: 10px;
 }
 
+.modules-right > widget:first-child > * > * {
+  margin-right: 8px;
+}
+
+.modules-right > widget:first-child > * > *:last-child {
+  margin-right: 0px;
+}
+
 .modules-right > widget:last-child > * {
   background: @base;
   border: 1px solid @blue;
   padding-right: 15px;
   padding-left: 15px;
   border-radius: 10px;
+}
+
+.modules-right > widget:last-child > * > * {
+  margin-right: 8px;
+}
+
+.modules-right > widget:last-child > * > *:last-child {
+  margin-right: 0px;
 }
 
 #backlight,
