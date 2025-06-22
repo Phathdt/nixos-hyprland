@@ -91,15 +91,6 @@ tooltip label {
   margin-right: 10px;
 }
 
-.modules-right > widget:first-child > * > * {
-  margin-right: 20px;
-  padding-right: 20px;
-}
-
-.modules-right > widget:first-child > * > *:last-child {
-  margin-right: 0px;
-}
-
 .modules-right > widget:last-child > * {
   background: @base;
   border: 1px solid @blue;
@@ -108,11 +99,24 @@ tooltip label {
   border-radius: 10px;
 }
 
-.modules-right > widget:last-child > * > * {
-  margin-right: 8px;
+#cpu,
+#memory {
+  margin-right: 12px;
 }
 
-.modules-right > widget:last-child > * > *:last-child {
+#pulseaudio,
+#custom-microphone,
+#bluetooth,
+#custom-settings,
+#clock {
+  margin-right: 12px;
+}
+
+#network {
+  margin-right: 12px;
+}
+
+#tray {
   margin-right: 0px;
 }
 
