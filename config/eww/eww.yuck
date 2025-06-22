@@ -181,17 +181,28 @@
         :halign "start"
       :hexpand true)
     )
-    (box :class "music-info"
-      :orientation "v"
+    (box :class "music-content"
+      :orientation "h"
       :space-evenly false
-      (label :class "music-title"
-        :text "${music-title}"
-        :halign "start"
-      :limit-width 35)
-      (label :class "music-artist"
-        :text "${music-artist}"
-        :halign "start"
-      :limit-width 35)
+      :spacing 12
+      (image :class "music-thumbnail"
+        :path "${music-arturl != '' ? music-arturl : ''}"
+        :image-width 64
+        :image-height 64
+      :visible "${music-arturl != ''}")
+      (box :class "music-info"
+        :orientation "v"
+        :space-evenly false
+        :hexpand true
+        (label :class "music-title"
+          :text "${music-title}"
+          :halign "start"
+        :limit-width 35)
+        (label :class "music-artist"
+          :text "${music-artist}"
+          :halign "start"
+        :limit-width 35)
+      )
     )
     (box :class "music-controls"
       :orientation "h"
@@ -296,6 +307,8 @@
 "~/.config/eww/scripts/get-music-info.sh | jq -r '.app'")
 (deflisten music-icon :initial ""
 "~/.config/eww/scripts/get-music-info.sh | jq -r '.icon'")
+(deflisten music-arturl :initial ""
+"~/.config/eww/scripts/get-music-info.sh | jq -r '.artUrl'")
 
 (defpoll notifications :interval "2s"
 "~/.config/eww/scripts/get-notifications.sh")

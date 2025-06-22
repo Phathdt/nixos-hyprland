@@ -13,6 +13,7 @@ if [[ -n "$current_player" ]]; then
     status=$(playerctl -p "$current_player" status 2>/dev/null)
     title=$(playerctl -p "$current_player" metadata title 2>/dev/null)
     artist=$(playerctl -p "$current_player" metadata artist 2>/dev/null)
+    artUrl=$(playerctl -p "$current_player" metadata mpris:artUrl 2>/dev/null)
 
     if [[ "$current_player" == "spotify" ]]; then
         icon=""
@@ -36,8 +37,11 @@ if [[ -n "$current_player" ]]; then
     if [[ -z "$artist" ]]; then
         artist="Unknown Artist"
     fi
+    if [[ -z "$artUrl" ]]; then
+        artUrl=""
+    fi
 
-    echo "{\"playing\": $playing, \"title\": \"$title\", \"artist\": \"$artist\", \"app\": \"$app\", \"icon\": \"$icon\"}"
+    echo "{\"playing\": $playing, \"title\": \"$title\", \"artist\": \"$artist\", \"app\": \"$app\", \"icon\": \"$icon\", \"artUrl\": \"$artUrl\"}"
 else
-    echo "{\"playing\": false, \"title\": \"\", \"artist\": \"\", \"app\": \"\", \"icon\": \"\"}"
+    echo "{\"playing\": false, \"title\": \"\", \"artist\": \"\", \"app\": \"\", \"icon\": \"\", \"artUrl\": \"\"}"
 fi
