@@ -1,23 +1,23 @@
 #lock {
-  background-image: url('~/.config/wlogout/icons/lock.svg');
+  background-image: url('/home/phathdt/.config/wlogout/icons/lock.svg');
 }
 
 #logout {
-  background-image: url('~/.config/wlogout/icons/logout.svg');
+  background-image: url('/home/phathdt/.config/wlogout/icons/logout.svg');
 }
 
 #suspend {
-  background-image: url('~/.config/wlogout/icons/suspend.svg');
+  background-image: url('/home/phathdt/.config/wlogout/icons/suspend.svg');
 }
 
 #hibernate {
-  background-image: url('~/.config/wlogout/icons/hibernate.svg');
+  background-image: url('/home/phathdt/.config/wlogout/icons/hibernate.svg');
 }
 
 #shutdown {
-  background-image: url('~/.config/wlogout/icons/shutdown.svg');
+  background-image: url('/home/phathdt/.config/wlogout/icons/shutdown.svg');
 }
 
 #reboot {
-  background-image: url('~/.config/wlogout/icons/reboot.svg');
+  background-image: url('/home/phathdt/.config/wlogout/icons/reboot.svg');
 }
