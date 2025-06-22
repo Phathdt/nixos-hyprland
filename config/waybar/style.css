@@ -76,6 +76,22 @@ tooltip label {
 }
 
 .modules-right {
+  background: transparent;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.monitor-group {
+  background: @base;
+  border: 1px solid @overlay0;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.control-group {
   background: @base;
   border: 1px solid @blue;
   padding-right: 15px;
