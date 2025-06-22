@@ -18,8 +18,11 @@ button {
   margin: 15px;
   min-width: 120px;
   min-height: 120px;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: bold;
+  text-align: center;
+  position: relative;
+  line-height: 1.2;
 }
 
 button:focus,
@@ -32,16 +35,20 @@ button:hover {
 
 #lock {
   background-image: none;
+  font-size: 14px;
 }
 
 #logout {
   background-image: none;
+  font-size: 14px;
 }
 
 #shutdown {
   background-image: none;
+  font-size: 14px;
 }
 
 #reboot {
   background-image: none;
+  font-size: 14px;
 }
