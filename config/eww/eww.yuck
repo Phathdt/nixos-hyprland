@@ -86,7 +86,7 @@
         :tooltip "${wifi-status.enabled ? 'Disable Wi-Fi' : 'Enable Wi-Fi'}"
       "${wifi-status.enabled ? '󰖪' : '󰖭'}")
       (button :class "settings-btn"
-        :onclick "nm-connection-editor"
+        :onclick "nm-connection-editor & eww close settings-panel"
         :tooltip "Network Settings"
       "󰒓")
     )
@@ -120,7 +120,7 @@
         :tooltip "${bluetooth-status.enabled ? 'Disable Bluetooth' : 'Enable Bluetooth'}"
       "${bluetooth-status.enabled ? '󰂯' : '󰂲'}")
       (button :class "settings-btn"
-        :onclick "blueman-manager"
+        :onclick "blueman-manager & eww close settings-panel"
         :tooltip "Bluetooth Settings"
       "󰒓")
     )
