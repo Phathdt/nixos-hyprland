@@ -197,7 +197,7 @@
       :space-evenly false
       :spacing 12
       (button :class "volume-icon"
-        :onclick "pavucontrol"
+        :onclick "pavucontrol && eww close settings-panel"
       "${volume-icon}")
       (scale :class "volume-slider"
         :value volume
