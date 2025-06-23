@@ -466,39 +466,23 @@ button:focus {
 
 /* Media Controls Styling */
 #custom-media {
-  color: #eeffff;
-  font-weight: 500;
-  font-size: 14px;
-  padding: 8px 16px;
-  margin: 0px 4px;
-  border-radius: 8px;
-  background-color: #3a3f58;
-  border: 1px solid #676e95;
-  transition: all 0.3s ease;
-}
-
-#custom-media:hover {
-  background-color: #4e5576;
-  border-color: #c792ea;
+  color: #c792ea;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 6px;
+  padding-left: 6px;
 }
 
 #custom-media.Playing {
-  color: #eeffff;
-  background-color: #c792ea;
-  border-color: #c792ea;
-  animation: pulse 2s infinite;
+  color: #c792ea;
 }
 
 #custom-media.Paused {
-  color: #292d3e;
-  background-color: #ffcb6b;
-  border-color: #ffcb6b;
+  color: #ffcb6b;
 }
 
 #custom-media.Stopped {
-  color: #a6accd;
-  background-color: #32364a;
-  border-color: #676e95;
+  color: #676e95;
 }
 
 @keyframes pulse {
