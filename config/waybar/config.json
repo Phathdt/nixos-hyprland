@@ -53,6 +53,7 @@
       "(.*)Postman": "Postman 󰛮",
       "(.*)DBeaver": "Database 󰆼",
       "(.*)WPS": "Office 󰈙",
+      ".*phathdt@nixos.*": "Terminal 󰆍",
       "(.*)Alacritty": "Terminal 󰆍",
       "(.*)tmux": "Tmux 󰆍",
       "(.*)nvim": "Nvim 󰆍",
