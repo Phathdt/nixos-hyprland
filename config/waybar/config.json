@@ -13,7 +13,7 @@
   "margin-right": 10,
   "margin-bottom": 0,
   "modules-left": ["hyprland/workspaces", "hyprland/window", "cava"],
-  "modules-center": [],
+  "modules-center": ["custom/media"],
   "modules-right": ["group/monitor", "group/control"],
   "hyprland/workspaces": {
     "disable-scroll": true,
@@ -190,6 +190,21 @@
     "on-click": "~/.config/eww/scripts/toggle-vpn.sh",
     "interval": 3,
     "return-type": "json"
+  },
+  "custom/media": {
+    "format": "{icon} {}",
+    "return-type": "json",
+    "max-length": 60,
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl stop",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    "format-icons": {
+      "Playing": "󰐊",
+      "Paused": "󰏤",
+      "Stopped": "󰓛"
+    }
   },
   "tray": {
     "icon-size": 12,

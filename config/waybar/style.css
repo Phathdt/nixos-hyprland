@@ -463,3 +463,52 @@ button:focus {
   color: #6c7086;
   opacity: 0.6;
 }
+
+/* Media Controls Styling */
+#custom-media {
+  color: #c792ea;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0px 12px;
+  margin: 0px 4px;
+  border-radius: 8px;
+  background-color: rgba(199, 146, 234, 0.1);
+  border: 1px solid rgba(199, 146, 234, 0.3);
+  transition: all 0.3s ease;
+}
+
+#custom-media:hover {
+  background-color: rgba(199, 146, 234, 0.2);
+  border-color: #c792ea;
+}
+
+#custom-media.Playing {
+  color: #c792ea;
+  background-color: rgba(199, 146, 234, 0.15);
+  animation: pulse 2s infinite;
+}
+
+#custom-media.Paused {
+  color: #ffcb6b;
+  background-color: rgba(255, 203, 107, 0.1);
+  border-color: rgba(255, 203, 107, 0.3);
+}
+
+#custom-media.Stopped {
+  color: #676e95;
+  background-color: transparent;
+  border-color: rgba(103, 110, 149, 0.3);
+  opacity: 0.7;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
