@@ -473,6 +473,23 @@ button:focus {
   padding-bottom: 3px;
   padding-right: 6px;
   padding-left: 6px;
+  min-width: 300px;
+  max-width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#custom-media.Playing {
+  animation: scroll-text 15s linear infinite;
+}
+
+@keyframes scroll-text {
+  0% {
+    text-indent: 100%;
+  }
+  100% {
+    text-indent: -100%;
+  }
 }
 
 #custom-media.Playing {
