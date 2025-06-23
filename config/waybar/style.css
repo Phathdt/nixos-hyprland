@@ -466,39 +466,39 @@ button:focus {
 
 /* Media Controls Styling */
 #custom-media {
-  color: #c792ea;
+  color: #eeffff;
   font-weight: 500;
   font-size: 14px;
-  padding: 0px 12px;
+  padding: 8px 16px;
   margin: 0px 4px;
   border-radius: 8px;
-  background-color: rgba(199, 146, 234, 0.1);
-  border: 1px solid rgba(199, 146, 234, 0.3);
+  background-color: #3a3f58;
+  border: 1px solid #676e95;
   transition: all 0.3s ease;
 }
 
 #custom-media:hover {
-  background-color: rgba(199, 146, 234, 0.2);
+  background-color: #4e5576;
   border-color: #c792ea;
 }
 
 #custom-media.Playing {
-  color: #c792ea;
-  background-color: rgba(199, 146, 234, 0.15);
+  color: #eeffff;
+  background-color: #c792ea;
+  border-color: #c792ea;
   animation: pulse 2s infinite;
 }
 
 #custom-media.Paused {
-  color: #ffcb6b;
-  background-color: rgba(255, 203, 107, 0.1);
-  border-color: rgba(255, 203, 107, 0.3);
+  color: #292d3e;
+  background-color: #ffcb6b;
+  border-color: #ffcb6b;
 }
 
 #custom-media.Stopped {
-  color: #676e95;
-  background-color: transparent;
-  border-color: rgba(103, 110, 149, 0.3);
-  opacity: 0.7;
+  color: #a6accd;
+  background-color: #32364a;
+  border-color: #676e95;
 }
 
 @keyframes pulse {
