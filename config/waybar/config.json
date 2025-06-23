@@ -12,8 +12,8 @@
   "margin-left": 10,
   "margin-right": 10,
   "margin-bottom": 0,
-  "modules-left": ["hyprland/workspaces", "hyprland/window", "cava"],
-  "modules-center": ["custom/media"],
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["cava", "custom/media"],
   "modules-right": ["group/monitor", "group/control"],
   "hyprland/workspaces": {
     "disable-scroll": true,
