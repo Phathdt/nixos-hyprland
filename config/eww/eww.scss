@@ -118,6 +118,20 @@ window {
   font-size: 15px;
 }
 
+.connectivity-item.vpn.connected {
+  border-color: #a6e3a1;
+  background-color: rgba(166, 227, 161, 0.1);
+}
+
+.connectivity-item.vpn.disconnected {
+  border-color: #6c7086;
+  opacity: 0.8;
+}
+
+.connectivity-item.vpn .icon {
+  color: #a6e3a1;
+}
+
 .connectivity-item .status {
   color: #a6accd;
   font-size: 12px;

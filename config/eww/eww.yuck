@@ -70,6 +70,7 @@
     :spacing 8
     (wifi-widget)
     (bluetooth-widget)
+    (vpn-widget)
   )
 )
 
@@ -136,6 +137,40 @@
       (button :class "settings-btn"
         :onclick "blueman-manager & eww close settings-panel"
         :tooltip "Bluetooth Settings"
+      "󰒓")
+    )
+  )
+)
+
+(defwidget vpn-widget []
+  (box :class "connectivity-item vpn ${vpn-status.class}"
+    :orientation "h"
+    :space-evenly false
+    :spacing 12
+    (box :class "icon"
+    "${vpn-status.icon}")
+    (box :orientation "v"
+      :space-evenly false
+      :halign "start"
+      :hexpand true
+      (label :class "title"
+        :text "VPN"
+      :halign "start")
+      (label :class "status"
+        :text "${vpn-status.name}"
+      :halign "start")
+    )
+    (box :orientation "h"
+      :space-evenly false
+      :spacing 8
+      :halign "end"
+      (button :class "toggle-switch ${vpn-status.enabled ? 'enabled' : 'disabled'}"
+        :onclick "~/.config/eww/scripts/toggle-vpn.sh"
+        :tooltip "${vpn-status.enabled ? 'Disconnect VPN' : 'Connect VPN'}"
+      "${vpn-status.enabled ? '󰖂' : '󰖂'}")
+      (button :class "settings-btn"
+        :onclick "nm-connection-editor & eww close settings-panel"
+        :tooltip "VPN Settings"
       "󰒓")
     )
   )
@@ -326,3 +361,6 @@
 
 (defpoll notifications :interval "2s"
 "~/.config/eww/scripts/get-notifications.sh")
+
+(defpoll vpn-status :interval "3s"
+"~/.config/eww/scripts/get-vpn-status.sh")

@@ -445,3 +445,21 @@ button:focus {
   outline: 2px solid #82aaff;
   outline-offset: 2px;
 }
+
+/* VPN Module Styling */
+#custom-vpn {
+  color: #a6e3a1;
+  font-size: 16px;
+}
+
+#custom-vpn.connected {
+  color: #a6e3a1;
+  background-color: rgba(166, 227, 161, 0.1);
+  border-radius: 8px;
+  padding: 0px 8px;
+}
+
+#custom-vpn.disconnected {
+  color: #6c7086;
+  opacity: 0.6;
+}

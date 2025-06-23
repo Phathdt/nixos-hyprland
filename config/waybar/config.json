@@ -183,13 +183,21 @@
     "format": "󰒓",
     "on-click": "~/.config/eww/scripts/toggle-settings-panel.sh"
   },
+  "custom/vpn": {
+    "tooltip": "VPN Status",
+    "format": "{}",
+    "exec": "~/.config/eww/scripts/get-vpn-status.sh waybar",
+    "on-click": "~/.config/eww/scripts/toggle-vpn.sh",
+    "interval": 3,
+    "return-type": "json"
+  },
   "tray": {
     "icon-size": 12,
     "spacing": 5
   },
   "group/monitor": {
     "orientation": "horizontal",
-    "modules": ["cpu", "memory", "network#monitor"]
+    "modules": ["cpu", "memory", "network#monitor", "custom/vpn"]
   },
   "group/control": {
     "orientation": "horizontal",
