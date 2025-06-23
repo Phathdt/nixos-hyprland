@@ -17,7 +17,6 @@
     ./gtk.nix
     ./services.nix
     ./development.nix
-    ./sddm-theme.nix
   ];
 
   system.stateVersion = "25.05";

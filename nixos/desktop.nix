@@ -6,26 +6,14 @@
     xwayland.enable = true;
   };
 
-  services.displayManager = {
-    sddm = {
-      enable = true;
-      package = pkgs.kdePackages.sddm;
-      theme = "sddm-astronaut-theme";
-      wayland.enable = true;
-      settings = {
-        Autologin = {
-          # Uncomment these if you want autologin (not recommended for security)
-          # User = "your-username";
-          # Session = "hyprland";
-        };
-        General = {
-          # Ensure Hyprland is detected
-          HaltCommand = "/run/current-system/systemd/bin/systemctl poweroff";
-          RebootCommand = "/run/current-system/systemd/bin/systemctl reboot";
-        };
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        user = "greeter";
       };
     };
-    defaultSession = "hyprland";
   };
 
   services.xserver = {
@@ -37,11 +25,7 @@
   # Ensure graphical target is default
   systemd.defaultUnit = "graphical.target";
 
-  # Additional systemd services
-  systemd.services.sddm = {
-    wants = [ "systemd-user-sessions.service" ];
-    after = [ "systemd-user-sessions.service" "plymouth-quit-wait.service" ];
-  };
+  # Greetd is lightweight and simple - no extra systemd services needed
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
