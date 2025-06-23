@@ -17,9 +17,7 @@
     (box :class "settings-container"
       :halign "end"
       :valign "start"
-      (eventbox :onclick ""
-        (settings-content)
-      )
+      (settings-content)
     )
   )
 )
