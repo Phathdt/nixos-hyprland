@@ -70,9 +70,11 @@ tooltip label {
 }
 
 .modules-center {
-  background: transparent;
-  border: none;
-  padding: 0px;
+  background: @base;
+  border: 1px solid @blue;
+  padding-right: 15px;
+  padding-left: 2px;
+  border-radius: 10px;
 }
 
 .modules-right {
