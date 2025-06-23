@@ -18,6 +18,7 @@
     ./services.nix
     ./development.nix
     ./sddm-theme.nix
+    ./graphics.nix
   ];
 
   system.stateVersion = "25.05";

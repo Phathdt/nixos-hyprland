@@ -42,6 +42,7 @@
     swww
     wl-clipboard
     wtype
+    wlr-randr
 
     # Window manager and desktop
     dunst
@@ -111,6 +112,10 @@
     ctop
     dive
     neofetch
+
+    # AMD GPU tools
+    radeontop
+    amdgpu_top
 
     # File and text processing
     ripgrep
