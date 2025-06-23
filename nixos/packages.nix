@@ -168,5 +168,9 @@
     qt6.qtsvg
     qt6.qtvirtualkeyboard
     qt6.qtmultimedia
+
+    # Session management
+    systemd
+    dbus
   ];
 }
