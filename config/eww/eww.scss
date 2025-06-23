@@ -185,6 +185,11 @@ window {
   border-color: #f07178;
 }
 
+.connectivity-item.wifi.enabled {
+  border-color: #82aaff;
+  background-color: rgba(130, 170, 255, 0.1);
+}
+
 .connectivity-item.wifi.enabled .icon {
   color: #82aaff;
 }
@@ -194,6 +199,16 @@ window {
   color: #82aaff;
 }
 
+.connectivity-item.wifi.disabled {
+  border-color: #676e95;
+  opacity: 0.8;
+}
+
+.connectivity-item.bluetooth.enabled {
+  border-color: #c792ea;
+  background-color: rgba(199, 146, 234, 0.1);
+}
+
 .connectivity-item.bluetooth.enabled .icon {
   color: #c792ea;
 }
@@ -201,6 +216,11 @@ window {
 .connectivity-item.bluetooth.enabled .settings-btn:hover {
   background-color: rgba(199, 146, 234, 0.2);
   color: #c792ea;
+}
+
+.connectivity-item.bluetooth.disabled {
+  border-color: #676e95;
+  opacity: 0.8;
 }
 
 .audio-section {
