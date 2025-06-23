@@ -1,27 +1,23 @@
 #!/usr/bin/env bash
 
 get_vpn_status() {
-    local tailscale_status=""
-    local openvpn_status=""
     local vpn_active=false
     local vpn_type=""
     local vpn_name=""
 
-    if command -v tailscale >/dev/null 2>&1; then
-        tailscale_status=$(tailscale status --json 2>/dev/null | jq -r '.BackendState // "Stopped"')
-        if [[ "$tailscale_status" == "Running" ]]; then
-            vpn_active=true
-            vpn_type="Tailscale"
-            vpn_name="Tailscale"
-        fi
-    fi
-
-    if ! $vpn_active; then
-        if nmcli connection show --active | grep -q "vpn\|tun\|tap"; then
-            vpn_active=true
-            vpn_type="OpenVPN"
-            vpn_name=$(nmcli connection show --active | grep -E "vpn|tun|tap" | head -1 | awk '{print $1}')
-        fi
+    # Check for real VPN connections (OpenVPN, WireGuard, L2TP, etc.)
+    if nmcli connection show --active | grep -q "vpn"; then
+        vpn_active=true
+        vpn_type="VPN"
+        vpn_name=$(nmcli connection show --active | grep "vpn" | head -1 | awk '{print $1}')
+    elif nmcli connection show --active | grep -q "wireguard"; then
+        vpn_active=true
+        vpn_type="WireGuard"
+        vpn_name=$(nmcli connection show --active | grep "wireguard" | head -1 | awk '{print $1}')
+    elif ip route | grep -q "tun0\|wg0"; then
+        vpn_active=true
+        vpn_type="VPN"
+        vpn_name="VPN Connection"
     fi
 
     if $vpn_active; then
