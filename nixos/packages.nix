@@ -16,6 +16,10 @@
     wget
     lsof
 
+    # Package management tools
+    dpkg
+    binutils
+
     # Shell and terminal
     oh-my-zsh
     tmux
