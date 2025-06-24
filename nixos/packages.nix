@@ -154,6 +154,9 @@
     # Image processing
     imagemagick
 
+    # Image viewers
+    imv
+
     # GTK themes and customization
     gtk-engine-murrine
     sassc
