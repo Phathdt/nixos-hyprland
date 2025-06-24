@@ -84,65 +84,65 @@ StartupWMClass=cursor
 EOF
 echo "   ✅ Desktop entry created with appimage-run"
 
-# echo ""
-# echo "4. Creating terminal wrapper script..."
-# cat > "$CURSOR_BIN/cursor" << 'EOF'
-# #!/usr/bin/env bash
-# # NixOS AppImage wrapper for Cursor
-# exec appimage-run "$HOME/Applications/cursor.AppImage" "$@"
-# EOF
-# chmod +x "$CURSOR_BIN/cursor"
-# echo "   ✅ Wrapper script created: $CURSOR_BIN/cursor"
+echo ""
+echo "4. Creating terminal wrapper script..."
+cat > "$CURSOR_BIN/cursor" << 'EOF'
+#!/usr/bin/env bash
+# NixOS AppImage wrapper for Cursor
+exec appimage-run "$HOME/Applications/cursor.AppImage" "$@"
+EOF
+chmod +x "$CURSOR_BIN/cursor"
+echo "   ✅ Wrapper script created: $CURSOR_BIN/cursor"
 
-# echo ""
-# echo "5. Updating desktop database..."
-# if command -v update-desktop-database &> /dev/null; then
-#     update-desktop-database "$CURSOR_DIR" 2>/dev/null || true
-#     echo "   ✅ Desktop database updated"
-# else
-#     echo "   ⚠️  update-desktop-database not found, skipping"
-# fi
+echo ""
+echo "5. Updating desktop database..."
+if command -v update-desktop-database &> /dev/null; then
+    update-desktop-database "$CURSOR_DIR" 2>/dev/null || true
+    echo "   ✅ Desktop database updated"
+else
+    echo "   ⚠️  update-desktop-database not found, skipping"
+fi
 
-# echo ""
-# echo "6. Testing NixOS AppImage setup..."
-# if [ -x "$CURSOR_APPIMAGE" ]; then
-#     echo "   ✅ AppImage is executable"
+echo ""
+echo "6. Testing NixOS AppImage setup..."
+if [ -x "$CURSOR_APPIMAGE" ]; then
+    echo "   ✅ AppImage is executable"
 
-#     # Test appimage-run with the AppImage
-#     echo "   🧪 Testing with appimage-run..."
-#     if timeout 10 appimage-run "$CURSOR_APPIMAGE" --version &>/dev/null; then
-#         echo "   ✅ AppImage runs successfully with appimage-run"
-#     else
-#         echo "   ⚠️  AppImage test timeout/failed, but continuing..."
-#     fi
-# else
-#     echo "   ❌ AppImage is not executable!"
-#     exit 1
-# fi
+    # Test appimage-run with the AppImage
+    echo "   🧪 Testing with appimage-run..."
+    if timeout 10 appimage-run "$CURSOR_APPIMAGE" --version &>/dev/null; then
+        echo "   ✅ AppImage runs successfully with appimage-run"
+    else
+        echo "   ⚠️  AppImage test timeout/failed, but continuing..."
+    fi
+else
+    echo "   ❌ AppImage is not executable!"
+    exit 1
+fi
 
-# echo ""
-# echo "✅ NixOS AppImage setup complete!"
-# echo ""
-# echo "📋 Key points for NixOS:"
-# echo "   - AppImage runs via 'appimage-run' (not direct execution)"
-# echo "   - Desktop entry uses 'appimage-run $CURSOR_APPIMAGE'"
-# echo "   - Terminal command is wrapper script using appimage-run"
-# echo ""
-# echo "🔄 Rebuild-safe locations:"
-# echo "   - AppImage: $CURSOR_APPIMAGE"
-# echo "   - Desktop: $CURSOR_DIR/cursor.desktop"
-# echo "   - Wrapper: $CURSOR_BIN/cursor"
-# echo ""
-# echo "📝 Usage:"
-# echo "   - GUI: Search 'Cursor' in applications"
-# echo "   - Terminal: cursor filename.py"
-# echo "   - Direct: appimage-run $CURSOR_APPIMAGE"
-# echo ""
-# echo "🧪 Quick test:"
-# echo "   cursor --version"
-# echo "   # OR"
-# echo "   appimage-run $CURSOR_APPIMAGE --version"
-# echo ""
-# echo "🔧 To update Cursor:"
-# echo "   1. Download new Cursor.AppImage to ~/Downloads/"
-# echo "   2. rm $CURSOR_APPIMAGE && ./scripts/cursor-appimage-setup.sh"
+echo ""
+echo "✅ NixOS AppImage setup complete!"
+echo ""
+echo "📋 Key points for NixOS:"
+echo "   - AppImage runs via 'appimage-run' (not direct execution)"
+echo "   - Desktop entry uses 'appimage-run $CURSOR_APPIMAGE'"
+echo "   - Terminal command is wrapper script using appimage-run"
+echo ""
+echo "🔄 Rebuild-safe locations:"
+echo "   - AppImage: $CURSOR_APPIMAGE"
+echo "   - Desktop: $CURSOR_DIR/cursor.desktop"
+echo "   - Wrapper: $CURSOR_BIN/cursor"
+echo ""
+echo "📝 Usage:"
+echo "   - GUI: Search 'Cursor' in applications"
+echo "   - Terminal: cursor filename.py"
+echo "   - Direct: appimage-run $CURSOR_APPIMAGE"
+echo ""
+echo "🧪 Quick test:"
+echo "   cursor --version"
+echo "   # OR"
+echo "   appimage-run $CURSOR_APPIMAGE --version"
+echo ""
+echo "🔧 To update Cursor:"
+echo "   1. Download new Cursor.AppImage to ~/Downloads/"
+echo "   2. rm $CURSOR_APPIMAGE && ./scripts/cursor-appimage-setup.sh"
