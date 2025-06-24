@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 CURSOR_DIR="$HOME/.local/share/applications"
 CURSOR_BIN="$HOME/.local/bin"
