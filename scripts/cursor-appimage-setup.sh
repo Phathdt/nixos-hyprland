@@ -68,21 +68,21 @@ else
     fi
 fi
 
-# echo ""
-# echo "3. Creating desktop entry (NixOS compatible)..."
-# cat > "$CURSOR_DIR/cursor.desktop" << EOF
-# [Desktop Entry]
-# Name=Cursor
-# Comment=The AI-first code editor
-# Exec=appimage-run $CURSOR_APPIMAGE %F
-# Icon=cursor
-# Type=Application
-# Categories=Development;TextEditor;IDE;
-# MimeType=text/plain;inode/directory;
-# StartupNotify=true
-# StartupWMClass=cursor
-# EOF
-# echo "   ✅ Desktop entry created with appimage-run"
+echo ""
+echo "3. Creating desktop entry (NixOS compatible)..."
+cat > "$CURSOR_DIR/cursor.desktop" << EOF
+[Desktop Entry]
+Name=Cursor
+Comment=The AI-first code editor
+Exec=appimage-run $CURSOR_APPIMAGE %F
+Icon=cursor
+Type=Application
+Categories=Development;TextEditor;IDE;
+MimeType=text/plain;inode/directory;
+StartupNotify=true
+StartupWMClass=cursor
+EOF
+echo "   ✅ Desktop entry created with appimage-run"
 
 # echo ""
 # echo "4. Creating terminal wrapper script..."
