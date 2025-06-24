@@ -6,6 +6,5 @@ in
 {
   environment.systemPackages = with unstable; [
     # Unstable packages
-    code-cursor
   ];
 }
