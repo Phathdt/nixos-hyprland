@@ -165,6 +165,18 @@
     systemd
     dbus
 
+    # Windows compatibility layer
+    wine
+    wine64
+    wineWowPackages.stable
+    winetricks
+    bottles
+    wineWowPackages.waylandFull
+
+    # Windows fonts for better app compatibility
+    corefonts
+    vistafonts
+
     # AppImage support
     appimage-run
   ];
