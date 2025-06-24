@@ -7,6 +7,9 @@ else
     return 1
 fi
 
+# Add local bin to PATH
+export PATH="$HOME/.local/bin:$PATH"
+
 # zplug plugins - manage everything through zplug
 zplug "zplug/zplug", hook-build:'zplug --self-manage'
 
