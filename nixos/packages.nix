@@ -130,6 +130,8 @@
     # Network tools
     nmap
     rsync
+    bind
+    dnsutils
 
     # Programming languages and runtimes
     nodejs_22
