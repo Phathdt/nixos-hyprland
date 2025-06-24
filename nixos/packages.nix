@@ -164,5 +164,8 @@
     # Session management
     systemd
     dbus
+
+    # AppImage support
+    appimage-run
   ];
 }
