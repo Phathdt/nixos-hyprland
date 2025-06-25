@@ -17,8 +17,8 @@ CURRENT_RES=$(hyprctl monitors | grep -A3 "HDMI-A-1" | grep -o '[0-9]*x[0-9]*' |
 # Apply appropriate scaling based on resolution
 case "$CURRENT_RES" in
     "3840x2160")
-        # 4K Monitor - native scaling (no 2x scaling)
-        hyprctl keyword monitor HDMI-A-1,3840x2160@60,0x0,1.0
+        # 4K Monitor - run at 2880x1620 for crisp display (no scaling blur)
+        hyprctl keyword monitor HDMI-A-1,2880x1620@60,0x0,1.0
         hyprctl keyword env GDK_SCALE,1
         hyprctl keyword env GDK_DPI_SCALE,1
         hyprctl keyword env QT_SCALE_FACTOR,1
