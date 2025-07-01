@@ -2,6 +2,9 @@
 
 {
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "beekeeper-studio-5.1.5"
+  ];
 
   environment.systemPackages = with pkgs; [
     # System utilities
@@ -147,8 +150,8 @@
     openssl
     pkg-config
 
-    # Database GUI tools
-    dbeaver-bin
+    # Database management
+    beekeeper-studio
 
     # Office and productivity
     wpsoffice
