@@ -2,9 +2,8 @@
 
 {
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "beekeeper-studio-5.1.5"
-  ];
+
+  environment.etc."usr/bash".source = "${pkgs.bash}/bin/bash";
 
   environment.systemPackages = with pkgs; [
     # System utilities
@@ -103,6 +102,7 @@
     # Development tools
     docker
     docker-compose
+    gnumake
 
     # API development and testing
     postman
@@ -118,6 +118,8 @@
     ctop
     dive
     neofetch
+
+    uv
 
     # File and text processing
     ripgrep
@@ -140,18 +142,17 @@
     nodejs_22
     nodePackages.npm
     nodePackages.yarn
+    python3
     go_1_24
+    python3Packages.pip
+    python3Packages.virtualenv
 
     # Database and ORM tools
     postgresql
     redis
-    redisinsight
     prisma-engines
     openssl
     pkg-config
-
-    # Database management
-    beekeeper-studio
 
     # Office and productivity
     wpsoffice
@@ -161,6 +162,7 @@
 
     # Image viewers
     imv
+
 
     # GTK themes and customization
     gtk-engine-murrine

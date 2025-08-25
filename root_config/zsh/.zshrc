@@ -7,8 +7,9 @@ else
     return 1
 fi
 
-# Add local bin to PATH
-export PATH="$HOME/.local/bin:$PATH"
+# Add local bin and Go bin to PATH
+export PATH="$HOME/.local/bin:$(go env GOPATH)/bin:$PATH"
+export PATH="$HOME/.npm-global/bin:$PATH"
 
 # zplug plugins - manage everything through zplug
 zplug "zplug/zplug", hook-build:'zplug --self-manage'
@@ -23,6 +24,8 @@ zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/docker", from:oh-my-zsh
 zplug "plugins/docker-compose", from:oh-my-zsh
 zplug "plugins/kubectl", from:oh-my-zsh
+zplug "z-shell/zsh-eza"
+
 
 # Additional zsh plugins
 zplug "zsh-users/zsh-autosuggestions"
@@ -49,6 +52,11 @@ alias code=cursor
 alias gpall="git push origin --all"
 alias gcos="git checkout staging && git pull origin staging"
 alias gcod="git checkout develop && git pull origin develop"
+
+# eza alias
+alias ls='eza $eza_params'
+alias l='eza --git-ignore $eza_params'
+alias ll='eza --all --header --long $eza_params'
 
 # Directory shortcuts
 alias dev='cd ~/Documents/Dev/ && echo "Welcome Dev"'
